@@ -1,0 +1,43 @@
+<div class="page-header" [style.background-image]="backgroundImage ? 'url(' + backgroundImage + ')' : null">
+  <div class="header-overlay">
+    <div class="container">
+      
+      <!-- Breadcrumb -->
+      <nav *ngIf="showBreadcrumb && breadcrumbItems.length" class="breadcrumb-nav">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a [routerLink]="['/']">
+              <mat-icon>home</mat-icon>
+              Home
+            </a>
+          </li>
+          <li *ngFor="let item of breadcrumbItems; let last = last" 
+              class="breadcrumb-item" 
+              [class.active]="last">
+            <a *ngIf="item.route && !last" [routerLink]="item.route">{{ item.label }}</a>
+            <span *ngIf="!item.route || last">{{ item.label }}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Header Content -->
+      <div class="header-content">
+        <div class="header-icon" *ngIf="icon">
+          <mat-icon class="large-icon">{{ icon }}</mat-icon>
+        </div>
+        
+        <div class="header-text">
+          <h1 class="page-title">{{ title }}</h1>
+          <p *ngIf="subtitle" class="page-subtitle">{{ subtitle }}</p>
+        </div>
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="decorative-elements">
+        <div class="om-symbol">ॐ</div>
+        <div class="lotus-pattern"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>

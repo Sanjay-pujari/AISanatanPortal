@@ -1,0 +1,16 @@
+<section class="feature-highlights-section">
+  <div class="container">
+    <h2 class="section-title">Comprehensive Spiritual Platform</h2>
+    <p class="section-subtitle">Everything you need for your spiritual journey in one place</p>
+    
+    <div class="features-grid">
+      <div *ngFor="let feature of features" class="feature-card custom-card">
+        <div class="feature-icon">
+          <mat-icon color="primary">{{ feature.icon }}</mat-icon>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

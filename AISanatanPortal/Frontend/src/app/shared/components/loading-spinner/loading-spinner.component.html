@@ -1,0 +1,18 @@
+<div class="loading-container">
+  <div class="spiritual-loader">
+    <div class="om-container">
+      <mat-icon class="om-icon rotating">om</mat-icon>
+    </div>
+    <mat-spinner 
+      [diameter]="diameter" 
+      [strokeWidth]="strokeWidth"
+      class="custom-spinner">
+    </mat-spinner>
+    <p *ngIf="showMessage" class="loading-message">{{ message }}</p>
+    <p class="spiritual-quote">
+      "सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः"
+      <br>
+      <small>May all beings be happy and healthy</small>
+    </p>
+  </div>
+</div>
