@@ -1,0 +1,147 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar Navigation -->
+  <mat-sidenav #sidenav 
+               class="sidenav" 
+               fixedInViewport="true" 
+               [opened]="isSidenavOpen"
+               [mode]="'over'"
+               (closed)="isSidenavOpen = false">
+    
+    <div class="sidenav-header">
+      <div class="logo-container">
+        <mat-icon class="om-icon">om</mat-icon>
+        <h3>AI Sanatan Portal</h3>
+      </div>
+      <p class="tagline">Exploring Eternal Wisdom</p>
+    </div>
+
+    <mat-nav-list class="navigation-list">
+      <mat-list-item 
+        *ngFor="let item of navigationItems" 
+        (click)="navigateTo(item.route)"
+        class="nav-item">
+        <mat-icon matListItemIcon class="nav-icon">{{item.icon}}</mat-icon>
+        <div matListItemTitle>{{item.name}}</div>
+        <div matListItemLine>{{item.description}}</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content Area -->
+  <mat-sidenav-content class="main-content">
+    
+    <!-- Top Toolbar -->
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button 
+              (click)="toggleSidenav()" 
+              aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      
+      <span class="toolbar-title">
+        <mat-icon class="om-icon-small">om</mat-icon>
+        AI Sanatan Portal
+      </span>
+      
+      <span class="spacer"></span>
+      
+      <!-- Search Bar -->
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search wisdom...</mat-label>
+        <input matInput placeholder="Search across all modules">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <!-- User Menu -->
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+      <ol>
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li class="current">Current Page</li>
+      </ol>
+    </nav>
+
+    <!-- Router Outlet for Module Content -->
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>AI Sanatan Portal</h4>
+          <p>Exploring the eternal wisdom of Sanatan Dharma through modern technology</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a [routerLink]="['/vedas']">Vedas</a></li>
+            <li><a [routerLink]="['/puranas']">Puranas</a></li>
+            <li><a [routerLink]="['/panchang']">Panchang</a></li>
+            <li><a [routerLink]="['/chatbot']">AI Assistant</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a [routerLink]="['/bookstore']">Bookstore</a></li>
+            <li><a [routerLink]="['/events']">Events</a></li>
+            <li><a [routerLink]="['/places-temples']">Temples</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <button mat-icon-button>
+              <mat-icon>facebook</mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon>twitter</mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon>instagram</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 AI Sanatan Portal. All rights reserved. | Made with devotion for Sanatan Dharma</p>
+      </div>
+    </footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Floating Action Button for Quick AI Chat -->
+<button mat-fab 
+        class="fab-chat" 
+        color="accent"
+        [routerLink]="['/chatbot']"
+        matTooltip="Ask AI Assistant">
+  <mat-icon>chat</mat-icon>
+</button>

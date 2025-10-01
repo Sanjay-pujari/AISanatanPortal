@@ -1,0 +1,131 @@
+<div class="starting-container">
+  
+  <!-- Page Header -->
+  <app-page-header
+    title="Welcome to AI Sanatan Portal"
+    subtitle="Explore the eternal wisdom of Sanatan Dharma through modern technology"
+    icon="om"
+    [breadcrumbItems]="[{label: 'Home'}]">
+  </app-page-header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    
+    <!-- Welcome Section -->
+    <app-welcome-section></app-welcome-section>
+
+    <!-- Quick Navigation -->
+    <section class="quick-navigation-section">
+      <div class="container">
+        <h2 class="section-title">Quick Access</h2>
+        <p class="section-subtitle">Begin your spiritual journey</p>
+        
+        <div class="quick-links-grid">
+          <mat-card 
+            *ngFor="let link of quickLinks" 
+            class="quick-link-card custom-card"
+            [routerLink]="[link.route]">
+            <mat-card-content>
+              <div class="card-icon">
+                <mat-icon [color]="link.color" class="large-icon">{{ link.icon }}</mat-icon>
+              </div>
+              <h3>{{ link.title }}</h3>
+              <p>{{ link.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="featured-content-section">
+      <div class="container">
+        <h2 class="section-title">Today's Inspiration</h2>
+        
+        <div class="featured-grid">
+          <mat-card 
+            *ngFor="let item of featuredContent" 
+            class="featured-card custom-card">
+            <mat-card-header>
+              <mat-card-title>{{ item.title }}</mat-card-title>
+              <mat-card-subtitle>{{ item.source }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p [innerHTML]="item.content"></p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Highlights -->
+    <app-feature-highlights></app-feature-highlights>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Begin Your Spiritual Journey</h2>
+          <p>Discover the profound wisdom of Sanatan Dharma with our AI-powered learning platform</p>
+          <div class="cta-buttons">
+            <button 
+              mat-raised-button 
+              color="primary" 
+              [routerLink]="['/evaluation']"
+              class="cta-button">
+              <mat-icon>assessment</mat-icon>
+              Start Assessment
+            </button>
+            <button 
+              mat-raised-button 
+              color="accent" 
+              [routerLink]="['/chatbot']"
+              class="cta-button">
+              <mat-icon>chat</mat-icon>
+              Ask AI Assistant
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <mat-icon class="stat-icon">menu_book</mat-icon>
+            <h3 class="stat-number">4</h3>
+            <p class="stat-label">Vedas</p>
+          </div>
+          <div class="stat-item">
+            <mat-icon class="stat-icon">history_edu</mat-icon>
+            <h3 class="stat-number">18+</h3>
+            <p class="stat-label">Puranas</p>
+          </div>
+          <div class="stat-item">
+            <mat-icon class="stat-icon">place</mat-icon>
+            <h3 class="stat-number">1000+</h3>
+            <p class="stat-label">Sacred Places</p>
+          </div>
+          <div class="stat-item">
+            <mat-icon class="stat-icon">local_library</mat-icon>
+            <h3 class="stat-number">500+</h3>
+            <p class="stat-label">Books</p>
+          </div>
+          <div class="stat-item">
+            <mat-icon class="stat-icon">event</mat-icon>
+            <h3 class="stat-number">365+</h3>
+            <p class="stat-label">Festivals</p>
+          </div>
+          <div class="stat-item">
+            <mat-icon class="stat-icon">smart_toy</mat-icon>
+            <h3 class="stat-number">24/7</h3>
+            <p class="stat-label">AI Support</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

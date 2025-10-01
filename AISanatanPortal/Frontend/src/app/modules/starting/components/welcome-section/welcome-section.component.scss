@@ -1,0 +1,352 @@
+.welcome-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  // Background pattern overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(255,255,255,0.05)" fill-rule="evenodd"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+    pointer-events: none;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .welcome-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    
+    .welcome-text {
+      animation: slideInLeft 1s ease-out;
+      
+      .main-title {
+        font-size: 3rem;
+        font-weight: 300;
+        margin-bottom: 16px;
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-family: 'Devanagari', serif;
+      }
+      
+      .main-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 32px;
+        opacity: 0.9;
+        font-style: italic;
+        font-weight: 300;
+      }
+      
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 32px;
+        opacity: 0.95;
+      }
+      
+      .highlights-list {
+        margin-bottom: 40px;
+        
+        h3 {
+          font-size: 1.3rem;
+          margin-bottom: 16px;
+          color: #ffd700;
+          font-weight: 500;
+        }
+        
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            opacity: 0.9;
+            
+            mat-icon {
+              margin-right: 12px;
+              color: #4caf50;
+            }
+          }
+        }
+      }
+      
+      .welcome-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        
+        .action-button {
+          height: 48px;
+          padding: 0 24px;
+          border-radius: 24px;
+          font-size: 1rem;
+          min-width: 160px;
+          
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+    
+    .welcome-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1s ease-out;
+      
+      .om-container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .om-symbol-large {
+          font-size: 120px;
+          color: #ffd700;
+          text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+          z-index: 3;
+          position: relative;
+          animation: glow 3s ease-in-out infinite alternate;
+          font-family: 'Devanagari', serif;
+        }
+        
+        .lotus-petals {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          animation: rotate 20s linear infinite;
+          
+          .petal {
+            position: absolute;
+            width: 40px;
+            height: 80px;
+            background: linear-gradient(45deg, rgba(255,215,0,0.3), rgba(255,193,7,0.6));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: 50% 90%;
+            
+            &.petal-1 { transform: rotate(0deg) translateY(-120px); }
+            &.petal-2 { transform: rotate(45deg) translateY(-120px); }
+            &.petal-3 { transform: rotate(90deg) translateY(-120px); }
+            &.petal-4 { transform: rotate(135deg) translateY(-120px); }
+            &.petal-5 { transform: rotate(180deg) translateY(-120px); }
+            &.petal-6 { transform: rotate(225deg) translateY(-120px); }
+            &.petal-7 { transform: rotate(270deg) translateY(-120px); }
+            &.petal-8 { transform: rotate(315deg) translateY(-120px); }
+          }
+        }
+      }
+      
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        
+        .element {
+          position: absolute;
+          font-size: 24px;
+          opacity: 0.7;
+          animation: float 4s ease-in-out infinite;
+          
+          &.element-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+          }
+          
+          &.element-2 {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+          }
+          
+          &.element-3 {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+          }
+          
+          &.element-4 {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.3);
+  }
+  to {
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.6), 0 0 40px rgba(255,215,0,0.3);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(-5px) rotate(-5deg); }
+  75% { transform: translateY(-15px) rotate(3deg); }
+}
+
+// Responsive Design
+@media (max-width: 968px) {
+  .welcome-section {
+    padding: 60px 0;
+    
+    .welcome-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+      
+      .welcome-text {
+        order: 2;
+        
+        .main-title {
+          font-size: 2.5rem;
+        }
+        
+        .main-subtitle {
+          font-size: 1.3rem;
+        }
+        
+        .welcome-actions {
+          justify-content: center;
+        }
+      }
+      
+      .welcome-visual {
+        order: 1;
+        
+        .om-container {
+          width: 250px;
+          height: 250px;
+          
+          .om-symbol-large {
+            font-size: 100px;
+          }
+          
+          .lotus-petals .petal {
+            width: 35px;
+            height: 70px;
+            
+            &.petal-1, &.petal-2, &.petal-3, &.petal-4,
+            &.petal-5, &.petal-6, &.petal-7, &.petal-8 {
+              transform: rotate(calc(var(--i) * 45deg)) translateY(-100px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 40px 0;
+    
+    .container {
+      padding: 0 16px;
+    }
+    
+    .welcome-content {
+      gap: 32px;
+      
+      .welcome-text {
+        .main-title {
+          font-size: 2rem;
+        }
+        
+        .main-subtitle {
+          font-size: 1.1rem;
+        }
+        
+        .description {
+          font-size: 1rem;
+        }
+        
+        .welcome-actions {
+          flex-direction: column;
+          
+          .action-button {
+            width: 100%;
+            max-width: 280px;
+          }
+        }
+      }
+      
+      .welcome-visual {
+        .om-container {
+          width: 200px;
+          height: 200px;
+          
+          .om-symbol-large {
+            font-size: 80px;
+          }
+        }
+        
+        .floating-elements {
+          .element {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

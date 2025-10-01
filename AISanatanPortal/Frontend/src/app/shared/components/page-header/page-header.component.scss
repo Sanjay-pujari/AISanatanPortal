@@ -1,0 +1,231 @@
+.page-header {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  
+  .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102,126,234,0.8) 0%, rgba(118,75,162,0.8) 100%);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .breadcrumb-nav {
+    margin-bottom: 20px;
+    
+    .breadcrumb {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      
+      .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        
+        &:not(:last-child)::after {
+          content: '›';
+          margin: 0 8px;
+          opacity: 0.7;
+        }
+        
+        a {
+          color: rgba(255, 255, 255, 0.9);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: #ffd700;
+          }
+          
+          mat-icon {
+            font-size: 16px;
+            height: 16px;
+            width: 16px;
+            margin-right: 4px;
+          }
+        }
+        
+        &.active span {
+          color: #ffd700;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    animation: slideInUp 0.8s ease-out;
+    
+    .header-icon {
+      margin-right: 24px;
+      
+      .large-icon {
+        font-size: 64px;
+        height: 64px;
+        width: 64px;
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+    }
+    
+    .header-text {
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        margin: 0 0 8px 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        line-height: 1.2;
+      }
+      
+      .page-subtitle {
+        font-size: 1.2rem;
+        margin: 0;
+        opacity: 0.9;
+        font-weight: 300;
+        line-height: 1.4;
+      }
+    }
+  }
+  
+  .decorative-elements {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    
+    .om-symbol {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 48px;
+      color: rgba(255, 215, 0, 0.2);
+      font-family: 'Devanagari', serif;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .lotus-pattern {
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20c-8 0-15 7-15 15 0 8 7 15 15 15s15-7 15-15c0-8-7-15-15-15z" fill="rgba(255,215,0,0.1)"/><path d="M35 35c-8 0-15 7-15 15 0 8 7 15 15 15 0-8 7-15 15-15-8 0-15-7-15-15z" fill="rgba(255,215,0,0.1)"/><path d="M65 35c8 0 15 7 15 15 0 8-7 15-15 15 0-8-7-15-15-15 8 0 15-7 15-15z" fill="rgba(255,215,0,0.1)"/></svg>') center/contain no-repeat;
+      opacity: 0.1;
+      animation: rotate 20s linear infinite;
+    }
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .page-header {
+    min-height: 150px;
+    
+    .container {
+      padding: 0 16px;
+    }
+    
+    .header-content {
+      .header-icon {
+        margin-right: 16px;
+        
+        .large-icon {
+          font-size: 48px;
+          height: 48px;
+          width: 48px;
+        }
+      }
+      
+      .header-text {
+        .page-title {
+          font-size: 1.8rem;
+        }
+        
+        .page-subtitle {
+          font-size: 1rem;
+        }
+      }
+    }
+    
+    .decorative-elements {
+      .om-symbol {
+        font-size: 32px;
+        top: 10px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+      
+      .header-icon {
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

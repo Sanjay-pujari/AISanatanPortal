@@ -1,0 +1,71 @@
+<section class="welcome-section">
+  <div class="container">
+    <div class="welcome-content">
+      
+      <div class="welcome-text">
+        <h1 class="main-title">{{ welcomeContent.mainTitle }}</h1>
+        <p class="main-subtitle">{{ welcomeContent.mainSubtitle }}</p>
+        
+        <div class="divider-with-symbol">
+          <span class="symbol">ॐ</span>
+        </div>
+        
+        <p class="description">{{ welcomeContent.description }}</p>
+        
+        <div class="highlights-list">
+          <h3>What you'll discover:</h3>
+          <ul>
+            <li *ngFor="let highlight of welcomeContent.highlights">
+              <mat-icon color="primary">check_circle</mat-icon>
+              {{ highlight }}
+            </li>
+          </ul>
+        </div>
+        
+        <div class="welcome-actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            [routerLink]="['/vedas']"
+            class="action-button">
+            <mat-icon>menu_book</mat-icon>
+            Explore Vedas
+          </button>
+          
+          <button 
+            mat-raised-button 
+            color="accent" 
+            [routerLink]="['/chatbot']"
+            class="action-button">
+            <mat-icon>smart_toy</mat-icon>
+            AI Assistant
+          </button>
+        </div>
+      </div>
+      
+      <div class="welcome-visual">
+        <div class="om-container">
+          <div class="om-symbol-large">ॐ</div>
+          <div class="lotus-petals">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="petal petal-6"></div>
+            <div class="petal petal-7"></div>
+            <div class="petal petal-8"></div>
+          </div>
+        </div>
+        
+        <div class="floating-elements">
+          <div class="element element-1">🕉️</div>
+          <div class="element element-2">🪷</div>
+          <div class="element element-3">📿</div>
+          <div class="element element-4">🔔</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
