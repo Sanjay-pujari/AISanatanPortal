@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-feature-highlights',
-  templateUrl: './feature-highlights.component.html',
-  styleUrls: ['./feature-highlights.component.scss']
+    selector: 'app-feature-highlights',
+    templateUrl: './feature-highlights.component.html',
+    styleUrls: ['./feature-highlights.component.scss'],
+    standalone: false
 })
 export class FeatureHighlightsComponent implements OnInit {
 

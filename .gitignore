@@ -5,3 +5,5 @@
 /AISanatanPortal/Backend/.vs
 /AISanatanPortal/Backend/bin/Debug/net9.0
 /AISanatanPortal/Backend/obj
+/AISanatanPortal/Backend/node_modules
+/AISanatanPortal/Frontend/.angular/cache/18.2.21

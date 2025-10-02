@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/ai-sanatan-portal",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -102,5 +102,24 @@
   },
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+    },
+    "@schematics/angular:service": {
+    },
+    "@schematics/angular:guard": {
+    },
+    "@schematics/angular:interceptor": {
+    },
+    "@schematics/angular:module": {
+    },
+    "@schematics/angular:pipe": {
+    },
+    "@schematics/angular:resolver": {
+    }
   }
 }

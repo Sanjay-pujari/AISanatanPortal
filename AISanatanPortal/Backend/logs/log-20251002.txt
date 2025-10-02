@@ -911,3 +911,128 @@ CREATE INDEX "IX_VedaVerses_ChapterId" ON "VedaVerses" ("ChapterId");
 2025-10-02 15:21:33.510 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
 VALUES ('20251002095039_InitialScript', '9.0.9');
+2025-10-02 15:27:25.023 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-02 15:27:25.820 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-10-02 15:27:25.835 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-10-02 15:27:25.840 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-10-02 15:27:25.843 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-02 15:27:25.852 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-10-02 15:27:26.029 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2025-10-02 15:27:26.401 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2025-10-02 15:27:28.527 +05:30 [INF] Executed DbCommand (84ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime), @p12='?', @p13='?' (DbType = Guid), @p14='?', @p15='?' (DbType = Int32), @p16='?' (DbType = DateTime), @p17='?', @p18='?', @p19='?', @p20='?' (DbType = Boolean), @p21='?', @p22='?', @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?', @p26='?' (DbType = Guid), @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?', @p35='?' (DbType = Boolean), @p36='?' (DbType = Boolean), @p37='?' (DbType = Decimal), @p38='?' (DbType = Decimal), @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Int32), @p44='?' (DbType = DateTime), @p45='?', @p46='?' (DbType = Guid), @p47='?', @p48='?', @p49='?', @p50='?', @p51='?' (DbType = DateTime), @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?' (DbType = Boolean), @p57='?' (DbType = Decimal), @p58='?' (DbType = Decimal), @p59='?', @p60='?', @p61='?', @p62='?', @p63='?' (DbType = Int32), @p64='?' (DbType = DateTime), @p65='?', @p66='?' (DbType = Guid), @p67='?' (DbType = Int32), @p68='?' (DbType = DateTime), @p69='?', @p70='?', @p71='?', @p72='?' (DbType = Boolean), @p73='?', @p74='?', @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = DateTime), @p78='?', @p79='?' (DbType = Guid), @p80='?' (DbType = Int32), @p81='?' (DbType = DateTime), @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = DateTime), @p91='?', @p92='?' (DbType = Guid), @p93='?' (DbType = Int32), @p94='?' (DbType = DateTime), @p95='?', @p96='?', @p97='?', @p98='?' (DbType = Boolean), @p99='?', @p100='?', @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (DbType = DateTime), @p104='?', @p105='?' (DbType = Guid), @p106='?', @p107='?', @p108='?', @p109='?', @p110='?', @p111='?' (DbType = DateTime), @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?' (DbType = Boolean), @p117='?' (DbType = Decimal), @p118='?' (DbType = Decimal), @p119='?', @p120='?', @p121='?', @p122='?' (DbType = Decimal), @p123='?' (DbType = Int32), @p124='?', @p125='?', @p126='?' (DbType = Int32), @p127='?' (DbType = DateTime), @p128='?', @p129='?', @p130='?', @p131='?' (DbType = Guid), @p132='?', @p133='?', @p134='?', @p135='?', @p136='?', @p137='?' (DbType = DateTime), @p138='?', @p139='?', @p140='?', @p141='?' (DbType = Boolean), @p142='?' (DbType = Boolean), @p143='?' (DbType = Decimal), @p144='?' (DbType = Decimal), @p145='?', @p146='?', @p147='?', @p148='?' (DbType = Decimal), @p149='?' (DbType = Int32), @p150='?', @p151='?', @p152='?' (DbType = Int32), @p153='?' (DbType = DateTime), @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Guid), @p158='?' (DbType = DateTime), @p159='?', @p160='?', @p161='?', @p162='?' (DbType = Boolean), @p163='?' (DbType = Boolean), @p164='?' (DbType = DateTime), @p165='?', @p166='?', @p167='?', @p168='?' (DbType = Int32), @p169='?' (DbType = DateTime), @p170='?', @p171='?', @p172='?' (DbType = Guid), @p173='?' (DbType = DateTime), @p174='?', @p175='?', @p176='?', @p177='?' (DbType = Boolean), @p178='?' (DbType = Boolean), @p179='?' (DbType = DateTime), @p180='?', @p181='?', @p182='?', @p183='?' (DbType = Int32), @p184='?' (DbType = DateTime), @p185='?', @p186='?', @p187='?' (DbType = Guid), @p188='?', @p189='?' (DbType = Int32), @p190='?' (DbType = DateTime), @p191='?', @p192='?', @p193='?', @p194='?' (DbType = Boolean), @p195='?', @p196='?', @p197='?' (DbType = DateTime), @p198='?', @p199='?' (DbType = Int32), @p200='?' (DbType = Guid), @p201='?', @p202='?' (DbType = Int32), @p203='?' (DbType = DateTime), @p204='?', @p205='?', @p206='?', @p207='?' (DbType = Boolean), @p208='?', @p209='?', @p210='?' (DbType = DateTime), @p211='?', @p212='?' (DbType = Int32), @p213='?' (DbType = Guid), @p214='?', @p215='?' (DbType = Int32), @p216='?' (DbType = DateTime), @p217='?', @p218='?', @p219='?', @p220='?' (DbType = Boolean), @p221='?', @p222='?', @p223='?' (DbType = DateTime), @p224='?', @p225='?' (DbType = Int32), @p226='?' (DbType = Guid), @p227='?', @p228='?' (DbType = Int32), @p229='?' (DbType = DateTime), @p230='?', @p231='?', @p232='?', @p233='?' (DbType = Boolean), @p234='?', @p235='?', @p236='?' (DbType = DateTime), @p237='?', @p238='?' (DbType = Int32), @p239='?' (DbType = Guid), @p240='?' (DbType = DateTime), @p241='?', @p242='?' (DbType = Boolean), @p243='?' (DbType = Boolean), @p244='?', @p245='?' (DbType = Boolean), @p246='?' (DbType = Boolean), @p247='?', @p248='?', @p249='?' (DbType = DateTime), @p250='?', @p251='?' (DbType = Guid), @p252='?' (DbType = Guid), @p253='?' (DbType = DateTime), @p254='?', @p255='?' (DbType = Boolean), @p256='?' (DbType = Boolean), @p257='?', @p258='?' (DbType = Boolean), @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?' (DbType = DateTime), @p263='?', @p264='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Kavyas" ("Id", "Author", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO "Kavyas" ("Id", "Author", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO "MythologicalPlaces" ("Id", "Address", "AssociatedDeities", "City", "Country", "CreatedAt", "CreatedBy", "Description", "HistoricalEvidence", "IsActive", "IsVerified", "Latitude", "Longitude", "MythologicalSignificance", "Name", "RelatedTexts", "State", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45);
+INSERT INTO "MythologicalPlaces" ("Id", "Address", "AssociatedDeities", "City", "Country", "CreatedAt", "CreatedBy", "Description", "HistoricalEvidence", "IsActive", "IsVerified", "Latitude", "Longitude", "MythologicalSignificance", "Name", "RelatedTexts", "State", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65);
+INSERT INTO "Puranas" ("Id", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "StoryCount", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78);
+INSERT INTO "Puranas" ("Id", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "StoryCount", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91);
+INSERT INTO "Puranas" ("Id", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "StoryCount", "Type", "UpdatedAt", "UpdatedBy")
+VALUES (@p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100, @p101, @p102, @p103, @p104);
+INSERT INTO "Temples" ("Id", "Address", "City", "ContactEmail", "ContactPhone", "Country", "CreatedAt", "CreatedBy", "Description", "History", "IsActive", "IsVerified", "Latitude", "Longitude", "MainDeity", "Name", "PostalCode", "Rating", "ReviewCount", "Significance", "State", "Type", "UpdatedAt", "UpdatedBy", "VisitingHours", "Website")
+VALUES (@p105, @p106, @p107, @p108, @p109, @p110, @p111, @p112, @p113, @p114, @p115, @p116, @p117, @p118, @p119, @p120, @p121, @p122, @p123, @p124, @p125, @p126, @p127, @p128, @p129, @p130);
+INSERT INTO "Temples" ("Id", "Address", "City", "ContactEmail", "ContactPhone", "Country", "CreatedAt", "CreatedBy", "Description", "History", "IsActive", "IsVerified", "Latitude", "Longitude", "MainDeity", "Name", "PostalCode", "Rating", "ReviewCount", "Significance", "State", "Type", "UpdatedAt", "UpdatedBy", "VisitingHours", "Website")
+VALUES (@p131, @p132, @p133, @p134, @p135, @p136, @p137, @p138, @p139, @p140, @p141, @p142, @p143, @p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151, @p152, @p153, @p154, @p155, @p156);
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedBy", "Email", "FirstName", "IsActive", "IsEmailVerified", "LastLoginAt", "LastName", "PasswordHash", "ProfilePicture", "Role", "UpdatedAt", "UpdatedBy", "Username")
+VALUES (@p157, @p158, @p159, @p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167, @p168, @p169, @p170, @p171);
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedBy", "Email", "FirstName", "IsActive", "IsEmailVerified", "LastLoginAt", "LastName", "PasswordHash", "ProfilePicture", "Role", "UpdatedAt", "UpdatedBy", "Username")
+VALUES (@p172, @p173, @p174, @p175, @p176, @p177, @p178, @p179, @p180, @p181, @p182, @p183, @p184, @p185, @p186);
+INSERT INTO "Vedas" ("Id", "AudioUrl", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "UpdatedAt", "UpdatedBy", "VerseCount")
+VALUES (@p187, @p188, @p189, @p190, @p191, @p192, @p193, @p194, @p195, @p196, @p197, @p198, @p199);
+INSERT INTO "Vedas" ("Id", "AudioUrl", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "UpdatedAt", "UpdatedBy", "VerseCount")
+VALUES (@p200, @p201, @p202, @p203, @p204, @p205, @p206, @p207, @p208, @p209, @p210, @p211, @p212);
+INSERT INTO "Vedas" ("Id", "AudioUrl", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "UpdatedAt", "UpdatedBy", "VerseCount")
+VALUES (@p213, @p214, @p215, @p216, @p217, @p218, @p219, @p220, @p221, @p222, @p223, @p224, @p225);
+INSERT INTO "Vedas" ("Id", "AudioUrl", "ChapterCount", "CreatedAt", "CreatedBy", "Description", "ImageUrl", "IsActive", "Name", "SanskritName", "UpdatedAt", "UpdatedBy", "VerseCount")
+VALUES (@p226, @p227, @p228, @p229, @p230, @p231, @p232, @p233, @p234, @p235, @p236, @p237, @p238);
+INSERT INTO "UserPreferences" ("Id", "CreatedAt", "CreatedBy", "EmailUpdatesEnabled", "IsActive", "Language", "NewsletterSubscription", "NotificationsEnabled", "Theme", "TimeZone", "UpdatedAt", "UpdatedBy", "UserId")
+VALUES (@p239, @p240, @p241, @p242, @p243, @p244, @p245, @p246, @p247, @p248, @p249, @p250, @p251);
+INSERT INTO "UserPreferences" ("Id", "CreatedAt", "CreatedBy", "EmailUpdatesEnabled", "IsActive", "Language", "NewsletterSubscription", "NotificationsEnabled", "Theme", "TimeZone", "UpdatedAt", "UpdatedBy", "UserId")
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257, @p258, @p259, @p260, @p261, @p262, @p263, @p264);
+2025-10-02 15:27:28.594 +05:30 [INF] Database migration and seeding completed successfully
+2025-10-02 15:27:28.597 +05:30 [INF] AI Sanatan Portal API started successfully
+2025-10-02 15:27:28.652 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-02 15:27:29.667 +05:30 [INF] Now listening on: https://localhost:52603
+2025-10-02 15:27:29.669 +05:30 [INF] Now listening on: http://localhost:52604
+2025-10-02 15:27:29.744 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 15:27:29.745 +05:30 [INF] Hosting environment: Development
+2025-10-02 15:27:29.746 +05:30 [INF] Content root path: E:\Personal\Sanjay\SanatanGlory\AISanatanPortal\AISanatanPortal\Backend
+2025-10-02 15:27:39.834 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/ - null null
+2025-10-02 15:27:40.122 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/ - 301 0 null 300.0233ms
+2025-10-02 15:27:40.131 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/index.html - null null
+2025-10-02 15:27:40.250 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/index.html - 200 null text/html;charset=utf-8 118.3736ms
+2025-10-02 15:27:40.296 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/swagger-ui.css - null null
+2025-10-02 15:27:40.296 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/index.css - null null
+2025-10-02 15:27:40.297 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/swagger-ui-bundle.js - null null
+2025-10-02 15:27:40.297 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/swagger-ui-standalone-preset.js - null null
+2025-10-02 15:27:40.355 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/index.css - 200 152 text/css 58.178ms
+2025-10-02 15:27:40.359 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/index.js - null null
+2025-10-02 15:27:40.365 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/index.js - 200 null application/javascript;charset=utf-8 6.2446ms
+2025-10-02 15:27:40.366 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/_vs/browserLink - null null
+2025-10-02 15:27:40.366 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-02 15:27:40.381 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/swagger-ui.css - 200 23647 text/css 85.175ms
+2025-10-02 15:27:40.384 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/swagger-ui-standalone-preset.js - 200 77352 text/javascript 87.3562ms
+2025-10-02 15:27:40.388 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/swagger-ui-bundle.js - 200 424765 text/javascript 91.643ms
+2025-10-02 15:27:40.391 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/_framework/aspnetcore-browser-refresh.js - 200 16523 application/javascript; charset=utf-8 24.5931ms
+2025-10-02 15:27:40.499 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/_vs/browserLink - 200 null text/javascript; charset=UTF-8 132.4877ms
+2025-10-02 15:27:40.845 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/swagger/v1/swagger.json - null null
+2025-10-02 15:27:40.889 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/favicon-32x32.png - null null
+2025-10-02 15:27:40.895 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/favicon-32x32.png - 200 628 image/png 5.3508ms
+2025-10-02 15:27:40.950 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 104.4697ms
+2025-10-02 15:29:04.021 +05:30 [INF] Request starting HTTP/2 POST https://localhost:52603/api/Auth/register - application/json 200
+2025-10-02 15:29:04.033 +05:30 [INF] CORS policy execution failed.
+2025-10-02 15:29:04.035 +05:30 [INF] Request origin https://localhost:52603 does not have permission to access the resource.
+2025-10-02 15:29:06.258 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.AuthController.Register (AISanatanPortal.API)'
+2025-10-02 15:29:06.291 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.AuthResult]]] Register(AISanatanPortal.API.DTOs.RegisterRequest) on controller AISanatanPortal.API.Controllers.AuthController (AISanatanPortal.API).
+2025-10-02 15:29:06.626 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__request_Email_0='?', @__request_Username_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @__request_Email_0 OR u."Username" = @__request_Username_1)
+2025-10-02 15:29:06.902 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?', @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?', @p14='?', @p15='?' (DbType = Guid), @p16='?' (DbType = DateTime), @p17='?', @p18='?' (DbType = Boolean), @p19='?' (DbType = Boolean), @p20='?', @p21='?' (DbType = Boolean), @p22='?' (DbType = Boolean), @p23='?', @p24='?', @p25='?' (DbType = DateTime), @p26='?', @p27='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "CreatedBy", "Email", "FirstName", "IsActive", "IsEmailVerified", "LastLoginAt", "LastName", "PasswordHash", "ProfilePicture", "Role", "UpdatedAt", "UpdatedBy", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+INSERT INTO "UserPreferences" ("Id", "CreatedAt", "CreatedBy", "EmailUpdatesEnabled", "IsActive", "Language", "NewsletterSubscription", "NotificationsEnabled", "Theme", "TimeZone", "UpdatedAt", "UpdatedBy", "UserId")
+VALUES (@p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27);
+2025-10-02 15:29:07.072 +05:30 [INF] Executing CreatedResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.AuthResult, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 15:29:07.113 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.AuthController.Register (AISanatanPortal.API) in 812.3593ms
+2025-10-02 15:29:07.116 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.AuthController.Register (AISanatanPortal.API)'
+2025-10-02 15:29:07.126 +05:30 [INF] Request finished HTTP/2 POST https://localhost:52603/api/Auth/register - 201 null application/json; charset=utf-8 3104.2669ms
