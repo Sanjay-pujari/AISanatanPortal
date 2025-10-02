@@ -1,3 +1,5 @@
+using AISanatanPortal.API.Models;
+
 namespace AISanatanPortal.API.Services;
 
 // Placeholder implementations for the services referenced in Program.cs

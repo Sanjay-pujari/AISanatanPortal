@@ -166,9 +166,35 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Date).IsRequired();
             entity.HasIndex(e => e.Date).IsUnique();
+            
+            entity.HasOne(e => e.Tithi)
+                  .WithMany(t => t.PanchangData)
+                  .HasForeignKey(e => e.TithiId);
+                  
+            entity.HasOne(e => e.Nakshatra)
+                  .WithMany(n => n.PanchangData)
+                  .HasForeignKey(e => e.NakshatraId);
         });
 
         modelBuilder.Entity<Festival>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
+        });
+        
+        modelBuilder.Entity<Tithi>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+        });
+        
+        modelBuilder.Entity<Nakshatra>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+        });
+        
+        modelBuilder.Entity<Vrata>(entity =>
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
@@ -187,12 +213,33 @@ public class ApplicationDbContext : DbContext
             entity.HasOne(e => e.Author)
                   .WithMany(a => a.Books)
                   .HasForeignKey(e => e.AuthorId);
+                  
+            entity.HasOne(e => e.Category)
+                  .WithMany(c => c.Books)
+                  .HasForeignKey(e => e.CategoryId);
         });
 
         modelBuilder.Entity<Author>(entity =>
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
+        });
+        
+        modelBuilder.Entity<BookCategory>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+        });
+        
+        modelBuilder.Entity<BookReview>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.Book)
+                  .WithMany(b => b.Reviews)
+                  .HasForeignKey(e => e.BookId);
+            entity.HasOne(e => e.User)
+                  .WithMany(u => u.BookReviews)
+                  .HasForeignKey(e => e.UserId);
         });
 
         modelBuilder.Entity<Order>(entity =>
@@ -203,6 +250,22 @@ public class ApplicationDbContext : DbContext
             entity.HasOne(e => e.User)
                   .WithMany(u => u.Orders)
                   .HasForeignKey(e => e.UserId);
+        });
+        
+        modelBuilder.Entity<OrderItem>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.Order)
+                  .WithMany(o => o.Items)
+                  .HasForeignKey(e => e.OrderId);
+            entity.HasOne(e => e.Product)
+                  .WithMany(p => p.OrderItems)
+                  .HasForeignKey(e => e.ProductId)
+                  .IsRequired(false);
+            entity.HasOne(e => e.Book)
+                  .WithMany(b => b.OrderItems)
+                  .HasForeignKey(e => e.BookId)
+                  .IsRequired(false);
         });
     }
 
@@ -217,12 +280,33 @@ public class ApplicationDbContext : DbContext
             entity.HasOne(e => e.Vendor)
                   .WithMany(v => v.Products)
                   .HasForeignKey(e => e.VendorId);
+                  
+            entity.HasOne(e => e.Category)
+                  .WithMany(c => c.Products)
+                  .HasForeignKey(e => e.CategoryId);
         });
 
         modelBuilder.Entity<Vendor>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.BusinessName).IsRequired().HasMaxLength(200);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
+        });
+        
+        modelBuilder.Entity<ProductCategory>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+        });
+        
+        modelBuilder.Entity<ProductReview>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.Product)
+                  .WithMany(p => p.Reviews)
+                  .HasForeignKey(e => e.ProductId);
+            entity.HasOne(e => e.User)
+                  .WithMany(u => u.ProductReviews)
+                  .HasForeignKey(e => e.UserId);
         });
     }
 
@@ -231,8 +315,19 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Event>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
+            entity.Property(e => e.Title).IsRequired().HasMaxLength(200);
             entity.Property(e => e.RegistrationFee).HasPrecision(10, 2);
+        });
+        
+        modelBuilder.Entity<EventRegistration>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.Event)
+                  .WithMany(ev => ev.Registrations)
+                  .HasForeignKey(e => e.EventId);
+            entity.HasOne(e => e.User)
+                  .WithMany(u => u.EventRegistrations)
+                  .HasForeignKey(e => e.UserId);
         });
     }
 
@@ -243,8 +338,7 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.HasOne(e => e.User)
                   .WithMany(u => u.ChatSessions)
-                  .HasForeignKey(e => e.UserId)
-                  .IsRequired(false);
+                  .HasForeignKey(e => e.UserId);
         });
 
         modelBuilder.Entity<ChatMessage>(entity =>
@@ -269,6 +363,17 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.HasOne(e => e.Assessment)
                   .WithMany(a => a.Questions)
+                  .HasForeignKey(e => e.AssessmentId);
+        });
+        
+        modelBuilder.Entity<UserAssessmentResult>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.User)
+                  .WithMany(u => u.AssessmentResults)
+                  .HasForeignKey(e => e.UserId);
+            entity.HasOne(e => e.Assessment)
+                  .WithMany(a => a.Results)
                   .HasForeignKey(e => e.AssessmentId);
         });
     }

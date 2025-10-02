@@ -1,5 +1,6 @@
 using AISanatanPortal.API.DTOs;
 using AISanatanPortal.API.Models;
+using Models = AISanatanPortal.API.Models;
 
 namespace AISanatanPortal.API.Services;
 
@@ -23,59 +24,59 @@ public interface IAzureOpenAIService
 
 public interface IVedasService
 {
-    Task<IEnumerable<Veda>> GetAllVedasAsync();
-    Task<Veda?> GetVedaByIdAsync(Guid id);
-    Task<IEnumerable<VedaChapter>> GetVedaChaptersAsync(Guid vedaId);
-    Task<VedaVerse?> GetVerseAsync(Guid chapterId, int verseNumber);
-    Task<IEnumerable<VedaVerse>> SearchVersesAsync(string searchTerm);
+    Task<IEnumerable<Models.Veda>> GetAllVedasAsync();
+    Task<Models.Veda?> GetVedaByIdAsync(Guid id);
+    Task<IEnumerable<Models.VedaChapter>> GetVedaChaptersAsync(Guid vedaId);
+    Task<Models.VedaVerse?> GetVerseAsync(Guid chapterId, int verseNumber);
+    Task<IEnumerable<Models.VedaVerse>> SearchVersesAsync(string searchTerm);
 }
 
 public interface IPuranasService
 {
-    Task<IEnumerable<Purana>> GetAllPuranasAsync();
-    Task<Purana?> GetPuranaByIdAsync(Guid id);
-    Task<IEnumerable<PuranaStory>> GetPuranaStoriesAsync(Guid puranaId);
-    Task<PuranaStory?> GetStoryByIdAsync(Guid storyId);
+    Task<IEnumerable<Models.Purana>> GetAllPuranasAsync();
+    Task<Models.Purana?> GetPuranaByIdAsync(Guid id);
+    Task<IEnumerable<Models.PuranaStory>> GetPuranaStoriesAsync(Guid puranaId);
+    Task<Models.PuranaStory?> GetStoryByIdAsync(Guid storyId);
 }
 
 public interface ITemplesService
 {
-    Task<IEnumerable<Temple>> GetNearbyTemplesAsync(decimal latitude, decimal longitude, int radiusKm = 50);
-    Task<Temple?> GetTempleByIdAsync(Guid id);
-    Task<IEnumerable<Temple>> SearchTemplesAsync(string searchTerm, string? city = null, string? state = null);
-    Task<IEnumerable<MythologicalPlace>> GetMythologicalPlacesAsync();
+    Task<IEnumerable<Models.Temple>> GetNearbyTemplesAsync(decimal latitude, decimal longitude, int radiusKm = 50);
+    Task<Models.Temple?> GetTempleByIdAsync(Guid id);
+    Task<IEnumerable<Models.Temple>> SearchTemplesAsync(string searchTerm, string? city = null, string? state = null);
+    Task<IEnumerable<Models.MythologicalPlace>> GetMythologicalPlacesAsync();
 }
 
 public interface IPanchangService
 {
-    Task<PanchangData?> GetPanchangForDateAsync(DateTime date);
-    Task<IEnumerable<Festival>> GetUpcomingFestivalsAsync(int days = 30);
-    Task<IEnumerable<Vrata>> GetVratasForMonthAsync(int month, int year);
-    Task<Tithi> GetCurrentTithiAsync();
-    Task<Nakshatra> GetCurrentNakshatraAsync();
+    Task<Models.PanchangData?> GetPanchangForDateAsync(DateTime date);
+    Task<IEnumerable<Models.Festival>> GetUpcomingFestivalsAsync(int days = 30);
+    Task<IEnumerable<Models.Vrata>> GetVratasForMonthAsync(int month, int year);
+    Task<Models.Tithi> GetCurrentTithiAsync();
+    Task<Models.Nakshatra> GetCurrentNakshatraAsync();
 }
 
 public interface IBookstoreService
 {
-    Task<IEnumerable<Book>> GetAllBooksAsync();
-    Task<Book?> GetBookByIdAsync(Guid id);
-    Task<IEnumerable<Book>> SearchBooksAsync(string searchTerm);
-    Task<IEnumerable<Book>> GetBooksByCategoryAsync(string category);
-    Task<Order> CreateOrderAsync(CreateOrderRequest request);
+    Task<IEnumerable<Models.Book>> GetAllBooksAsync();
+    Task<Models.Book?> GetBookByIdAsync(Guid id);
+    Task<IEnumerable<Models.Book>> SearchBooksAsync(string searchTerm);
+    Task<IEnumerable<Models.Book>> GetBooksByCategoryAsync(string category);
+    Task<Models.Order> CreateOrderAsync(Models.CreateOrderRequest request);
 }
 
 public interface IEventsService
 {
-    Task<IEnumerable<Event>> GetUpcomingEventsAsync();
-    Task<Event?> GetEventByIdAsync(Guid id);
-    Task<EventRegistration> RegisterForEventAsync(Guid eventId, Guid userId);
-    Task<IEnumerable<Event>> SearchEventsAsync(string searchTerm, DateTime? fromDate = null);
+    Task<IEnumerable<Models.Event>> GetUpcomingEventsAsync();
+    Task<Models.Event?> GetEventByIdAsync(Guid id);
+    Task<Models.EventRegistration> RegisterForEventAsync(Guid eventId, Guid userId);
+    Task<IEnumerable<Models.Event>> SearchEventsAsync(string searchTerm, DateTime? fromDate = null);
 }
 
 public interface IGiftStoreService
 {
-    Task<IEnumerable<Product>> GetAllProductsAsync();
-    Task<Product?> GetProductByIdAsync(Guid id);
-    Task<IEnumerable<Product>> GetProductsByCategoryAsync(string category);
-    Task<IEnumerable<Vendor>> GetVendorsAsync();
+    Task<IEnumerable<Models.Product>> GetAllProductsAsync();
+    Task<Models.Product?> GetProductByIdAsync(Guid id);
+    Task<IEnumerable<Models.Product>> GetProductsByCategoryAsync(string category);
+    Task<IEnumerable<Models.Vendor>> GetVendorsAsync();
 }

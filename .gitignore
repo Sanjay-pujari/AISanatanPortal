@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AISanatanPortal/Backend/.vs
+/AISanatanPortal/Backend/bin/Debug/net9.0
+/AISanatanPortal/Backend/obj
