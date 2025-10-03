@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { BooksManagementRoutingModule } from './books-management-routing.module';
 import { BooksManagementComponent } from './books-management.component';
 import { SharedModule } from '../../../../shared/shared.module';
+import { BookFormComponent } from './book-form.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatMenuModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    BookFormComponent
   ]
 })
 export class BooksManagementModule { }

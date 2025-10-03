@@ -4,6 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BooksService, BookDto } from '../../../../shared/services/books.service';
+import { BookFormComponent } from './book-form.component';
 
 export interface Book {
   id: string;
@@ -50,176 +52,76 @@ export enum BookFormat {
   styleUrls: ['./books-management.component.scss']
 })
 export class BooksManagementComponent implements OnInit {
-  displayedColumns: string[] = [
-    'title', 
-    'author', 
-    'category', 
-    'language', 
-    'format', 
-    'price', 
-    'rating', 
-    'downloadCount', 
-    'isFeatured', 
-    'createdAt', 
-    'actions'
-  ];
-  
-  dataSource = new MatTableDataSource<Book>();
-  loading = false;
+  displayedColumns: string[] = ['title','language','format','price','isFeatured','createdAt','actions'];
+  dataSource = new MatTableDataSource<BookDto>([]);
+  page = 1;
+  pageSize = 10;
+  totalCount = 0;
   searchTerm = '';
-  selectedLanguage = '';
-  selectedFormat = '';
-  selectedCategory = '';
+  selectedLanguage?: number;
+  selectedFormat?: number;
+  selectedCategory?: string;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  // Sample data - in real app, this would come from API
-  sampleBooks: Book[] = [
-    {
-      id: '1',
-      title: 'Bhagavad Gita',
-      sanskritTitle: 'भगवद्गीता',
-      author: 'Vyasa',
-      category: 'Scripture',
-      language: BookLanguage.Sanskrit,
-      format: BookFormat.Digital,
-      price: 0,
-      isFree: true,
-      isFeatured: true,
-      rating: 4.9,
-      reviewCount: 1250,
-      downloadCount: 15000,
-      createdAt: '2024-01-01T00:00:00Z'
-    },
-    {
-      id: '2',
-      title: 'Ramayana',
-      sanskritTitle: 'रामायण',
-      author: 'Valmiki',
-      category: 'Epic',
-      language: BookLanguage.Sanskrit,
-      format: BookFormat.Digital,
-      price: 0,
-      isFree: true,
-      isFeatured: true,
-      rating: 4.8,
-      reviewCount: 980,
-      downloadCount: 12000,
-      createdAt: '2024-01-15T00:00:00Z'
-    },
-    {
-      id: '3',
-      title: 'Mahabharata',
-      sanskritTitle: 'महाभारत',
-      author: 'Vyasa',
-      category: 'Epic',
-      language: BookLanguage.Sanskrit,
-      format: BookFormat.Digital,
-      price: 0,
-      isFree: true,
-      isFeatured: true,
-      rating: 4.7,
-      reviewCount: 750,
-      downloadCount: 9500,
-      createdAt: '2024-02-01T00:00:00Z'
-    }
-  ];
-
-  languages = Object.values(BookLanguage);
-  formats = Object.values(BookFormat);
-  categories = ['Scripture', 'Epic', 'Philosophy', 'Rituals', 'Mythology', 'History'];
-
   constructor(
+    private books: BooksService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { this.loadBooks(); }
+
+  loadBooks(): void {
+    this.books.list({
+      page: this.page,
+      pageSize: this.pageSize,
+      search: this.searchTerm || undefined,
+      categoryId: this.selectedCategory,
+      language: this.selectedLanguage
+    }).subscribe(res => {
+      this.dataSource.data = res.items;
+      this.totalCount = res.totalCount;
+    });
+  }
+
+  onPage(event: any): void {
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
     this.loadBooks();
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  loadBooks(): void {
-    this.loading = true;
-    // Simulate API call
-    setTimeout(() => {
-      this.dataSource.data = this.sampleBooks;
-      this.loading = false;
-    }, 1000);
-  }
-
-  applyFilter(): void {
-    let filteredData = [...this.sampleBooks];
-
-    if (this.searchTerm) {
-      const term = this.searchTerm.toLowerCase();
-      filteredData = filteredData.filter(book =>
-        book.title.toLowerCase().includes(term) ||
-        book.sanskritTitle?.toLowerCase().includes(term) ||
-        book.author.toLowerCase().includes(term) ||
-        book.category.toLowerCase().includes(term)
-      );
-    }
-
-    if (this.selectedLanguage) {
-      filteredData = filteredData.filter(book => book.language === this.selectedLanguage);
-    }
-
-    if (this.selectedFormat) {
-      filteredData = filteredData.filter(book => book.format === this.selectedFormat);
-    }
-
-    if (this.selectedCategory) {
-      filteredData = filteredData.filter(book => book.category === this.selectedCategory);
-    }
-
-    this.dataSource.data = filteredData;
-  }
-
-  clearFilters(): void {
-    this.searchTerm = '';
-    this.selectedLanguage = '';
-    this.selectedFormat = '';
-    this.selectedCategory = '';
-    this.dataSource.data = this.sampleBooks;
-  }
-
-  openBookForm(book?: Book): void {
-    // TODO: Implement book form dialog
-    this.snackBar.open('Book form dialog will be implemented', 'Close', { duration: 3000 });
-  }
-
-  deleteBook(book: Book): void {
-    if (confirm(`Are you sure you want to delete "${book.title}"?`)) {
-      const index = this.sampleBooks.findIndex(b => b.id === book.id);
-      if (index !== -1) {
-        this.sampleBooks.splice(index, 1);
-        this.dataSource.data = [...this.sampleBooks];
-        this.snackBar.open('Book deleted successfully', 'Close', { duration: 3000 });
+  openBookForm(book?: BookDto): void {
+    const ref = this.dialog.open(BookFormComponent, { width: '900px', data: { book } });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.snackBar.open('Book saved successfully', 'Close', { duration: 3000 });
+        this.loadBooks();
       }
-    }
+    });
   }
 
-  toggleFeatured(book: Book): void {
-    const index = this.sampleBooks.findIndex(b => b.id === book.id);
-    if (index !== -1) {
-      this.sampleBooks[index].isFeatured = !this.sampleBooks[index].isFeatured;
-      this.dataSource.data = [...this.sampleBooks];
-      const status = this.sampleBooks[index].isFeatured ? 'featured' : 'unfeatured';
-      this.snackBar.open(`Book ${status} successfully`, 'Close', { duration: 3000 });
-    }
+  deleteBook(book: BookDto): void {
+    if (!confirm(`Are you sure you want to delete "${book.title}"?`)) return;
+    this.books.delete(book.id).subscribe(() => {
+      this.snackBar.open('Book deleted successfully', 'Close', { duration: 3000 });
+      this.loadBooks();
+    });
   }
 
-  formatPrice(price: number): string {
-    return price === 0 ? 'Free' : `₹${price}`;
+  toggleFeatured(book: BookDto): void {
+    const updated = { ...book, isFeatured: !book.isFeatured } as any;
+    this.books.update(book.id, updated).subscribe(() => {
+      this.snackBar.open(`Book ${updated.isFeatured ? 'featured' : 'unfeatured'} successfully`, 'Close', { duration: 3000 });
+      this.loadBooks();
+    });
   }
+
+  formatPrice(price: number): string { return price === 0 ? 'Free' : `₹${price}`; }
 
   getRatingStars(rating: number): string {
-    return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
+    const full = Math.floor(rating);
+    return '★'.repeat(full) + '☆'.repeat(5 - full);
   }
 }

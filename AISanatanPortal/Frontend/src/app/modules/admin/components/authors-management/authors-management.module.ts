@@ -9,10 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AuthorsManagementRoutingModule } from './authors-management-routing.module';
 import { AuthorsManagementComponent } from './authors-management.component';
 import { SharedModule } from '../../../../shared/shared.module';
+import { AuthorFormComponent } from './author-form.component';
 
 @NgModule({
   declarations: [AuthorsManagementComponent],
@@ -29,7 +32,10 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatSelectModule,
+    AuthorFormComponent
   ]
 })
 export class AuthorsManagementModule { }

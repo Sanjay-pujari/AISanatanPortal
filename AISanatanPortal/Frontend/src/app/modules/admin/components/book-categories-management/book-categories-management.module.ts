@@ -7,10 +7,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { BookCategoriesManagementRoutingModule } from './book-categories-management-routing.module';
 import { BookCategoriesManagementComponent } from './book-categories-management.component';
 import { SharedModule } from '../../../../shared/shared.module';
+import { BookCategoryFormComponent } from './book-category-form.component';
 
 @NgModule({
   declarations: [BookCategoriesManagementComponent],
@@ -25,7 +29,11 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatSortModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BookCategoryFormComponent
   ]
 })
 export class BookCategoriesManagementModule { }
