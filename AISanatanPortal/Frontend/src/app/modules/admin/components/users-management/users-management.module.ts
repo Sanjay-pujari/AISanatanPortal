@@ -24,6 +24,7 @@ import { UsersManagementRoutingModule } from './users-management-routing.module'
 import { UsersManagementComponent } from './users-management.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { SharedModule } from '../../../../shared/shared.module';
+import { ApiOfflineComponent } from '../../../../shared/components/api-offline/api-offline.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SharedModule } from '../../../../shared/shared.module';
     ReactiveFormsModule,
     UsersManagementRoutingModule,
     SharedModule,
+    ApiOfflineComponent,
     
     // Material Modules
     MatTableModule,

@@ -1,4 +1,11 @@
 <div class="users-management">
+  <!-- API Connectivity Status -->
+  <div *ngIf="!isApiOnline" class="api-offline-section">
+    <app-api-offline></app-api-offline>
+  </div>
+
+  <!-- Main Content (only show when API is online) -->
+  <div *ngIf="isApiOnline">
   <!-- Header -->
   <div class="page-header">
     <div class="header-content">
@@ -170,4 +177,5 @@
       </mat-paginator>
     </mat-card-content>
   </mat-card>
+  </div>
 </div>

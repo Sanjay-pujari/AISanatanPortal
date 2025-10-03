@@ -1,0 +1,114 @@
+.api-offline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 20px;
+}
+
+.api-offline-card {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.offline-content {
+  padding: 20px;
+}
+
+.icon-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.offline-icon {
+  font-size: 64px !important;
+  width: 64px !important;
+  height: 64px !important;
+  color: #f44336;
+  margin-bottom: 10px;
+  
+  &.retrying {
+    color: #ff9800;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}
+
+.retry-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.offline-title {
+  color: #333;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.offline-message {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.offline-details {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.retry-info, .retry-count {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.retry-button {
+  min-width: 160px;
+  
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .api-offline-container {
+    padding: 10px;
+  }
+  
+  .offline-content {
+    padding: 15px;
+  }
+  
+  .offline-icon {
+    font-size: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  .offline-title {
+    font-size: 1.5em;
+  }
+}

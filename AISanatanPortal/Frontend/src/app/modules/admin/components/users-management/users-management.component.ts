@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { ApiConnectivityService, ApiConnectivityStatus } from '../../../../shared/services/api-connectivity.service';
+import { Subscription } from 'rxjs';
 
 export interface User {
   id: string;
@@ -32,7 +34,7 @@ export enum UserRole {
   templateUrl: './users-management.component.html',
   styleUrls: ['./users-management.component.scss']
 })
-export class UsersManagementComponent implements OnInit {
+export class UsersManagementComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = [
     'username', 
     'email', 
@@ -49,6 +51,15 @@ export class UsersManagementComponent implements OnInit {
   loading = false;
   searchTerm = '';
   selectedRole = '';
+
+  // API Connectivity properties
+  connectivityStatus: ApiConnectivityStatus = {
+    isOnline: false,
+    lastChecked: new Date(),
+    retryCount: 0,
+    message: 'Checking API connectivity...'
+  };
+  private connectivitySubscription?: Subscription;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -92,11 +103,35 @@ export class UsersManagementComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    @Inject(ApiConnectivityService) private connectivityService: ApiConnectivityService
   ) {}
 
   ngOnInit(): void {
-    this.loadUsers();
+    // Subscribe to connectivity status
+    this.connectivitySubscription = this.connectivityService.connectivityStatus$.subscribe(status => {
+      this.connectivityStatus = status;
+      // If API comes back online and we have no data, reload
+      if (status.isOnline && this.dataSource.data.length === 0) {
+        this.loadUsers();
+      }
+    });
+    
+    // Only load users if API is online
+    if (this.connectivityService.isApiOnline) {
+      this.loadUsers();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.connectivitySubscription) {
+      this.connectivitySubscription.unsubscribe();
+    }
+  }
+
+  // API Connectivity getters
+  get isApiOnline(): boolean {
+    return this.connectivityStatus.isOnline;
   }
 
   ngAfterViewInit(): void {
