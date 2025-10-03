@@ -1,0 +1,99 @@
+<div class="user-form">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>{{ isEditMode ? 'Edit User' : 'Add New User' }}</h2>
+    <button mat-icon-button (click)="onCancel()" class="close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="dialog-content">
+      <div class="form-grid">
+        <!-- Username Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Username</mat-label>
+          <input matInput 
+                 formControlName="username" 
+                 placeholder="Enter username">
+          <mat-error *ngIf="isFieldInvalid('username')">
+            {{ getErrorMessage('username') }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Email Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput 
+                 type="email"
+                 formControlName="email" 
+                 placeholder="Enter email address">
+          <mat-error *ngIf="isFieldInvalid('email')">
+            {{ getErrorMessage('email') }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- First Name Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>First Name</mat-label>
+          <input matInput 
+                 formControlName="firstName" 
+                 placeholder="Enter first name">
+          <mat-error *ngIf="isFieldInvalid('firstName')">
+            {{ getErrorMessage('firstName') }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Last Name Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Last Name</mat-label>
+          <input matInput 
+                 formControlName="lastName" 
+                 placeholder="Enter last name">
+          <mat-error *ngIf="isFieldInvalid('lastName')">
+            {{ getErrorMessage('lastName') }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Role Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let role of userRoles" [value]="role">
+              {{ role }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="isFieldInvalid('role')">
+            {{ getErrorMessage('role') }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Status Fields -->
+        <div class="status-fields">
+          <mat-slide-toggle 
+            formControlName="isEmailVerified"
+            color="primary">
+            Email Verified
+          </mat-slide-toggle>
+
+          <mat-slide-toggle 
+            formControlName="isActive"
+            color="primary">
+            Active User
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-actions">
+      <button mat-button type="button" (click)="onCancel()">
+        Cancel
+      </button>
+      <button mat-raised-button 
+              color="primary" 
+              type="submit"
+              [disabled]="userForm.invalid">
+        {{ isEditMode ? 'Update User' : 'Create User' }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

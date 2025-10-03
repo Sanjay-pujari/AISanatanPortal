@@ -1,0 +1,206 @@
+<div class="books-management">
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <h1>Books Management</h1>
+      <p>Manage sacred books and literature in the digital library</p>
+    </div>
+    <button mat-raised-button color="primary" (click)="openBookForm()">
+      <mat-icon>add</mat-icon>
+      Add Book
+    </button>
+  </div>
+
+  <!-- Filters -->
+  <mat-card class="filters-card">
+    <mat-card-content>
+      <div class="filters-row">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search books</mat-label>
+          <input matInput 
+                 [(ngModel)]="searchTerm" 
+                 (input)="applyFilter()"
+                 placeholder="Search by title, author, or category">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Language</mat-label>
+          <mat-select [(value)]="selectedLanguage" (selectionChange)="applyFilter()">
+            <mat-option value="">All Languages</mat-option>
+            <mat-option *ngFor="let language of languages" [value]="language">
+              {{ language }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Format</mat-label>
+          <mat-select [(value)]="selectedFormat" (selectionChange)="applyFilter()">
+            <mat-option value="">All Formats</mat-option>
+            <mat-option *ngFor="let format of formats" [value]="format">
+              {{ format }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Category</mat-label>
+          <mat-select [(value)]="selectedCategory" (selectionChange)="applyFilter()">
+            <mat-option value="">All Categories</mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="clearFilters()">
+          <mat-icon>clear</mat-icon>
+          Clear Filters
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Books Table -->
+  <mat-card class="table-card">
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="books-table" matSort>
+          <!-- Title Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+            <td mat-cell *matCellDef="let book">
+              <div class="book-info">
+                <div class="title">{{ book.title }}</div>
+                <div class="sanskrit-title" *ngIf="book.sanskritTitle">{{ book.sanskritTitle }}</div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Author Column -->
+          <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Author</th>
+            <td mat-cell *matCellDef="let book">{{ book.author }}</td>
+          </ng-container>
+
+          <!-- Category Column -->
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+            <td mat-cell *matCellDef="let book">
+              <mat-chip>{{ book.category }}</mat-chip>
+            </td>
+          </ng-container>
+
+          <!-- Language Column -->
+          <ng-container matColumnDef="language">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Language</th>
+            <td mat-cell *matCellDef="let book">{{ book.language }}</td>
+          </ng-container>
+
+          <!-- Format Column -->
+          <ng-container matColumnDef="format">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Format</th>
+            <td mat-cell *matCellDef="let book">{{ book.format }}</td>
+          </ng-container>
+
+          <!-- Price Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+            <td mat-cell *matCellDef="let book">
+              <span [class]="book.isFree ? 'free-price' : 'paid-price'">
+                {{ formatPrice(book.price) }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Rating Column -->
+          <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
+            <td mat-cell *matCellDef="let book">
+              <div class="rating-cell">
+                <span class="rating-stars">{{ getRatingStars(book.rating) }}</span>
+                <span class="rating-value">{{ book.rating }}</span>
+                <span class="review-count">({{ book.reviewCount }})</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Download Count Column -->
+          <ng-container matColumnDef="downloadCount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Downloads</th>
+            <td mat-cell *matCellDef="let book">
+              <div class="download-count">
+                <mat-icon>download</mat-icon>
+                {{ book.downloadCount.toLocaleString() }}
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Featured Column -->
+          <ng-container matColumnDef="isFeatured">
+            <th mat-header-cell *matHeaderCellDef>Featured</th>
+            <td mat-cell *matCellDef="let book">
+              <mat-slide-toggle 
+                [checked]="book.isFeatured"
+                (change)="toggleFeatured(book)"
+                [color]="'primary'">
+              </mat-slide-toggle>
+            </td>
+          </ng-container>
+
+          <!-- Created Date Column -->
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Created</th>
+            <td mat-cell *matCellDef="let book">
+              {{ book.createdAt | date:'medium' }}
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let book">
+              <button mat-icon-button [matMenuTriggerFor]="actionMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #actionMenu="matMenu">
+                <button mat-menu-item (click)="openBookForm(book)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="deleteBook(book)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <!-- Loading Spinner -->
+        <div *ngIf="loading" class="loading-container">
+          <mat-spinner></mat-spinner>
+          <p>Loading books...</p>
+        </div>
+
+        <!-- No Data Message -->
+        <div *ngIf="!loading && dataSource.data.length === 0" class="no-data">
+          <mat-icon>menu_book</mat-icon>
+          <h3>No books found</h3>
+          <p>Try adjusting your search criteria or add a new book.</p>
+        </div>
+      </div>
+
+      <!-- Paginator -->
+      <mat-paginator 
+        [pageSizeOptions]="[10, 25, 50, 100]"
+        showFirstLastButtons
+        aria-label="Select page of books">
+      </mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -7,6 +7,10 @@ const routes: Routes = [
     path: 'starting', 
     loadChildren: () => import('./modules/starting/starting.module').then(m => m.StartingModule) 
   },
+  { 
+    path: 'admin', 
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) 
+  },
   // TODO: Uncomment these routes as modules are created
   // { 
   //   path: 'evaluation', 

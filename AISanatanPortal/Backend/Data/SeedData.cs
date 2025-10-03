@@ -285,13 +285,15 @@ public static class SeedData
     {
         // Add sample Panchang data for current date
         var today = DateTime.Today;
-        var panchangData = new AISanatanPortal.API.DTOs.PanchangData
-        {
-            Id = Guid.NewGuid(),
-            Date = today,
-            TithiName = "Chaturdashi",
-            NakshatraName = "Ashwini"
-        };
+        // Note: PanchangData requires TithiId and NakshatraId references to existing Tithi and Nakshatra records
+        // For now, we'll skip seeding PanchangData as it requires proper Tithi and Nakshatra setup
+        // var panchangData = new AISanatanPortal.API.Models.PanchangData
+        // {
+        //     Id = Guid.NewGuid(),
+        //     Date = today,
+        //     TithiId = Guid.NewGuid(), // Would need to reference actual Tithi record
+        //     NakshatraId = Guid.NewGuid() // Would need to reference actual Nakshatra record
+        // };
 
         // Note: In a real implementation, you would add proper Panchang data
         // context.PanchangData.Add(panchangData);
@@ -299,19 +301,25 @@ public static class SeedData
 
     private static async Task SeedFestivals(ApplicationDbContext context)
     {
-        var festivals = new List<AISanatanPortal.API.DTOs.Festival>
+        var festivals = new List<AISanatanPortal.API.Models.Festival>
         {
-            new AISanatanPortal.API.DTOs.Festival
+            new AISanatanPortal.API.Models.Festival
             {
                 Name = "Diwali",
                 Date = new DateTime(2024, 11, 1),
-                Description = "Festival of lights celebrating the victory of light over darkness"
+                Description = "Festival of lights celebrating the victory of light over darkness",
+                Content = "Diwali is one of the most important festivals in Hinduism...",
+                Type = AISanatanPortal.API.Models.FestivalType.Religious,
+                Category = AISanatanPortal.API.Models.FestivalCategory.Major
             },
-            new AISanatanPortal.API.DTOs.Festival
+            new AISanatanPortal.API.Models.Festival
             {
                 Name = "Holi",
                 Date = new DateTime(2024, 3, 25),
-                Description = "Festival of colors celebrating the arrival of spring"
+                Description = "Festival of colors celebrating the arrival of spring",
+                Content = "Holi is a vibrant festival celebrating the arrival of spring...",
+                Type = AISanatanPortal.API.Models.FestivalType.Cultural,
+                Category = AISanatanPortal.API.Models.FestivalCategory.Major
             }
         };
 
@@ -320,14 +328,14 @@ public static class SeedData
 
     private static async Task SeedBooks(ApplicationDbContext context)
     {
-        var authors = new List<AISanatanPortal.API.DTOs.Author>
+        var authors = new List<AISanatanPortal.API.Models.Author>
         {
-            new AISanatanPortal.API.DTOs.Author
+            new AISanatanPortal.API.Models.Author
             {
                 Name = "Swami Vivekananda",
                 Biography = "Renowned spiritual leader and philosopher"
             },
-            new AISanatanPortal.API.DTOs.Author
+            new AISanatanPortal.API.Models.Author
             {
                 Name = "Paramahansa Yogananda",
                 Biography = "Indian monk and guru who introduced millions to meditation and Kriya Yoga"
@@ -339,23 +347,33 @@ public static class SeedData
 
     private static async Task SeedEvents(ApplicationDbContext context)
     {
-        var events = new List<AISanatanPortal.API.DTOs.Event>
+        var events = new List<AISanatanPortal.API.Models.Event>
         {
-            new AISanatanPortal.API.DTOs.Event
+            new AISanatanPortal.API.Models.Event
             {
-                Name = "Spiritual Discourse on Bhagavad Gita",
+                Title = "Spiritual Discourse on Bhagavad Gita",
                 StartDate = DateTime.Now.AddDays(7),
                 EndDate = DateTime.Now.AddDays(7).AddHours(2),
                 Description = "Weekly discourse on the teachings of Bhagavad Gita",
-                Location = "Community Hall, Delhi"
+                Content = "Join us for an enlightening discourse on the timeless wisdom of Bhagavad Gita...",
+                VenueName = "Community Hall",
+                Address = "Community Hall, Delhi",
+                City = "Delhi",
+                Type = AISanatanPortal.API.Models.EventType.Lecture,
+                Category = AISanatanPortal.API.Models.EventCategory.Religious
             },
-            new AISanatanPortal.API.DTOs.Event
+            new AISanatanPortal.API.Models.Event
             {
-                Name = "Vedic Mathematics Workshop",
+                Title = "Vedic Mathematics Workshop",
                 StartDate = DateTime.Now.AddDays(14),
                 EndDate = DateTime.Now.AddDays(14).AddHours(4),
                 Description = "Learn the ancient techniques of Vedic Mathematics",
-                Location = "Educational Center, Mumbai"
+                Content = "Discover the fascinating world of Vedic Mathematics and its practical applications...",
+                VenueName = "Educational Center",
+                Address = "Educational Center, Mumbai",
+                City = "Mumbai",
+                Type = AISanatanPortal.API.Models.EventType.Workshop,
+                Category = AISanatanPortal.API.Models.EventCategory.Educational
             }
         };
 

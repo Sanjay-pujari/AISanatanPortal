@@ -1,0 +1,271 @@
+.books-management {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    border-radius: 12px;
+    color: white;
+
+    .header-content {
+      h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 300;
+      }
+
+      p {
+        margin: 8px 0 0 0;
+        opacity: 0.9;
+        font-size: 1rem;
+      }
+    }
+
+    button {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .filters-card {
+    margin-bottom: 24px;
+
+    .filters-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr auto;
+      gap: 16px;
+      align-items: center;
+
+      .search-field {
+        min-width: 250px;
+      }
+
+      .filter-field {
+        min-width: 150px;
+      }
+
+      button {
+        height: 56px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .table-card {
+    .table-container {
+      position: relative;
+      min-height: 400px;
+
+      .books-table {
+        width: 100%;
+
+        .book-info {
+          .title {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+          }
+
+          .sanskrit-title {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+          }
+        }
+
+        .rating-cell {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .rating-stars {
+            color: #ffc107;
+            font-size: 1.1rem;
+          }
+
+          .rating-value {
+            font-weight: 500;
+            color: #333;
+          }
+
+          .review-count {
+            font-size: 0.85rem;
+            color: #666;
+          }
+        }
+
+        .download-count {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          color: #666;
+
+          mat-icon {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        .free-price {
+          color: #4caf50;
+          font-weight: 500;
+        }
+
+        .paid-price {
+          color: #333;
+          font-weight: 500;
+        }
+
+        .mat-column-actions {
+          width: 80px;
+          text-align: center;
+        }
+
+        .mat-column-isFeatured {
+          width: 100px;
+          text-align: center;
+        }
+
+        .mat-column-price {
+          width: 100px;
+        }
+
+        .mat-column-rating {
+          width: 150px;
+        }
+
+        .mat-column-downloadCount {
+          width: 120px;
+        }
+      }
+
+      .loading-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+
+        p {
+          margin-top: 16px;
+          color: #666;
+        }
+      }
+
+      .no-data {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #666;
+
+        mat-icon {
+          font-size: 64px;
+          width: 64px;
+          height: 64px;
+          margin-bottom: 16px;
+          opacity: 0.5;
+        }
+
+        h3 {
+          margin: 0 0 8px 0;
+          color: #333;
+        }
+
+        p {
+          margin: 0;
+          opacity: 0.8;
+        }
+      }
+    }
+
+    mat-paginator {
+      border-top: 1px solid #e0e0e0;
+      background-color: #fafafa;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .books-management {
+    .filters-card .filters-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+
+      .search-field {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .books-management {
+    padding: 16px;
+
+    .page-header {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+
+      .header-content {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .filters-card .filters-row {
+      grid-template-columns: 1fr;
+      gap: 12px;
+
+      .search-field,
+      .filter-field {
+        min-width: auto;
+      }
+    }
+
+    .table-card {
+      overflow-x: auto;
+
+      .books-table {
+        min-width: 1000px;
+      }
+    }
+  }
+}
+
+// Custom scrollbar
+.table-container {
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+}

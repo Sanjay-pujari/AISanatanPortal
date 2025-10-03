@@ -1,0 +1,56 @@
+<div class="admin-container">
+  <!-- Header -->
+  <mat-toolbar color="primary" class="admin-header">
+    <button mat-icon-button (click)="toggleSidebar()" class="sidebar-toggle">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="admin-title">AI Sanatan Portal - Admin Dashboard</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <div class="admin-content">
+    <!-- Sidebar -->
+    <mat-sidenav-container class="admin-sidenav-container">
+      <mat-sidenav #sidenav 
+                   mode="side" 
+                   [opened]="isSidebarOpen"
+                   class="admin-sidenav">
+        <mat-nav-list class="admin-nav-list">
+          <ng-container *ngFor="let item of menuItems">
+            <a mat-list-item 
+               [routerLink]="item.route"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: false}"
+               class="nav-item">
+              <mat-icon matListIcon class="nav-icon">{{ item.icon }}</mat-icon>
+              <div matLine class="nav-content">
+                <span class="nav-title">{{ item.title }}</span>
+                <span class="nav-description">{{ item.description }}</span>
+              </div>
+            </a>
+          </ng-container>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <!-- Main Content -->
+      <mat-sidenav-content class="admin-main-content">
+        <div class="content-wrapper">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

@@ -1,0 +1,216 @@
+.users-management {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+
+    .header-content {
+      h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 300;
+      }
+
+      p {
+        margin: 8px 0 0 0;
+        opacity: 0.9;
+        font-size: 1rem;
+      }
+    }
+
+    button {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .filters-card {
+    margin-bottom: 24px;
+
+    .filters-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .search-field {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .role-field {
+        min-width: 200px;
+      }
+
+      button {
+        height: 56px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .table-card {
+    .table-container {
+      position: relative;
+      min-height: 400px;
+
+      .users-table {
+        width: 100%;
+
+        .user-info {
+          .username {
+            font-weight: 500;
+            color: #333;
+          }
+        }
+
+        .email-cell {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .verified-icon {
+            font-size: 18px;
+            color: #4caf50;
+          }
+        }
+
+        .mat-column-actions {
+          width: 80px;
+          text-align: center;
+        }
+
+        .mat-column-isEmailVerified {
+          width: 120px;
+          text-align: center;
+        }
+
+        .mat-column-isActive {
+          width: 100px;
+          text-align: center;
+        }
+
+        .mat-column-role {
+          width: 140px;
+        }
+      }
+
+      .loading-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+
+        p {
+          margin-top: 16px;
+          color: #666;
+        }
+      }
+
+      .no-data {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #666;
+
+        mat-icon {
+          font-size: 64px;
+          width: 64px;
+          height: 64px;
+          margin-bottom: 16px;
+          opacity: 0.5;
+        }
+
+        h3 {
+          margin: 0 0 8px 0;
+          color: #333;
+        }
+
+        p {
+          margin: 0;
+          opacity: 0.8;
+        }
+      }
+    }
+
+    mat-paginator {
+      border-top: 1px solid #e0e0e0;
+      background-color: #fafafa;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .users-management {
+    padding: 16px;
+
+    .page-header {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+
+      .header-content {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .filters-card .filters-row {
+      flex-direction: column;
+      align-items: stretch;
+
+      .search-field,
+      .role-field {
+        min-width: auto;
+      }
+    }
+
+    .table-card {
+      overflow-x: auto;
+
+      .users-table {
+        min-width: 800px;
+      }
+    }
+  }
+}
+
+// Custom scrollbar
+.table-container {
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+}
