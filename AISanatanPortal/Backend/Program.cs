@@ -80,6 +80,12 @@ builder.Services.AddScoped<IBookstoreService, BookstoreService>();
 builder.Services.AddScoped<IEventsService, EventsService>();
 builder.Services.AddScoped<IGiftStoreService, GiftStoreService>();
 
+// AI Data Agent Services
+builder.Services.AddHttpClient<IWebScrapingService, WebScrapingService>();
+builder.Services.AddScoped<IWebScrapingService, WebScrapingService>();
+builder.Services.AddScoped<IDataValidationService, DataValidationService>();
+builder.Services.AddScoped<IAIDataAgentService, AIDataAgentService>();
+
 // Register Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();

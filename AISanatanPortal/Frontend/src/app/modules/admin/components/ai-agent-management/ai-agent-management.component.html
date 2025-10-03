@@ -1,0 +1,201 @@
+<div class="ai-agent-management">
+  <mat-card class="main-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>smart_toy</mat-icon>
+        AI Data Agent Management
+      </mat-card-title>
+      <mat-card-subtitle>
+        Automatically collect and populate database with real data from online sources
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Agent Status -->
+      <div class="status-section">
+        <h3>Agent Status</h3>
+        <div class="status-info" *ngIf="agentStatus">
+          <div class="status-item">
+            <mat-icon [color]="getStatusColor()">circle</mat-icon>
+            <span class="status-text">{{ getStatusText() }}</span>
+            <mat-chip [color]="getStatusColor()" selected>
+              {{ getStatusText() }}
+            </mat-chip>
+          </div>
+          
+          <div class="status-details">
+            <div class="detail-item">
+              <mat-icon>play_arrow</mat-icon>
+              <span>Started: {{ formatDate(agentStatus.startTime) }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon>schedule</mat-icon>
+              <span>Last Activity: {{ formatDate(agentStatus.lastActivity) }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon>task</mat-icon>
+              <span>Current Task: {{ agentStatus.currentTask || 'Idle' }}</span>
+            </div>
+          </div>
+
+          <div class="statistics">
+            <div class="stat-item">
+              <mat-icon>refresh</mat-icon>
+              <span>Processed: {{ agentStatus.totalRecordsProcessed }}</span>
+            </div>
+            <div class="stat-item">
+              <mat-icon>add_circle</mat-icon>
+              <span>Added: {{ agentStatus.totalRecordsAdded }}</span>
+            </div>
+            <div class="stat-item">
+              <mat-icon>block</mat-icon>
+              <span>Skipped: {{ agentStatus.totalDuplicatesSkipped }}</span>
+            </div>
+          </div>
+
+          <!-- Errors -->
+          <div class="errors-section" *ngIf="agentStatus.errors && agentStatus.errors.length > 0">
+            <h4>Errors:</h4>
+            <mat-list>
+              <mat-list-item *ngFor="let error of agentStatus.errors">
+                <mat-icon matListItemIcon color="warn">error</mat-icon>
+                <span matListItemTitle>{{ error }}</span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Collection Progress -->
+      <div class="progress-section" *ngIf="collectionProgress">
+        <h3>Collection Progress</h3>
+        <div class="progress-info">
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+          </div>
+          <div class="progress-text">
+            {{ collectionProgress.completedPhases }} / {{ collectionProgress.totalPhases }} phases completed
+            ({{ getProgressPercentage() | number:'1.1-1' }}%)
+          </div>
+          
+          <div class="current-phase" *ngIf="collectionProgress.currentPhase">
+            <mat-icon>autorenew</mat-icon>
+            <span>Current Phase: {{ collectionProgress.currentPhase }}</span>
+          </div>
+        </div>
+
+        <div class="phases-list">
+          <div class="phase-item completed" *ngFor="let task of collectionProgress.completedTasks">
+            <mat-icon>check_circle</mat-icon>
+            <span>{{ task }}</span>
+          </div>
+          <div class="phase-item pending" *ngFor="let task of collectionProgress.pendingTasks">
+            <mat-icon>schedule</mat-icon>
+            <span>{{ task }}</span>
+          </div>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Control Buttons -->
+      <div class="control-section">
+        <h3>Agent Controls</h3>
+        <div class="control-buttons">
+          <button mat-raised-button 
+                  color="primary" 
+                  (click)="startAgent()" 
+                  [disabled]="isLoading || (agentStatus?.isRunning && !agentStatus?.isPaused)"
+                  class="control-btn">
+            <mat-icon>play_arrow</mat-icon>
+            Start Agent
+          </button>
+
+          <button mat-raised-button 
+                  color="warn" 
+                  (click)="stopAgent()" 
+                  [disabled]="isLoading || !agentStatus?.isRunning"
+                  class="control-btn">
+            <mat-icon>stop</mat-icon>
+            Stop Agent
+          </button>
+
+          <button mat-raised-button 
+                  color="accent" 
+                  (click)="pauseAgent()" 
+                  [disabled]="isLoading || !agentStatus?.isRunning || agentStatus?.isPaused"
+                  class="control-btn">
+            <mat-icon>pause</mat-icon>
+            Pause Agent
+          </button>
+
+          <button mat-raised-button 
+                  color="primary" 
+                  (click)="resumeAgent()" 
+                  [disabled]="isLoading || !agentStatus?.isRunning || !agentStatus?.isPaused"
+                  class="control-btn">
+            <mat-icon>play_arrow</mat-icon>
+            Resume Agent
+          </button>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Manual Data Collection -->
+      <div class="manual-section">
+        <h3>Manual Data Collection</h3>
+        <p>Manually trigger data collection for specific data types:</p>
+        <div class="manual-buttons">
+          <button mat-stroked-button 
+                  (click)="collectData('vedas')" 
+                  [disabled]="isLoading || agentStatus?.isRunning"
+                  class="manual-btn">
+            <mat-icon>menu_book</mat-icon>
+            Collect Vedas
+          </button>
+
+          <button mat-stroked-button 
+                  (click)="collectData('puranas')" 
+                  [disabled]="isLoading || agentStatus?.isRunning"
+                  class="manual-btn">
+            <mat-icon>auto_stories</mat-icon>
+            Collect Puranas
+          </button>
+
+          <button mat-stroked-button 
+                  (click)="collectData('kavyas')" 
+                  [disabled]="isLoading || agentStatus?.isRunning"
+                  class="manual-btn">
+            <mat-icon>library_books</mat-icon>
+            Collect Kavyas
+          </button>
+
+          <button mat-stroked-button 
+                  (click)="collectData('temples')" 
+                  [disabled]="isLoading || agentStatus?.isRunning"
+                  class="manual-btn">
+            <mat-icon>temple_hindu</mat-icon>
+            Collect Temples
+          </button>
+
+          <button mat-stroked-button 
+                  (click)="collectData('mythological-places')" 
+                  [disabled]="isLoading || agentStatus?.isRunning"
+                  class="manual-btn">
+            <mat-icon>place</mat-icon>
+            Collect Mythological Places
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div class="loading-section" *ngIf="isLoading">
+        <mat-spinner diameter="40"></mat-spinner>
+        <span>Processing...</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

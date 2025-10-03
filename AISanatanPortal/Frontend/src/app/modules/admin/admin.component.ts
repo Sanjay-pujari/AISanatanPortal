@@ -108,6 +108,13 @@ export class AdminComponent implements OnInit {
       icon: 'quiz',
       route: '/admin/assessments',
       description: 'Manage spiritual assessments and quizzes'
+    },
+    {
+      id: 'ai-agent',
+      title: 'AI Data Agent',
+      icon: 'smart_toy',
+      route: '/admin/ai-agent',
+      description: 'Manage AI agent for automatic data collection'
     }
   ];
 

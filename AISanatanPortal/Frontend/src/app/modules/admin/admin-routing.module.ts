@@ -20,7 +20,8 @@ const routes: Routes = [
       { path: 'festivals', loadChildren: () => import('./components/festivals-management/festivals-management.module').then(m => m.FestivalsManagementModule) },
       { path: 'temples', loadChildren: () => import('./components/temples-management/temples-management.module').then(m => m.TemplesManagementModule) },
       { path: 'chat-sessions', loadChildren: () => import('./components/chat-sessions-management/chat-sessions-management.module').then(m => m.ChatSessionsManagementModule) },
-      { path: 'assessments', loadChildren: () => import('./components/assessments-management/assessments-management.module').then(m => m.AssessmentsManagementModule) }
+      { path: 'assessments', loadChildren: () => import('./components/assessments-management/assessments-management.module').then(m => m.AssessmentsManagementModule) },
+      { path: 'ai-agent', loadChildren: () => import('./components/ai-agent-management/ai-agent-management.module').then(m => m.AiAgentManagementModule) }
     ]
   }
 ];
