@@ -37,7 +37,16 @@ export class AppComponent implements OnInit {
     { name: 'AI Chatbot', route: '/chatbot', icon: 'smart_toy', description: 'Ask questions about Sanatan Dharma' }
   ];
 
+  searchQuery = '';
+
   constructor(private router: Router) {}
+
+  onSearchEnter(): void {
+    const q = (this.searchQuery || '').trim();
+    if (q) {
+      this.router.navigate(['/search'], { queryParams: { q } });
+    }
+  }
 
   ngOnInit() {
     // Initialize component

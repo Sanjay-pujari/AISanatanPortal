@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchResultsComponent } from './shared/components/search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/starting', pathMatch: 'full' },
+  { path: 'search', component: SearchResultsComponent },
   { 
     path: 'starting', 
     loadChildren: () => import('./modules/starting/starting.module').then(m => m.StartingModule) 

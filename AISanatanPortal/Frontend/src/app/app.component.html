@@ -48,8 +48,10 @@
       <!-- Search Bar -->
       <mat-form-field appearance="outline" class="search-field">
         <mat-label>Search wisdom...</mat-label>
-        <input matInput placeholder="Search across all modules">
-        <mat-icon matSuffix>search</mat-icon>
+        <input matInput placeholder="Search across all modules" [(ngModel)]="searchQuery" (keyup.enter)="onSearchEnter()">
+        <button mat-icon-button matSuffix (click)="onSearchEnter()" aria-label="Search">
+          <mat-icon>search</mat-icon>
+        </button>
       </mat-form-field>
 
       <!-- User Menu -->
