@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://localhost:7001/api',
+  apiBaseUrl: 'https://localhost:52603',
   azureOpenAIEndpoint: '',
   azureOpenAIKey: '',
   googleMapsApiKey: '',

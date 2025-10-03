@@ -46,9 +46,14 @@ public class SearchController : ControllerBase
         try
         {
             var term = q.Trim();
+            var termLower = term.ToLower();
 
             var books = await _context.Books
-                .Where(b => (b.Title.Contains(term) || (b.SanskritTitle ?? "").Contains(term) || (b.Description ?? "").Contains(term)) && b.IsActive)
+                .Where(b => (
+                    b.Title.ToLower().Contains(termLower) ||
+                    ((b.SanskritTitle ?? "").ToLower().Contains(termLower)) ||
+                    ((b.Description ?? "").ToLower().Contains(termLower))
+                ) && b.IsActive)
                 .Select(b => new SearchResultItem
                 {
                     Id = b.Id.ToString(),
@@ -62,7 +67,11 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var authors = await _context.Authors
-                .Where(a => (a.Name.Contains(term) || (a.SanskritName ?? "").Contains(term) || (a.Biography ?? "").Contains(term)) && a.IsActive)
+                .Where(a => (
+                    a.Name.ToLower().Contains(termLower) ||
+                    ((a.SanskritName ?? "").ToLower().Contains(termLower)) ||
+                    ((a.Biography ?? "").ToLower().Contains(termLower))
+                ) && a.IsActive)
                 .Select(a => new SearchResultItem
                 {
                     Id = a.Id.ToString(),
@@ -76,7 +85,11 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var categories = await _context.BookCategories
-                .Where(c => (c.Name.Contains(term) || (c.SanskritName ?? "").Contains(term) || (c.Description ?? "").Contains(term)) && c.IsActive)
+                .Where(c => (
+                    c.Name.ToLower().Contains(termLower) ||
+                    ((c.SanskritName ?? "").ToLower().Contains(termLower)) ||
+                    ((c.Description ?? "").ToLower().Contains(termLower))
+                ) && c.IsActive)
                 .Select(c => new SearchResultItem
                 {
                     Id = c.Id.ToString(),
@@ -90,7 +103,10 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var products = await _context.Products
-                .Where(p => (p.Name.Contains(term) || (p.Description ?? "").Contains(term)) && p.IsActive)
+                .Where(p => (
+                    p.Name.ToLower().Contains(termLower) ||
+                    ((p.Description ?? "").ToLower().Contains(termLower))
+                ) && p.IsActive)
                 .Select(p => new SearchResultItem
                 {
                     Id = p.Id.ToString(),
@@ -103,7 +119,11 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var events = await _context.Events
-                .Where(e => (e.Title.Contains(term) || (e.Description ?? "").Contains(term) || (e.Tags ?? "").Contains(term)) && e.IsActive)
+                .Where(e => (
+                    e.Title.ToLower().Contains(termLower) ||
+                    ((e.Description ?? "").ToLower().Contains(termLower)) ||
+                    ((e.Tags ?? "").ToLower().Contains(termLower))
+                ) && e.IsActive)
                 .Select(e => new SearchResultItem
                 {
                     Id = e.Id.ToString(),
@@ -117,7 +137,12 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var temples = await _context.Temples
-                .Where(t => (t.Name.Contains(term) || (t.Description ?? "").Contains(term) || (t.Significance ?? "").Contains(term) || (t.History ?? "").Contains(term)) && t.IsActive)
+                .Where(t => (
+                    t.Name.ToLower().Contains(termLower) ||
+                    ((t.Description ?? "").ToLower().Contains(termLower)) ||
+                    ((t.Significance ?? "").ToLower().Contains(termLower)) ||
+                    ((t.History ?? "").ToLower().Contains(termLower))
+                ) && t.IsActive)
                 .Select(t => new SearchResultItem
                 {
                     Id = t.Id.ToString(),
@@ -130,7 +155,12 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var mythPlaces = await _context.MythologicalPlaces
-                .Where(m => (m.Name.Contains(term) || (m.Description ?? "").Contains(term) || (m.MythologicalSignificance ?? "").Contains(term) || (m.RelatedTexts ?? "").Contains(term)) && m.IsActive)
+                .Where(m => (
+                    m.Name.ToLower().Contains(termLower) ||
+                    ((m.Description ?? "").ToLower().Contains(termLower)) ||
+                    ((m.MythologicalSignificance ?? "").ToLower().Contains(termLower)) ||
+                    ((m.RelatedTexts ?? "").ToLower().Contains(termLower))
+                ) && m.IsActive)
                 .Select(m => new SearchResultItem
                 {
                     Id = m.Id.ToString(),
@@ -143,7 +173,11 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var vedas = await _context.Vedas
-                .Where(v => (v.Name.Contains(term) || (v.SanskritName ?? "").Contains(term) || (v.Description ?? "").Contains(term)) && v.IsActive)
+                .Where(v => (
+                    v.Name.ToLower().Contains(termLower) ||
+                    ((v.SanskritName ?? "").ToLower().Contains(termLower)) ||
+                    ((v.Description ?? "").ToLower().Contains(termLower))
+                ) && v.IsActive)
                 .Select(v => new SearchResultItem
                 {
                     Id = v.Id.ToString(),
@@ -157,7 +191,11 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var puranas = await _context.Puranas
-                .Where(p => (p.Name.Contains(term) || (p.SanskritName ?? "").Contains(term) || (p.Description ?? "").Contains(term)) && p.IsActive)
+                .Where(p => (
+                    p.Name.ToLower().Contains(termLower) ||
+                    ((p.SanskritName ?? "").ToLower().Contains(termLower)) ||
+                    ((p.Description ?? "").ToLower().Contains(termLower))
+                ) && p.IsActive)
                 .Select(p => new SearchResultItem
                 {
                     Id = p.Id.ToString(),
@@ -171,7 +209,12 @@ public class SearchController : ControllerBase
                 .ToListAsync();
 
             var kavyas = await _context.Kavyas
-                .Where(k => (k.Name.Contains(term) || (k.SanskritName ?? "").Contains(term) || (k.Description ?? "").Contains(term) || k.Author.Contains(term)) && k.IsActive)
+                .Where(k => (
+                    k.Name.ToLower().Contains(termLower) ||
+                    ((k.SanskritName ?? "").ToLower().Contains(termLower)) ||
+                    ((k.Description ?? "").ToLower().Contains(termLower)) ||
+                    k.Author.ToLower().Contains(termLower)
+                ) && k.IsActive)
                 .Select(k => new SearchResultItem
                 {
                     Id = k.Id.ToString(),
