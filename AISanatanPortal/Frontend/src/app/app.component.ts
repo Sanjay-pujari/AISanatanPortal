@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   navigationItems: NavigationItem[] = [
     { name: 'Starting', route: '/starting', icon: 'home', description: 'Welcome to Sanatan Dharma' },
+    { name: 'Admin Panel', route: '/admin', icon: 'admin_panel_settings', description: 'Administrative controls' },
     { name: 'Evaluation', route: '/evaluation', icon: 'assessment', description: 'Self-assessment and learning' },
     { name: 'Vedas', route: '/vedas', icon: 'menu_book', description: 'The eternal knowledge' },
     { name: 'Puranas', route: '/puranas', icon: 'history_edu', description: 'Ancient stories and wisdom' },
