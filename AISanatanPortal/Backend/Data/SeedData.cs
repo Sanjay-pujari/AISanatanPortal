@@ -104,38 +104,46 @@ public static class SeedData
             new Veda
             {
                 Name = "Rigveda",
-                SanskritName = "ऋग्वेद",
-                Description = "The Rigveda is one of the four sacred texts of Hinduism, known as the Vedas. It is the oldest of the four Vedas.",
+                SanskritName = "ऋग्वेदः",
+                Description = "The oldest of the four Vedas, containing hymns and mantras dedicated to various deities. It is the foundation of Hindu philosophy and contains 10,552 mantras.",
                 ChapterCount = 10,
-                VerseCount = 1028
-            },
-            new Veda
-            {
-                Name = "Yajurveda",
-                SanskritName = "यजुर्वेद",
-                Description = "The Yajurveda is the Veda of sacrificial prayers and mantras. It is used by priests during sacrificial ceremonies.",
-                ChapterCount = 40,
-                VerseCount = 1975
+                VerseCount = 10552,
+                ImageUrl = "/images/vedas/rigveda.jpg"
             },
             new Veda
             {
                 Name = "Samaveda",
-                SanskritName = "सामवेद",
-                Description = "The Samaveda is the Veda of melodies and chants. It consists of hymns taken from the Rigveda set to music.",
-                ChapterCount = 21,
-                VerseCount = 1549
+                SanskritName = "सामवेदः",
+                Description = "The Veda of melodies and chants. It contains 1,875 mantras, most of which are from the Rigveda, arranged for musical recitation.",
+                ChapterCount = 2,
+                VerseCount = 1875,
+                ImageUrl = "/images/vedas/samaveda.jpg"
+            },
+            new Veda
+            {
+                Name = "Yajurveda",
+                SanskritName = "यजुर्वेदः",
+                Description = "The Veda of sacrificial formulas. It contains prose mantras for performing yajnas and rituals, divided into Shukla and Krishna Yajurveda.",
+                ChapterCount = 40,
+                VerseCount = 1975,
+                ImageUrl = "/images/vedas/yajurveda.jpg"
             },
             new Veda
             {
                 Name = "Atharvaveda",
-                SanskritName = "अथर्ववेद",
-                Description = "The Atharvaveda is the Veda of everyday life and contains spells, charms, and incantations.",
+                SanskritName = "अथर्ववेदः",
+                Description = "The Veda of spells and charms. It contains 5,977 mantras dealing with medicine, magic, and daily life practices.",
                 ChapterCount = 20,
-                VerseCount = 5977
+                VerseCount = 5977,
+                ImageUrl = "/images/vedas/atharvaveda.jpg"
             }
         };
 
         context.Vedas.AddRange(vedas);
+        await context.SaveChangesAsync();
+
+        // Add Veda Chapters
+        await SeedVedaChapters(context, vedas);
     }
 
     private static async Task SeedPuranas(ApplicationDbContext context)
@@ -378,5 +386,110 @@ public static class SeedData
         };
 
         // context.Events.AddRange(events);
+    }
+
+    // Helper methods for comprehensive seed data
+    private static async Task SeedVedaChapters(ApplicationDbContext context, List<Veda> vedas)
+    {
+        var chapters = new List<VedaChapter>();
+        
+        // Rigveda Chapters (10 Mandalas)
+        var rigveda = vedas.First(v => v.Name == "Rigveda");
+        for (int i = 1; i <= 10; i++)
+        {
+            chapters.Add(new VedaChapter
+            {
+                VedaId = rigveda.Id,
+                Title = $"Mandala {i}",
+                SanskritTitle = $"मण्डल {i}",
+                ChapterNumber = i,
+                Summary = $"The {i}th Mandala of Rigveda containing hymns dedicated to various deities and natural forces.",
+                VerseCount = i == 1 ? 191 : i == 2 ? 43 : i == 3 ? 62 : i == 4 ? 58 : i == 5 ? 87 : i == 6 ? 75 : i == 7 ? 104 : i == 8 ? 103 : i == 9 ? 114 : 191
+            });
+        }
+
+        // Samaveda Chapters (2 parts)
+        var samaveda = vedas.First(v => v.Name == "Samaveda");
+        chapters.Add(new VedaChapter
+        {
+            VedaId = samaveda.Id,
+            Title = "Purvarchika",
+            SanskritTitle = "पूर्वार्चिक",
+            ChapterNumber = 1,
+            Summary = "The first part of Samaveda containing 585 mantras arranged for musical recitation.",
+            VerseCount = 585
+        });
+        chapters.Add(new VedaChapter
+        {
+            VedaId = samaveda.Id,
+            Title = "Uttararchika",
+            SanskritTitle = "उत्तरार्चिक",
+            ChapterNumber = 2,
+            Summary = "The second part of Samaveda containing 1,290 mantras for various rituals.",
+            VerseCount = 1290
+        });
+
+        // Yajurveda Chapters (40 chapters for Shukla Yajurveda)
+        var yajurveda = vedas.First(v => v.Name == "Yajurveda");
+        for (int i = 1; i <= 40; i++)
+        {
+            chapters.Add(new VedaChapter
+            {
+                VedaId = yajurveda.Id,
+                Title = $"Adhyaya {i}",
+                SanskritTitle = $"अध्याय {i}",
+                ChapterNumber = i,
+                Summary = $"The {i}th chapter of Yajurveda containing sacrificial formulas and ritual procedures.",
+                VerseCount = 50 + (i * 2) // Approximate verse count
+            });
+        }
+
+        // Atharvaveda Chapters (20 Kandas)
+        var atharvaveda = vedas.First(v => v.Name == "Atharvaveda");
+        for (int i = 1; i <= 20; i++)
+        {
+            chapters.Add(new VedaChapter
+            {
+                VedaId = atharvaveda.Id,
+                Title = $"Kanda {i}",
+                SanskritTitle = $"काण्ड {i}",
+                ChapterNumber = i,
+                Summary = $"The {i}th Kanda of Atharvaveda containing spells, charms, and medicinal formulas.",
+                VerseCount = 300 + (i * 5) // Approximate verse count
+            });
+        }
+
+        context.VedaChapters.AddRange(chapters);
+        await context.SaveChangesAsync();
+
+        // Add sample verses for each chapter
+        await SeedVedaVerses(context, chapters);
+    }
+
+    private static async Task SeedVedaVerses(ApplicationDbContext context, List<VedaChapter> chapters)
+    {
+        var verses = new List<VedaVerse>();
+        
+        foreach (var chapter in chapters)
+        {
+            // Add 3-5 sample verses per chapter
+            int verseCount = Math.Min(5, chapter.VerseCount);
+            for (int i = 1; i <= verseCount; i++)
+            {
+                verses.Add(new VedaVerse
+                {
+                    ChapterId = chapter.Id,
+                    VerseNumber = i,
+                    SanskritText = $"Sample Sanskrit text for verse {i} of {chapter.Title}",
+                    EnglishTranslation = $"English translation of verse {i} from {chapter.Title}",
+                    HindiTranslation = $"हिंदी अनुवाद of verse {i} from {chapter.Title}",
+                    Commentary = $"Detailed commentary explaining the meaning and significance of verse {i}",
+                    AudioUrl = $"/audio/vedas/{chapter.VedaId}/{chapter.Id}/verse_{i}.mp3"
+                });
+            }
+        }
+
+        context.VedaVerses.AddRange(verses);
+        await context.SaveChangesAsync();
     }
 }
