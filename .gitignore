@@ -10,3 +10,5 @@
 node_modules
 /AISanatanPortal/Frontend/node_modules
 /AISanatanPortal/Frontend/.angular
+/AISanatanPortal/Tests/obj
+/AISanatanPortal/Tests/bin/Debug/net9.0
