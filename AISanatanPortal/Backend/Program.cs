@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using AISanatanPortal.API.Data;
 using AISanatanPortal.API.Services;
 using AISanatanPortal.API.Repositories;
+using AISanatanPortal.API.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -22,6 +23,15 @@ builder.Host.UseSerilog();
 
 // Add services to the container
 builder.Services.AddControllers();
+
+// Add session support for language preferences
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // Configure Entity Framework with PostgreSQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -85,6 +95,11 @@ builder.Services.AddHttpClient<IWebScrapingService, WebScrapingService>();
 builder.Services.AddScoped<IWebScrapingService, WebScrapingService>();
 builder.Services.AddScoped<IDataValidationService, DataValidationService>();
 builder.Services.AddScoped<IAIDataAgentService, AIDataAgentService>();
+
+// Translation Services
+builder.Services.AddHttpClient<ITranslationService, TranslationService>();
+builder.Services.AddScoped<ITranslationService, TranslationService>();
+builder.Services.AddScoped<ILanguageDetectionService, LanguageDetectionService>();
 
 // Register Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -151,6 +166,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAngularApp");
+
+// Add session middleware
+app.UseSession();
+
+// Add translation middleware before authentication
+app.UseTranslation();
 
 app.UseAuthentication();
 app.UseAuthorization();
