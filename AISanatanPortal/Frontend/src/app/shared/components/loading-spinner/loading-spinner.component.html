@@ -8,11 +8,11 @@
       [strokeWidth]="strokeWidth"
       class="custom-spinner">
     </mat-spinner>
-    <p *ngIf="showMessage" class="loading-message">{{ message }}</p>
+    <p *ngIf="showMessage" class="loading-message">{{ message || ('loading.message' | translate) }}</p>
     <p class="spiritual-quote">
-      "सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः"
+      {{ 'loading.quote' | translate }}
       <br>
-      <small>May all beings be happy and healthy</small>
+      <small>{{ 'loading.quote.translation' | translate }}</small>
     </p>
   </div>
 </div>

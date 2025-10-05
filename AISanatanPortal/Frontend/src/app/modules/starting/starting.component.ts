@@ -10,43 +10,43 @@ export class StartingComponent implements OnInit {
 
   quickLinks = [
     {
-      title: 'Vedas',
-      description: 'Explore the eternal knowledge of the Vedas',
+      titleKey: 'quicklinks.vedas.title',
+      descriptionKey: 'quicklinks.vedas.description',
       icon: 'menu_book',
       route: '/vedas',
       color: 'primary'
     },
     {
-      title: 'Puranas',
-      description: 'Discover ancient stories and wisdom',
+      titleKey: 'quicklinks.puranas.title',
+      descriptionKey: 'quicklinks.puranas.description',
       icon: 'history_edu',
       route: '/puranas',
       color: 'accent'
     },
     {
-      title: 'Panchang',
-      description: 'Hindu calendar with Tithis and festivals',
+      titleKey: 'quicklinks.panchang.title',
+      descriptionKey: 'quicklinks.panchang.description',
       icon: 'calendar_month',
       route: '/panchang',
       color: 'primary'
     },
     {
-      title: 'AI Assistant',
-      description: 'Ask questions about Sanatan Dharma',
+      titleKey: 'quicklinks.ai.title',
+      descriptionKey: 'quicklinks.ai.description',
       icon: 'smart_toy',
       route: '/chatbot',
       color: 'accent'
     },
     {
-      title: 'Sacred Places',
-      description: 'Locate temples and holy sites',
+      titleKey: 'quicklinks.places.title',
+      descriptionKey: 'quicklinks.places.description',
       icon: 'place',
       route: '/places-temples',
       color: 'primary'
     },
     {
-      title: 'Bookstore',
-      description: 'Browse spiritual books and texts',
+      titleKey: 'quicklinks.books.title',
+      descriptionKey: 'quicklinks.books.description',
       icon: 'local_library',
       route: '/bookstore',
       color: 'accent'
@@ -55,19 +55,19 @@ export class StartingComponent implements OnInit {
 
   featuredContent = [
     {
-      title: 'Daily Wisdom',
-      content: '"धर्मो रक्षति रक्षितः" - Dharma protects those who protect Dharma',
-      source: 'Mahabharata'
+      titleKey: 'featured.wisdom.title',
+      contentKey: 'featured.wisdom.content',
+      sourceKey: 'featured.wisdom.source'
     },
     {
-      title: 'Today\'s Tithi',
-      content: 'Loading Panchang data...',
-      source: 'Hindu Calendar'
+      titleKey: 'featured.tithi.title',
+      contentKey: 'featured.tithi.content',
+      sourceKey: 'featured.tithi.source'
     },
     {
-      title: 'Festival Alert',
-      content: 'Upcoming festivals and observances',
-      source: 'Calendar'
+      titleKey: 'featured.festival.title',
+      contentKey: 'featured.festival.content',
+      sourceKey: 'featured.festival.source'
     }
   ];
 

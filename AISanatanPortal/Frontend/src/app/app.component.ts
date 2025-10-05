@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface NavigationItem {
-  name: string;
+  nameKey: string;
   route: string;
   icon: string;
-  description: string;
+  descriptionKey: string;
 }
 
 @Component({
@@ -19,22 +19,22 @@ export class AppComponent implements OnInit {
   isSidenavOpen = false;
 
   navigationItems: NavigationItem[] = [
-    { name: 'Starting', route: '/starting', icon: 'home', description: 'Welcome to Sanatan Dharma' },
-    { name: 'Admin Panel', route: '/admin', icon: 'admin_panel_settings', description: 'Administrative controls' },
-    { name: 'Evaluation', route: '/evaluation', icon: 'assessment', description: 'Self-assessment and learning' },
-    { name: 'Vedas', route: '/vedas', icon: 'menu_book', description: 'The eternal knowledge' },
-    { name: 'Puranas', route: '/puranas', icon: 'history_edu', description: 'Ancient stories and wisdom' },
-    { name: 'Kavyas', route: '/kavyas', icon: 'auto_stories', description: 'Epic poetry and literature' },
-    { name: 'Mathematics', route: '/mathematics', icon: 'functions', description: 'Mathematical contributions' },
-    { name: 'Astrology', route: '/astrology', icon: 'psychology', description: 'Vedic astrology and predictions' },
-    { name: 'Astronomy', route: '/astronomy', icon: 'public', description: 'Celestial sciences' },
-    { name: 'Medical Science', route: '/medical-science', icon: 'healing', description: 'Ayurveda and health' },
-    { name: 'Places & Temples', route: '/places-temples', icon: 'place', description: 'Sacred locations and maps' },
-    { name: 'Panchang Calendar', route: '/panchang', icon: 'calendar_month', description: 'Hindu calendar system' },
-    { name: 'Bookstore', route: '/bookstore', icon: 'local_library', description: 'Books and publications' },
-    { name: 'Gift Store', route: '/gift-store', icon: 'card_giftcard', description: 'Religious items and souvenirs' },
-    { name: 'Events', route: '/events', icon: 'event', description: 'Upcoming religious events' },
-    { name: 'AI Chatbot', route: '/chatbot', icon: 'smart_toy', description: 'Ask questions about Sanatan Dharma' }
+    { nameKey: 'nav.home', route: '/starting', icon: 'home', descriptionKey: 'nav.home' },
+    { nameKey: 'nav.admin', route: '/admin', icon: 'admin_panel_settings', descriptionKey: 'nav.admin' },
+    { nameKey: 'nav.evaluation', route: '/evaluation', icon: 'assessment', descriptionKey: 'nav.evaluation' },
+    { nameKey: 'nav.vedas', route: '/vedas', icon: 'menu_book', descriptionKey: 'nav.vedas' },
+    { nameKey: 'nav.puranas', route: '/puranas', icon: 'history_edu', descriptionKey: 'nav.puranas' },
+    { nameKey: 'nav.kavyas', route: '/kavyas', icon: 'auto_stories', descriptionKey: 'nav.kavyas' },
+    { nameKey: 'nav.mathematics', route: '/mathematics', icon: 'functions', descriptionKey: 'nav.mathematics' },
+    { nameKey: 'nav.astrology', route: '/astrology', icon: 'psychology', descriptionKey: 'nav.astrology' },
+    { nameKey: 'nav.astronomy', route: '/astronomy', icon: 'public', descriptionKey: 'nav.astronomy' },
+    { nameKey: 'nav.medical', route: '/medical-science', icon: 'healing', descriptionKey: 'nav.medical' },
+    { nameKey: 'nav.places', route: '/places-temples', icon: 'place', descriptionKey: 'nav.places' },
+    { nameKey: 'nav.panchang', route: '/panchang', icon: 'calendar_month', descriptionKey: 'nav.panchang' },
+    { nameKey: 'nav.bookstore', route: '/bookstore', icon: 'local_library', descriptionKey: 'nav.bookstore' },
+    { nameKey: 'nav.gifts', route: '/gift-store', icon: 'card_giftcard', descriptionKey: 'nav.gifts' },
+    { nameKey: 'nav.events', route: '/events', icon: 'event', descriptionKey: 'nav.events' },
+    { nameKey: 'nav.chatbot', route: '/chatbot', icon: 'smart_toy', descriptionKey: 'nav.chatbot' }
   ];
 
   searchQuery = '';

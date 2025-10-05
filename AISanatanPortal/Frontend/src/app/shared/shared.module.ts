@@ -22,6 +22,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 
 // Shared Pipes
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { TranslatePipe } from './pipes/translate.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 // Shared Directives
@@ -36,6 +37,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     
     // Pipes
     TruncatePipe,
+    TranslatePipe,
     SafeHtmlPipe,
     
     // Directives
@@ -84,6 +86,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     
     // Shared pipes
     TruncatePipe,
+    TranslatePipe,
     SafeHtmlPipe,
     
     // Shared directives

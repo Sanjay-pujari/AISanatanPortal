@@ -2,10 +2,10 @@
   
   <!-- Page Header -->
   <app-page-header
-    title="Welcome to AI Sanatan Portal"
-    subtitle="Explore the eternal wisdom of Sanatan Dharma through modern technology"
+    [title]="'welcome.title' | translate"
+    [subtitle]="'welcome.description' | translate"
     icon="om"
-    [breadcrumbItems]="[{label: 'Home'}]">
+    [breadcrumbItems]="[{label: ('nav.home' | translate)}]">
   </app-page-header>
 
   <!-- Main Content -->
@@ -29,8 +29,8 @@
               <div class="card-icon">
                 <mat-icon [color]="link.color" class="large-icon">{{ link.icon }}</mat-icon>
               </div>
-              <h3>{{ link.title }}</h3>
-              <p>{{ link.description }}</p>
+              <h3>{{ link.titleKey | translate }}</h3>
+              <p>{{ link.descriptionKey | translate }}</p>
             </mat-card-content>
           </mat-card>
         </div>
@@ -47,11 +47,11 @@
             *ngFor="let item of featuredContent" 
             class="featured-card custom-card">
             <mat-card-header>
-              <mat-card-title>{{ item.title }}</mat-card-title>
-              <mat-card-subtitle>{{ item.source }}</mat-card-subtitle>
+              <mat-card-title>{{ item.titleKey | translate }}</mat-card-title>
+              <mat-card-subtitle>{{ item.sourceKey | translate }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p [innerHTML]="item.content"></p>
+              <p [innerHTML]="item.contentKey | translate"></p>
             </mat-card-content>
           </mat-card>
         </div>

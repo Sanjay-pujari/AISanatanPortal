@@ -10,9 +10,9 @@
     <div class="sidenav-header">
       <div class="logo-container">
         <mat-icon class="om-icon">om</mat-icon>
-        <h3>AI Sanatan Portal</h3>
+        <h3>{{ 'welcome.title' | translate }}</h3>
       </div>
-      <p class="tagline">Exploring Eternal Wisdom</p>
+      <p class="tagline">{{ 'welcome.subtitle' | translate }}</p>
     </div>
 
     <mat-nav-list class="navigation-list">
@@ -21,8 +21,8 @@
         (click)="navigateTo(item.route)"
         class="nav-item">
         <mat-icon matListItemIcon class="nav-icon">{{item.icon}}</mat-icon>
-        <div matListItemTitle>{{item.name}}</div>
-        <div matListItemLine>{{item.description}}</div>
+        <div matListItemTitle>{{item.nameKey | translate}}</div>
+        <div matListItemLine>{{item.descriptionKey | translate}}</div>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
@@ -40,7 +40,7 @@
       
       <span class="toolbar-title">
         <mat-icon class="om-icon-small">om</mat-icon>
-        AI Sanatan Portal
+        {{ 'welcome.title' | translate }}
       </span>
       
       <span class="spacer"></span>
@@ -50,8 +50,8 @@
 
       <!-- Search Bar -->
       <mat-form-field appearance="outline" class="search-field">
-        <mat-label>Search wisdom...</mat-label>
-        <input matInput placeholder="Search across all modules" [(ngModel)]="searchQuery" (keyup.enter)="onSearchEnter()">
+        <mat-label>{{ 'search.placeholder' | translate }}</mat-label>
+        <input matInput [placeholder]="'search.placeholder' | translate" [(ngModel)]="searchQuery" (keyup.enter)="onSearchEnter()">
         <button mat-icon-button matSuffix (click)="onSearchEnter()" aria-label="Search">
           <mat-icon>search</mat-icon>
         </button>
@@ -85,7 +85,7 @@
     <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb">
       <ol>
-        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['/']">{{ 'nav.home' | translate }}</a></li>
         <li class="current">Current Page</li>
       </ol>
     </nav>
@@ -99,17 +99,17 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h4>AI Sanatan Portal</h4>
-          <p>Exploring the eternal wisdom of Sanatan Dharma through modern technology</p>
+          <h4>{{ 'welcome.title' | translate }}</h4>
+          <p>{{ 'welcome.description' | translate }}</p>
         </div>
         <div class="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li><a [routerLink]="['/admin']">Admin Panel</a></li>
-            <li><a [routerLink]="['/vedas']">Vedas</a></li>
-            <li><a [routerLink]="['/puranas']">Puranas</a></li>
-            <li><a [routerLink]="['/panchang']">Panchang</a></li>
-            <li><a [routerLink]="['/chatbot']">AI Assistant</a></li>
+            <li><a [routerLink]="['/admin']">{{ 'nav.admin' | translate }}</a></li>
+            <li><a [routerLink]="['/vedas']">{{ 'nav.vedas' | translate }}</a></li>
+            <li><a [routerLink]="['/puranas']">{{ 'nav.puranas' | translate }}</a></li>
+            <li><a [routerLink]="['/panchang']">{{ 'nav.panchang' | translate }}</a></li>
+            <li><a [routerLink]="['/chatbot']">{{ 'nav.chatbot' | translate }}</a></li>
           </ul>
         </div>
         <div class="footer-section">
