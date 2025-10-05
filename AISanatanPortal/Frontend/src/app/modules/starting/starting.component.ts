@@ -80,8 +80,9 @@ export class StartingComponent implements OnInit {
 
   private loadDailyContent(): void {
     // This would connect to the backend API to get daily content
-    // For now, we'll use mock data
-    this.featuredContent[1].content = 'Shukla Paksha, Chaturdashi - Auspicious day for spiritual practices';
+    // For now, we'll use translation keys instead of dynamic content
+    // The actual content will come from the translation system
+    // You can extend this to fetch dynamic content from backend and update translation keys
   }
 
 }

@@ -1,0 +1,1060 @@
+2025-10-06 00:30:47.936 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-06 00:30:49.258 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-10-06 00:30:49.282 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-10-06 00:30:50.727 +05:30 [INF] Executed DbCommand (1,405ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-10-06 00:30:51.827 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-06 00:30:51.917 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-10-06 00:30:54.074 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2025-10-06 00:30:54.874 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2025-10-06 00:30:54.899 +05:30 [INF] Database migration and seeding completed successfully
+2025-10-06 00:30:54.902 +05:30 [INF] AI Sanatan Portal API started successfully
+2025-10-06 00:30:54.991 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-06 00:30:55.911 +05:30 [INF] Now listening on: https://localhost:52603
+2025-10-06 00:30:55.978 +05:30 [INF] Now listening on: http://localhost:52604
+2025-10-06 00:30:56.601 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-06 00:30:56.767 +05:30 [INF] Hosting environment: Development
+2025-10-06 00:30:56.776 +05:30 [INF] Content root path: E:\Personal\Sanjay\SanatanGlory\AISanatanPortal\AISanatanPortal\Backend
+2025-10-06 00:31:14.419 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-06 00:31:14.419 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/_vs/browserLink - null null
+2025-10-06 00:31:14.471 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/_framework/aspnetcore-browser-refresh.js - 200 16523 application/javascript; charset=utf-8 70.8358ms
+2025-10-06 00:31:14.707 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/_vs/browserLink - 200 null text/javascript; charset=UTF-8 307.7438ms
+2025-10-06 00:31:14.871 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/swagger/v1/swagger.json - null null
+2025-10-06 00:31:17.148 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2276.9571ms
+2025-10-06 00:31:20.141 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=sa - null null
+2025-10-06 00:31:20.213 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:31:20.281 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=sa - 204 null null 139.4329ms
+2025-10-06 00:31:20.313 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=sa - null null
+2025-10-06 00:31:20.332 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:31:20.623 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-06 00:31:20.697 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-06 00:31:20.760 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-06 00:31:20.811 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 100.9106ms
+2025-10-06 00:31:20.813 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-06 00:31:20.910 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=sa - 200 null application/json; charset=utf-8 597.0827ms
+2025-10-06 00:31:35.339 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=rama&lang=hi - null null
+2025-10-06 00:31:35.343 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:31:35.350 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=rama&lang=hi - 204 null null 11.5184ms
+2025-10-06 00:31:35.356 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=rama&lang=hi - application/json null
+2025-10-06 00:31:35.359 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:31:35.364 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:31:35.386 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:31:36.370 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.494 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.513 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.520 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.528 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.539 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.549 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.560 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.569 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.606 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.624 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.638 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.690 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.700 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.707 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.717 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.734 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.747 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.755 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:31:36.763 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:36.794 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:31:36.804 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 1414.4789ms
+2025-10-06 00:31:36.807 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:31:36.824 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=rama&lang=hi - 200 559 application/json; charset=utf-8 1467.9325ms
+2025-10-06 00:31:57.723 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=maha&lang=hi - null null
+2025-10-06 00:31:57.730 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:31:57.732 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=maha&lang=hi - 204 null null 9.2874ms
+2025-10-06 00:31:57.738 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=maha&lang=hi - application/json null
+2025-10-06 00:31:57.742 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:31:57.750 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:31:57.751 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:31:57.851 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.857 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.863 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.867 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.872 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.877 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.882 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.886 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.891 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.900 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:31:57.905 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:31:57.907 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 152.5194ms
+2025-10-06 00:31:57.908 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:31:57.965 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=maha&lang=hi - 200 1417 application/json; charset=utf-8 196.0308ms
+2025-10-06 00:32:24.994 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=mah&lang=hi - null null
+2025-10-06 00:32:25.128 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:32:25.222 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=mah&lang=hi - 204 null null 227.7481ms
+2025-10-06 00:32:25.233 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=mah&lang=hi - application/json null
+2025-10-06 00:32:25.252 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:32:25.254 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:32:25.257 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:32:25.265 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.273 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.279 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.287 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.297 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.311 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.315 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.322 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.328 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.333 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:32:25.339 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:32:25.347 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 84.621ms
+2025-10-06 00:32:25.350 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:32:25.355 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=mah&lang=hi - 200 1417 application/json; charset=utf-8 121.9068ms
+2025-10-06 00:34:42.053 +05:30 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-06 00:34:42.808 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-10-06 00:34:42.818 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-10-06 00:34:42.821 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-10-06 00:34:42.824 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-06 00:34:42.829 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-10-06 00:34:42.932 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2025-10-06 00:34:43.167 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2025-10-06 00:34:43.182 +05:30 [INF] Database migration and seeding completed successfully
+2025-10-06 00:34:43.185 +05:30 [INF] AI Sanatan Portal API started successfully
+2025-10-06 00:34:43.221 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-06 00:34:43.484 +05:30 [INF] Now listening on: https://localhost:52603
+2025-10-06 00:34:43.486 +05:30 [INF] Now listening on: http://localhost:52604
+2025-10-06 00:34:43.639 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-06 00:34:43.642 +05:30 [INF] Hosting environment: Development
+2025-10-06 00:34:43.643 +05:30 [INF] Content root path: E:\Personal\Sanjay\SanatanGlory\AISanatanPortal\AISanatanPortal\Backend
+2025-10-06 00:34:46.892 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/_vs/browserLink - null null
+2025-10-06 00:34:46.892 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-06 00:34:47.016 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/_framework/aspnetcore-browser-refresh.js - 200 16523 application/javascript; charset=utf-8 134.0661ms
+2025-10-06 00:34:47.071 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/_vs/browserLink - 200 null text/javascript; charset=UTF-8 192.435ms
+2025-10-06 00:34:47.143 +05:30 [INF] Request starting HTTP/2 GET https://localhost:52603/swagger/v1/swagger.json - null null
+2025-10-06 00:34:47.557 +05:30 [INF] Request finished HTTP/2 GET https://localhost:52603/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 414.3934ms
+2025-10-06 00:34:54.985 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=maha&lang=hi - null null
+2025-10-06 00:34:55.046 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:34:55.149 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=maha&lang=hi - 204 null null 166.6951ms
+2025-10-06 00:34:55.160 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=maha&lang=hi - application/json null
+2025-10-06 00:34:55.168 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:34:55.287 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:34:55.315 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:34:55.498 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.580 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.594 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.602 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.609 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.616 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.623 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.630 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.638 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.672 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.679 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.688 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.697 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.705 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.717 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.727 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.737 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.748 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.758 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-06 00:34:55.778 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:34:55.796 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:34:55.826 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 503.8367ms
+2025-10-06 00:34:55.831 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:34:55.904 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:55.909 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:57.615 +05:30 [INF] Received HTTP response headers after 1701.4941ms - 200
+2025-10-06 00:34:57.619 +05:30 [INF] End processing HTTP request after 1715.7311ms - 200
+2025-10-06 00:34:57.625 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:57.628 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:58.733 +05:30 [INF] Received HTTP response headers after 1102.1972ms - 200
+2025-10-06 00:34:58.741 +05:30 [INF] End processing HTTP request after 1116.0018ms - 200
+2025-10-06 00:34:58.750 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:58.755 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:59.849 +05:30 [INF] Received HTTP response headers after 1090.9616ms - 200
+2025-10-06 00:34:59.856 +05:30 [INF] End processing HTTP request after 1105.9843ms - 200
+2025-10-06 00:34:59.866 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:34:59.876 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:01.004 +05:30 [INF] Received HTTP response headers after 1119.8718ms - 200
+2025-10-06 00:35:01.006 +05:30 [INF] End processing HTTP request after 1140.2706ms - 200
+2025-10-06 00:35:01.009 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:01.010 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:02.142 +05:30 [INF] Received HTTP response headers after 1130.8421ms - 200
+2025-10-06 00:35:02.144 +05:30 [INF] End processing HTTP request after 1135.835ms - 200
+2025-10-06 00:35:02.149 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:02.150 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:03.394 +05:30 [INF] Received HTTP response headers after 1242.3305ms - 200
+2025-10-06 00:35:03.403 +05:30 [INF] End processing HTTP request after 1254.8446ms - 200
+2025-10-06 00:35:03.405 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:03.407 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:04.504 +05:30 [INF] Received HTTP response headers after 1095.042ms - 200
+2025-10-06 00:35:04.506 +05:30 [INF] End processing HTTP request after 1100.2663ms - 200
+2025-10-06 00:35:04.509 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:04.512 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:05.989 +05:30 [INF] Received HTTP response headers after 1460.1731ms - 200
+2025-10-06 00:35:05.992 +05:30 [INF] End processing HTTP request after 1482.8817ms - 200
+2025-10-06 00:35:05.995 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:05.996 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:06.051 +05:30 [INF] Received HTTP response headers after 52.9226ms - 200
+2025-10-06 00:35:06.052 +05:30 [INF] End processing HTTP request after 57.7421ms - 200
+2025-10-06 00:35:06.054 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:06.055 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:07.202 +05:30 [INF] Received HTTP response headers after 1144.9557ms - 200
+2025-10-06 00:35:07.204 +05:30 [INF] End processing HTTP request after 1150.3906ms - 200
+2025-10-06 00:35:07.207 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:07.208 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:08.434 +05:30 [INF] Received HTTP response headers after 1222.7147ms - 200
+2025-10-06 00:35:08.455 +05:30 [INF] End processing HTTP request after 1248.0745ms - 200
+2025-10-06 00:35:08.471 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:08.473 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:08.531 +05:30 [INF] Received HTTP response headers after 52.9627ms - 200
+2025-10-06 00:35:08.533 +05:30 [INF] End processing HTTP request after 61.7462ms - 200
+2025-10-06 00:35:08.535 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:08.536 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:08.592 +05:30 [INF] Received HTTP response headers after 55.1984ms - 200
+2025-10-06 00:35:08.595 +05:30 [INF] End processing HTTP request after 59.6833ms - 200
+2025-10-06 00:35:08.597 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:08.607 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:09.704 +05:30 [INF] Received HTTP response headers after 1095.8501ms - 200
+2025-10-06 00:35:09.707 +05:30 [INF] End processing HTTP request after 1110.5075ms - 200
+2025-10-06 00:35:09.711 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:09.713 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:10.808 +05:30 [INF] Received HTTP response headers after 1092.2826ms - 200
+2025-10-06 00:35:10.812 +05:30 [INF] End processing HTTP request after 1101.7299ms - 200
+2025-10-06 00:35:10.818 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:10.822 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:10.878 +05:30 [INF] Received HTTP response headers after 53.4073ms - 200
+2025-10-06 00:35:10.880 +05:30 [INF] End processing HTTP request after 62.6649ms - 200
+2025-10-06 00:35:10.882 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:10.883 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:10.939 +05:30 [INF] Received HTTP response headers after 54.6442ms - 200
+2025-10-06 00:35:10.941 +05:30 [INF] End processing HTTP request after 58.9316ms - 200
+2025-10-06 00:35:10.943 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:10.944 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:12.069 +05:30 [INF] Received HTTP response headers after 1122.6809ms - 200
+2025-10-06 00:35:12.101 +05:30 [INF] End processing HTTP request after 1157.9321ms - 200
+2025-10-06 00:35:12.103 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:12.104 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:13.624 +05:30 [INF] Received HTTP response headers after 1518.876ms - 200
+2025-10-06 00:35:13.626 +05:30 [INF] End processing HTTP request after 1523.4571ms - 200
+2025-10-06 00:35:13.629 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:13.630 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:13.688 +05:30 [INF] Received HTTP response headers after 55.4209ms - 200
+2025-10-06 00:35:13.694 +05:30 [INF] End processing HTTP request after 65.3202ms - 200
+2025-10-06 00:35:13.697 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:13.699 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:14.841 +05:30 [INF] Received HTTP response headers after 1139.5854ms - 200
+2025-10-06 00:35:14.846 +05:30 [INF] End processing HTTP request after 1149.0674ms - 200
+2025-10-06 00:35:14.850 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:14.855 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:14.913 +05:30 [INF] Received HTTP response headers after 53.3317ms - 200
+2025-10-06 00:35:14.914 +05:30 [INF] End processing HTTP request after 64.379ms - 200
+2025-10-06 00:35:14.916 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:14.917 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:16.005 +05:30 [INF] Received HTTP response headers after 1085.6801ms - 200
+2025-10-06 00:35:16.008 +05:30 [INF] End processing HTTP request after 1091.4199ms - 200
+2025-10-06 00:35:16.010 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:16.012 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:16.075 +05:30 [INF] Received HTTP response headers after 60.7669ms - 200
+2025-10-06 00:35:16.106 +05:30 [INF] End processing HTTP request after 95.9239ms - 200
+2025-10-06 00:35:16.113 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:16.126 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:17.449 +05:30 [INF] Received HTTP response headers after 1320.1873ms - 200
+2025-10-06 00:35:17.458 +05:30 [INF] End processing HTTP request after 1344.5252ms - 200
+2025-10-06 00:35:17.465 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:17.472 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.467 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=ma&lang=hi - null null
+2025-10-06 00:35:18.522 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:35:18.523 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=ma&lang=hi - 204 null null 59.7177ms
+2025-10-06 00:35:18.530 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=ma&lang=hi - application/json null
+2025-10-06 00:35:18.538 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:35:18.540 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:35:18.543 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:35:18.586 +05:30 [INF] Received HTTP response headers after 1110.527ms - 200
+2025-10-06 00:35:18.597 +05:30 [INF] End processing HTTP request after 1131.8291ms - 200
+2025-10-06 00:35:18.604 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.608 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.642 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.646 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.650 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.655 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.659 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.661 +05:30 [INF] Received HTTP response headers after 50.6711ms - 200
+2025-10-06 00:35:18.664 +05:30 [INF] End processing HTTP request after 60.2806ms - 200
+2025-10-06 00:35:18.665 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.666 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.670 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.671 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.676 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.680 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.685 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:18.689 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:35:18.691 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 145.115ms
+2025-10-06 00:35:18.694 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:35:18.695 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.697 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.724 +05:30 [INF] Received HTTP response headers after 52.6386ms - 200
+2025-10-06 00:35:18.726 +05:30 [INF] End processing HTTP request after 59.7512ms - 200
+2025-10-06 00:35:18.728 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:18.729 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:19.892 +05:30 [INF] Received HTTP response headers after 1161.1691ms - 200
+2025-10-06 00:35:19.895 +05:30 [INF] End processing HTTP request after 1167.8392ms - 200
+2025-10-06 00:35:19.915 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=maha&lang=hi - 200 3216 application/json; charset=utf-8 24755.2226ms
+2025-10-06 00:35:19.984 +05:30 [INF] Received HTTP response headers after 1286.4879ms - 200
+2025-10-06 00:35:20.096 +05:30 [INF] End processing HTTP request after 1400.5781ms - 200
+2025-10-06 00:35:20.098 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:20.100 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:20.168 +05:30 [INF] Received HTTP response headers after 66.4475ms - 200
+2025-10-06 00:35:20.170 +05:30 [INF] End processing HTTP request after 71.1502ms - 200
+2025-10-06 00:35:20.171 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:20.173 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:21.306 +05:30 [INF] Received HTTP response headers after 1131.5799ms - 200
+2025-10-06 00:35:21.321 +05:30 [INF] End processing HTTP request after 1149.8671ms - 200
+2025-10-06 00:35:21.333 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:21.339 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:22.476 +05:30 [INF] Received HTTP response headers after 1134.8791ms - 200
+2025-10-06 00:35:22.486 +05:30 [INF] End processing HTTP request after 1153.4526ms - 200
+2025-10-06 00:35:22.509 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:22.512 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:22.592 +05:30 [INF] Received HTTP response headers after 77.1566ms - 200
+2025-10-06 00:35:22.598 +05:30 [INF] End processing HTTP request after 89.5649ms - 200
+2025-10-06 00:35:22.607 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:22.616 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:23.710 +05:30 [INF] Received HTTP response headers after 1088.0925ms - 200
+2025-10-06 00:35:23.719 +05:30 [INF] End processing HTTP request after 1112.4736ms - 200
+2025-10-06 00:35:23.728 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:23.734 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:24.861 +05:30 [INF] Received HTTP response headers after 1121.5836ms - 200
+2025-10-06 00:35:24.877 +05:30 [INF] End processing HTTP request after 1149.3169ms - 200
+2025-10-06 00:35:24.882 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:24.886 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:24.950 +05:30 [INF] Received HTTP response headers after 52.1275ms - 200
+2025-10-06 00:35:24.952 +05:30 [INF] End processing HTTP request after 69.6544ms - 200
+2025-10-06 00:35:24.954 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:24.955 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.142 +05:30 [INF] Received HTTP response headers after 1184.8095ms - 200
+2025-10-06 00:35:26.144 +05:30 [INF] End processing HTTP request after 1190.3184ms - 200
+2025-10-06 00:35:26.152 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.154 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.213 +05:30 [INF] Received HTTP response headers after 56.6805ms - 200
+2025-10-06 00:35:26.216 +05:30 [INF] End processing HTTP request after 63.4826ms - 200
+2025-10-06 00:35:26.218 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.219 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.362 +05:30 [INF] Received HTTP response headers after 141.4844ms - 200
+2025-10-06 00:35:26.363 +05:30 [INF] End processing HTTP request after 145.8655ms - 200
+2025-10-06 00:35:26.365 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.366 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.410 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=mahab&lang=hi - null null
+2025-10-06 00:35:26.424 +05:30 [INF] Received HTTP response headers after 56.0391ms - 200
+2025-10-06 00:35:26.442 +05:30 [INF] End processing HTTP request after 77.2522ms - 200
+2025-10-06 00:35:26.441 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:35:26.444 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.445 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=mahab&lang=hi - 204 null null 35.4155ms
+2025-10-06 00:35:26.447 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.452 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=mahab&lang=hi - application/json null
+2025-10-06 00:35:26.458 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:35:26.462 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:35:26.463 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:35:26.472 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.478 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.486 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.494 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.502 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.512 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.517 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.527 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.529 +05:30 [INF] Received HTTP response headers after 75.9769ms - 200
+2025-10-06 00:35:26.533 +05:30 [INF] End processing HTTP request after 89.0286ms - 200
+2025-10-06 00:35:26.535 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.536 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.535 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.544 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:26.548 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:35:26.551 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 84.4544ms
+2025-10-06 00:35:26.553 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:35:26.558 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.559 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.617 +05:30 [INF] Received HTTP response headers after 56.3201ms - 200
+2025-10-06 00:35:26.618 +05:30 [INF] End processing HTTP request after 60.4734ms - 200
+2025-10-06 00:35:26.620 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.621 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.676 +05:30 [INF] Received HTTP response headers after 53.1735ms - 200
+2025-10-06 00:35:26.677 +05:30 [INF] End processing HTTP request after 57.7189ms - 200
+2025-10-06 00:35:26.679 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.681 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.734 +05:30 [INF] Received HTTP response headers after 51.8287ms - 200
+2025-10-06 00:35:26.738 +05:30 [INF] End processing HTTP request after 58.6152ms - 200
+2025-10-06 00:35:26.743 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.746 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.809 +05:30 [INF] Received HTTP response headers after 58.8256ms - 200
+2025-10-06 00:35:26.842 +05:30 [INF] End processing HTTP request after 98.5892ms - 200
+2025-10-06 00:35:26.843 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.845 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.918 +05:30 [INF] Received HTTP response headers after 379.5344ms - 200
+2025-10-06 00:35:26.921 +05:30 [INF] End processing HTTP request after 386.3942ms - 200
+2025-10-06 00:35:26.924 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:26.925 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:27.972 +05:30 [INF] Received HTTP response headers after 1125.2365ms - 200
+2025-10-06 00:35:27.973 +05:30 [INF] End processing HTTP request after 1129.9955ms - 200
+2025-10-06 00:35:27.975 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:27.977 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.254 +05:30 [INF] Received HTTP response headers after 1328.0423ms - 200
+2025-10-06 00:35:28.281 +05:30 [INF] End processing HTTP request after 1357.3416ms - 200
+2025-10-06 00:35:28.283 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.292 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.450 +05:30 [INF] Received HTTP response headers after 141.8672ms - 200
+2025-10-06 00:35:28.452 +05:30 [INF] End processing HTTP request after 169.1818ms - 200
+2025-10-06 00:35:28.454 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.456 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.519 +05:30 [INF] Received HTTP response headers after 61.5073ms - 200
+2025-10-06 00:35:28.521 +05:30 [INF] End processing HTTP request after 67.3544ms - 200
+2025-10-06 00:35:28.523 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.526 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.976 +05:30 [INF] Received HTTP response headers after 448.1819ms - 200
+2025-10-06 00:35:28.978 +05:30 [INF] End processing HTTP request after 454.556ms - 200
+2025-10-06 00:35:28.980 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:28.982 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:29.044 +05:30 [INF] Received HTTP response headers after 59.6282ms - 200
+2025-10-06 00:35:29.046 +05:30 [INF] End processing HTTP request after 65.2706ms - 200
+2025-10-06 00:35:29.048 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:29.050 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:29.057 +05:30 [INF] Received HTTP response headers after 1078.5354ms - 200
+2025-10-06 00:35:29.061 +05:30 [INF] End processing HTTP request after 1085.7878ms - 200
+2025-10-06 00:35:29.063 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:29.065 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:29.495 +05:30 [INF] Received HTTP response headers after 443.4481ms - 200
+2025-10-06 00:35:29.500 +05:30 [INF] End processing HTTP request after 452.0889ms - 200
+2025-10-06 00:35:29.503 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:29.505 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.177 +05:30 [INF] Received HTTP response headers after 1109.4324ms - 200
+2025-10-06 00:35:30.185 +05:30 [INF] End processing HTTP request after 1122.0495ms - 200
+2025-10-06 00:35:30.193 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.201 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.261 +05:30 [INF] Received HTTP response headers after 52.9551ms - 200
+2025-10-06 00:35:30.265 +05:30 [INF] End processing HTTP request after 72.0457ms - 200
+2025-10-06 00:35:30.269 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.271 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.323 +05:30 [INF] Received HTTP response headers after 50.429ms - 200
+2025-10-06 00:35:30.327 +05:30 [INF] End processing HTTP request after 58.6472ms - 200
+2025-10-06 00:35:30.331 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.334 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.449 +05:30 [INF] Received HTTP response headers after 941.9152ms - 200
+2025-10-06 00:35:30.454 +05:30 [INF] End processing HTTP request after 951.2202ms - 200
+2025-10-06 00:35:30.458 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.460 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.622 +05:30 [INF] Received HTTP response headers after 160.2276ms - 200
+2025-10-06 00:35:30.629 +05:30 [INF] End processing HTTP request after 170.3016ms - 200
+2025-10-06 00:35:30.639 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.642 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.698 +05:30 [INF] Received HTTP response headers after 52.4076ms - 200
+2025-10-06 00:35:30.700 +05:30 [INF] End processing HTTP request after 60.9318ms - 200
+2025-10-06 00:35:30.702 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:30.703 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:31.414 +05:30 [INF] Received HTTP response headers after 1077.8028ms - 200
+2025-10-06 00:35:31.421 +05:30 [INF] End processing HTTP request after 1089.2733ms - 200
+2025-10-06 00:35:31.427 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:31.431 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:31.487 +05:30 [INF] Received HTTP response headers after 52.146ms - 200
+2025-10-06 00:35:31.494 +05:30 [INF] End processing HTTP request after 66.938ms - 200
+2025-10-06 00:35:31.507 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=mahab&lang=hi - 200 1346 application/json; charset=utf-8 5055.5698ms
+2025-10-06 00:35:31.820 +05:30 [INF] Received HTTP response headers after 1115.7402ms - 200
+2025-10-06 00:35:31.829 +05:30 [INF] End processing HTTP request after 1127.1347ms - 200
+2025-10-06 00:35:31.838 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:31.846 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:32.955 +05:30 [INF] Received HTTP response headers after 1101.8387ms - 200
+2025-10-06 00:35:32.964 +05:30 [INF] End processing HTTP request after 1126.4619ms - 200
+2025-10-06 00:35:32.972 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:32.978 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.191 +05:30 [INF] Received HTTP response headers after 1205.5746ms - 200
+2025-10-06 00:35:34.195 +05:30 [INF] End processing HTTP request after 1223.2903ms - 200
+2025-10-06 00:35:34.198 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.200 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.255 +05:30 [INF] Received HTTP response headers after 52.5731ms - 200
+2025-10-06 00:35:34.259 +05:30 [INF] End processing HTTP request after 61.3517ms - 200
+2025-10-06 00:35:34.263 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.266 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.574 +05:30 [INF] Received HTTP response headers after 304.0046ms - 200
+2025-10-06 00:35:34.577 +05:30 [INF] End processing HTTP request after 314.1784ms - 200
+2025-10-06 00:35:34.579 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.581 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.635 +05:30 [INF] Received HTTP response headers after 52.8501ms - 200
+2025-10-06 00:35:34.641 +05:30 [INF] End processing HTTP request after 61.1037ms - 200
+2025-10-06 00:35:34.646 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:34.650 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:35.757 +05:30 [INF] Received HTTP response headers after 1103.6406ms - 200
+2025-10-06 00:35:35.759 +05:30 [INF] End processing HTTP request after 1112.9421ms - 200
+2025-10-06 00:35:35.760 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:35.762 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:35.907 +05:30 [INF] Received HTTP response headers after 143.167ms - 200
+2025-10-06 00:35:35.909 +05:30 [INF] End processing HTTP request after 148.325ms - 200
+2025-10-06 00:35:35.911 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:35.912 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:35.967 +05:30 [INF] Received HTTP response headers after 53.1414ms - 200
+2025-10-06 00:35:35.969 +05:30 [INF] End processing HTTP request after 58.8628ms - 200
+2025-10-06 00:35:35.971 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:35.972 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:36.029 +05:30 [INF] Received HTTP response headers after 55.5637ms - 200
+2025-10-06 00:35:36.031 +05:30 [INF] End processing HTTP request after 60.0244ms - 200
+2025-10-06 00:35:36.033 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:36.036 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:36.091 +05:30 [INF] Received HTTP response headers after 53.7666ms - 200
+2025-10-06 00:35:36.096 +05:30 [INF] End processing HTTP request after 62.4753ms - 200
+2025-10-06 00:35:36.098 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:36.101 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.249 +05:30 [INF] Received HTTP response headers after 1145.8556ms - 200
+2025-10-06 00:35:37.252 +05:30 [INF] End processing HTTP request after 1153.393ms - 200
+2025-10-06 00:35:37.253 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.255 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.309 +05:30 [INF] Received HTTP response headers after 52.9176ms - 200
+2025-10-06 00:35:37.334 +05:30 [INF] End processing HTTP request after 80.2513ms - 200
+2025-10-06 00:35:37.335 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.343 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.405 +05:30 [INF] Received HTTP response headers after 58.2247ms - 200
+2025-10-06 00:35:37.407 +05:30 [INF] End processing HTTP request after 72.0148ms - 200
+2025-10-06 00:35:37.409 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.410 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.902 +05:30 [INF] Received HTTP response headers after 490.2047ms - 200
+2025-10-06 00:35:37.905 +05:30 [INF] End processing HTTP request after 496.3392ms - 200
+2025-10-06 00:35:37.907 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.908 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.969 +05:30 [INF] Received HTTP response headers after 59.6669ms - 200
+2025-10-06 00:35:37.973 +05:30 [INF] End processing HTTP request after 66.2055ms - 200
+2025-10-06 00:35:37.975 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:37.977 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.031 +05:30 [INF] Received HTTP response headers after 52.1226ms - 200
+2025-10-06 00:35:38.034 +05:30 [INF] End processing HTTP request after 58.842ms - 200
+2025-10-06 00:35:38.036 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.037 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.091 +05:30 [INF] Received HTTP response headers after 52.8862ms - 200
+2025-10-06 00:35:38.101 +05:30 [INF] End processing HTTP request after 64.0606ms - 200
+2025-10-06 00:35:38.110 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.118 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.536 +05:30 [INF] Received HTTP response headers after 408.493ms - 200
+2025-10-06 00:35:38.538 +05:30 [INF] End processing HTTP request after 428.2608ms - 200
+2025-10-06 00:35:38.540 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.541 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.596 +05:30 [INF] Received HTTP response headers after 53.0967ms - 200
+2025-10-06 00:35:38.632 +05:30 [INF] End processing HTTP request after 92.3285ms - 200
+2025-10-06 00:35:38.637 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.645 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.720 +05:30 [INF] Received HTTP response headers after 73.258ms - 200
+2025-10-06 00:35:38.724 +05:30 [INF] End processing HTTP request after 86.9951ms - 200
+2025-10-06 00:35:38.726 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:38.727 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:39.823 +05:30 [INF] Received HTTP response headers after 1094.3823ms - 200
+2025-10-06 00:35:39.826 +05:30 [INF] End processing HTTP request after 1100.1154ms - 200
+2025-10-06 00:35:39.828 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:39.829 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:39.885 +05:30 [INF] Received HTTP response headers after 53.9959ms - 200
+2025-10-06 00:35:39.890 +05:30 [INF] End processing HTTP request after 61.8166ms - 200
+2025-10-06 00:35:39.892 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:39.893 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:39.951 +05:30 [INF] Received HTTP response headers after 56.3897ms - 200
+2025-10-06 00:35:39.954 +05:30 [INF] End processing HTTP request after 62.2615ms - 200
+2025-10-06 00:35:39.959 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:39.965 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.298 +05:30 [INF] Received HTTP response headers after 329.8026ms - 200
+2025-10-06 00:35:40.300 +05:30 [INF] End processing HTTP request after 340.4846ms - 200
+2025-10-06 00:35:40.302 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.303 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.358 +05:30 [INF] Received HTTP response headers after 53.5878ms - 200
+2025-10-06 00:35:40.361 +05:30 [INF] End processing HTTP request after 59.1946ms - 200
+2025-10-06 00:35:40.364 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.366 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.423 +05:30 [INF] Received HTTP response headers after 55.4215ms - 200
+2025-10-06 00:35:40.424 +05:30 [INF] End processing HTTP request after 60.5541ms - 200
+2025-10-06 00:35:40.426 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.428 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:40.482 +05:30 [INF] Received HTTP response headers after 52.8813ms - 200
+2025-10-06 00:35:40.484 +05:30 [INF] End processing HTTP request after 57.6286ms - 200
+2025-10-06 00:35:40.489 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=ma&lang=hi - 200 6046 application/json; charset=utf-8 21957.8802ms
+2025-10-06 00:35:49.688 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=rama&lang=ta - null null
+2025-10-06 00:35:49.728 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:35:49.730 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Search?q=rama&lang=ta - 204 null null 41.1542ms
+2025-10-06 00:35:49.738 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Search?q=rama&lang=ta - application/json null
+2025-10-06 00:35:49.743 +05:30 [INF] CORS policy execution successful.
+2025-10-06 00:35:49.744 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:35:49.746 +05:30 [INF] Route matched with {action = "Search", controller = "Search"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.Controllers.SearchController+SearchResponse]]] Search(System.String) on controller AISanatanPortal.API.Controllers.SearchController (AISanatanPortal.API).
+2025-10-06 00:35:49.755 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book' AS "Type", b."Title", b."SanskritTitle" AS "Subtitle", b."Description" AS "Snippet", '/admin/books' AS "Route"
+FROM "Books" AS b
+WHERE (lower(b."Title") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritTitle", '')) LIKE @__termLower_0_contains OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_1) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.768 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id"::text AS "Id", 'Author' AS "Type", a."Name" AS "Title", a."SanskritName" AS "Subtitle", a."Biography" AS "Snippet", '/admin/authors' AS "Route"
+FROM "Authors" AS a
+WHERE (lower(a."Name") LIKE @__termLower_0_contains OR lower(COALESCE(a."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(a."Biography", '')) LIKE @__termLower_0_contains_2) AND a."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.773 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id"::text AS "Id", 'Book Category' AS "Type", b."Name" AS "Title", b."SanskritName" AS "Subtitle", b."Description" AS "Snippet", '/admin/book-categories' AS "Route"
+FROM "BookCategories" AS b
+WHERE (lower(b."Name") LIKE @__termLower_0_contains OR lower(COALESCE(b."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(b."Description", '')) LIKE @__termLower_0_contains_2) AND b."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.778 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Product' AS "Type", p."Name" AS "Title", p."Description" AS "Snippet", '/admin/products' AS "Route"
+FROM "Products" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_1) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.786 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id"::text AS "Id", 'Event' AS "Type", e."Title", CASE e."Category"
+    WHEN 1 THEN 'Religious'
+    WHEN 2 THEN 'Cultural'
+    WHEN 3 THEN 'Educational'
+    WHEN 4 THEN 'Spiritual'
+    WHEN 5 THEN 'Community'
+    WHEN 6 THEN 'Charitable'
+    WHEN 7 THEN 'Youth'
+    WHEN 8 THEN 'Family'
+    WHEN 9 THEN 'Devotional'
+    WHEN 10 THEN 'Traditional'
+    ELSE e."Category"::text
+END AS "Subtitle", e."Description" AS "Snippet", '/admin/events' AS "Route"
+FROM "Events" AS e
+WHERE (lower(e."Title") LIKE @__termLower_0_contains OR lower(COALESCE(e."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(e."Tags", '')) LIKE @__termLower_0_contains_2) AND e."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.809 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id"::text AS "Id", 'Temple' AS "Type", t."Name" AS "Title", t."Description" AS "Snippet", '/admin/temples' AS "Route"
+FROM "Temples" AS t
+WHERE (lower(t."Name") LIKE @__termLower_0_contains OR lower(COALESCE(t."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(t."Significance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(t."History", '')) LIKE @__termLower_0_contains_2) AND t."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.815 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id"::text AS "Id", 'Mythological Place' AS "Type", m."Name" AS "Title", m."Description" AS "Snippet", '/admin/places-temples' AS "Route"
+FROM "MythologicalPlaces" AS m
+WHERE (lower(m."Name") LIKE @__termLower_0_contains OR lower(COALESCE(m."Description", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(m."MythologicalSignificance", '')) LIKE @__termLower_0_contains_2 OR lower(COALESCE(m."RelatedTexts", '')) LIKE @__termLower_0_contains_2) AND m."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.822 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id"::text AS "Id", 'Veda' AS "Type", v."Name" AS "Title", v."SanskritName" AS "Subtitle", v."Description" AS "Snippet", '/vedas' AS "Route"
+FROM "Vedas" AS v
+WHERE (lower(v."Name") LIKE @__termLower_0_contains OR lower(COALESCE(v."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(v."Description", '')) LIKE @__termLower_0_contains_2) AND v."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.828 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"::text AS "Id", 'Purana' AS "Type", p."Name" AS "Title", p."SanskritName" AS "Subtitle", p."Description" AS "Snippet", '/puranas' AS "Route"
+FROM "Puranas" AS p
+WHERE (lower(p."Name") LIKE @__termLower_0_contains OR lower(COALESCE(p."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(p."Description", '')) LIKE @__termLower_0_contains_2) AND p."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.834 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__termLower_0_contains='?', @__termLower_0_contains_1='?', @__termLower_0_contains_2='?', @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT k."Id"::text AS "Id", 'Kavya' AS "Type", k."Name" AS "Title", k."Author" AS "Subtitle", k."Description" AS "Snippet", '/kavyas' AS "Route"
+FROM "Kavyas" AS k
+WHERE (lower(k."Name") LIKE @__termLower_0_contains OR lower(COALESCE(k."SanskritName", '')) LIKE @__termLower_0_contains_1 OR lower(COALESCE(k."Description", '')) LIKE @__termLower_0_contains_2 OR lower(k."Author") LIKE @__termLower_0_contains_1) AND k."IsActive"
+LIMIT @__p_1
+2025-10-06 00:35:49.838 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.Controllers.SearchController+SearchResponse, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-06 00:35:49.840 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API) in 89.3053ms
+2025-10-06 00:35:49.842 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.SearchController.Search (AISanatanPortal.API)'
+2025-10-06 00:35:49.843 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:49.846 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:49.903 +05:30 [INF] Received HTTP response headers after 54.1116ms - 200
+2025-10-06 00:35:49.904 +05:30 [INF] End processing HTTP request after 61.0485ms - 200
+2025-10-06 00:35:49.906 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:49.907 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:49.962 +05:30 [INF] Received HTTP response headers after 52.6606ms - 200
+2025-10-06 00:35:49.963 +05:30 [INF] End processing HTTP request after 57.2093ms - 200
+2025-10-06 00:35:49.965 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:49.966 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:50.021 +05:30 [INF] Received HTTP response headers after 53.7496ms - 200
+2025-10-06 00:35:50.023 +05:30 [INF] End processing HTTP request after 58.0429ms - 200
+2025-10-06 00:35:50.024 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:50.026 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:50.082 +05:30 [INF] Received HTTP response headers after 54.1603ms - 200
+2025-10-06 00:35:50.083 +05:30 [INF] End processing HTTP request after 58.6301ms - 200
+2025-10-06 00:35:50.085 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:50.086 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:50.139 +05:30 [INF] Received HTTP response headers after 51.7796ms - 200
+2025-10-06 00:35:50.141 +05:30 [INF] End processing HTTP request after 56.4203ms - 200
+2025-10-06 00:35:50.143 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:50.144 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.351 +05:30 [INF] Received HTTP response headers after 1206.0906ms - 200
+2025-10-06 00:35:51.355 +05:30 [INF] End processing HTTP request after 1211.9156ms - 200
+2025-10-06 00:35:51.357 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.359 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.414 +05:30 [INF] Received HTTP response headers after 53.3836ms - 200
+2025-10-06 00:35:51.419 +05:30 [INF] End processing HTTP request after 62.2606ms - 200
+2025-10-06 00:35:51.423 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.426 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.482 +05:30 [INF] Received HTTP response headers after 53.7159ms - 200
+2025-10-06 00:35:51.484 +05:30 [INF] End processing HTTP request after 61.6889ms - 200
+2025-10-06 00:35:51.486 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.487 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.542 +05:30 [INF] Received HTTP response headers after 53.2591ms - 200
+2025-10-06 00:35:51.544 +05:30 [INF] End processing HTTP request after 57.7438ms - 200
+2025-10-06 00:35:51.546 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.548 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.961 +05:30 [INF] Received HTTP response headers after 411.676ms - 200
+2025-10-06 00:35:51.964 +05:30 [INF] End processing HTTP request after 418.3364ms - 200
+2025-10-06 00:35:51.969 +05:30 [INF] Start processing HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:51.973 +05:30 [INF] Sending HTTP request POST https://api.cognitive.microsofttranslator.com/translate?*
+2025-10-06 00:35:52.027 +05:30 [INF] Received HTTP response headers after 52.54ms - 200
+2025-10-06 00:35:52.029 +05:30 [INF] End processing HTTP request after 59.2624ms - 200
+2025-10-06 00:35:52.031 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Search?q=rama&lang=ta - 200 1303 application/json; charset=utf-8 2293.2963ms
