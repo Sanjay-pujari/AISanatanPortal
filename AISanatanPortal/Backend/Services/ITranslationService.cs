@@ -1,5 +1,6 @@
 using AISanatanPortal.API.DTOs;
 using AISanatanPortal.API.Models;
+using System.Text;
 
 namespace AISanatanPortal.API.Services;
 
@@ -40,8 +41,13 @@ public class TranslationService : ITranslationService
 
         try
         {
-            // For now, using a simple translation mapping
-            // In production, you'd integrate with Azure Translator, Google Translate, or similar
+            var translated = await TranslateWithAzureAsync(text, targetLanguage, sourceLanguage);
+            if (!string.IsNullOrWhiteSpace(translated))
+            {
+                return translated;
+            }
+
+            // Fallback to simple mapping if Azure fails
             return await TranslateWithMappingAsync(text, targetLanguage, sourceLanguage);
         }
         catch (Exception ex)
@@ -250,6 +256,66 @@ public class TranslationService : ITranslationService
             ["or"] = new LanguageInfo { Code = "or", Name = "Odia", NativeName = "ଓଡ଼ିଆ" },
             ["as"] = new LanguageInfo { Code = "as", Name = "Assamese", NativeName = "অসমীয়া" }
         };
+    }
+
+    private async Task<string> TranslateWithAzureAsync(string text, string targetLanguage, string sourceLanguage)
+    {
+        try
+        {
+            var endpoint = _configuration["AzureTranslator:Endpoint"]?.TrimEnd('/');
+            var apiKey = _configuration["AzureTranslator:Key"];
+            var region = _configuration["AzureTranslator:Region"];
+
+            if (string.IsNullOrWhiteSpace(endpoint) || string.IsNullOrWhiteSpace(apiKey) || string.IsNullOrWhiteSpace(region))
+            {
+                return string.Empty;
+            }
+
+            var route = $"/translate?api-version=3.0&from={sourceLanguage}&to={targetLanguage}";
+            using var request = new HttpRequestMessage(HttpMethod.Post, new Uri(new Uri(endpoint), route));
+            request.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Region", region);
+
+            var body = new[] { new { Text = text } };
+            request.Content = new StringContent(System.Text.Json.JsonSerializer.Serialize(body), Encoding.UTF8);
+            request.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            var response = await _httpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning("Azure Translator returned status {Status}", response.StatusCode);
+                return string.Empty;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            /* Expected response structure:
+            [
+              {
+                "translations": [ { "text": "...", "to": "xx" } ]
+              }
+            ]
+            */
+            using var doc = System.Text.Json.JsonDocument.Parse(json);
+            var root = doc.RootElement;
+            if (root.ValueKind == System.Text.Json.JsonValueKind.Array && root.GetArrayLength() > 0)
+            {
+                var first = root[0];
+                if (first.TryGetProperty("translations", out var translations) && translations.ValueKind == System.Text.Json.JsonValueKind.Array && translations.GetArrayLength() > 0)
+                {
+                    var firstTrans = translations[0];
+                    if (firstTrans.TryGetProperty("text", out var translatedTextEl))
+                    {
+                        return translatedTextEl.GetString() ?? string.Empty;
+                    }
+                }
+            }
+            return string.Empty;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Azure Translator call failed");
+            return string.Empty;
+        }
     }
 
     private Dictionary<string, Dictionary<string, Dictionary<string, string>>> GetTranslationMappings()

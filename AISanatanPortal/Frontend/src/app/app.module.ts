@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Material Modules
@@ -33,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { LanguageSelectorComponent } from './shared/components/language-selector/language-selector.component';
+import { LanguageInterceptor } from './shared/interceptors/language.interceptor';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,9 @@ import { LanguageSelectorComponent } from './shared/components/language-selector
     MatChipsModule,
     MatBadgeModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LanguageInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

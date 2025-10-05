@@ -18,13 +18,12 @@ import { LanguageService, LanguageInfo } from '../../services/language.service';
       <select 
         id="language-select"
         [(ngModel)]="selectedLanguage" 
-        (change)="onLanguageChange($event)"
+        (ngModelChange)="onLanguageSelect($event)"
         class="language-select"
         [disabled]="isLoading">
         <option 
           *ngFor="let language of supportedLanguages" 
-          [value]="language.code"
-          [selected]="language.code === selectedLanguage">
+          [value]="language.code">
           {{ language.nativeName }} ({{ language.name }})
         </option>
       </select>
@@ -168,6 +167,11 @@ export class LanguageSelectorComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe(language => {
         this.selectedLanguage = language;
+        // Also sync localStorage to ensure consistency
+        if (language !== localStorage.getItem('preferredLanguage')) {
+          localStorage.setItem('preferredLanguage', language);
+          localStorage.setItem('PreferredLanguage', language);
+        }
       });
   }
 
@@ -177,21 +181,58 @@ export class LanguageSelectorComponent implements OnInit, OnDestroy {
     
     if (selectedLanguage && selectedLanguage !== this.selectedLanguage) {
       this.isLoading = true;
-      
-      this.languageService.setLanguagePreference(selectedLanguage)
+
+      // Immediately update local state so interceptor starts sending the new language
+      this.languageService.setCurrentLanguage(selectedLanguage);
+      localStorage.setItem('preferredLanguage', selectedLanguage);
+
+      const hasToken = !!localStorage.getItem('token');
+      if (hasToken) {
+        // Best-effort server preference update (authorized users)
+        this.languageService.setLanguagePreference(selectedLanguage)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe(success => {
+            this.isLoading = false;
+            if (success) {
+              this.showLanguageChangeMessage(selectedLanguage);
+            } else {
+              console.warn('Server language preference not saved; using local preference');
+            }
+          });
+      } else {
+        // Anonymous users: skip server call
+        this.isLoading = false;
+        this.showLanguageChangeMessage(selectedLanguage);
+      }
+    }
+  }
+
+  onLanguageSelect(languageCode: string): void {
+    // Always update, don't check for equality since there might be sync issues
+    if (!languageCode) {
+      return;
+    }
+
+    // Mirror logic of onLanguageChange but without relying on native event timing
+    this.isLoading = true;
+    this.selectedLanguage = languageCode;
+    
+    this.languageService.setCurrentLanguage(languageCode);
+    
+    localStorage.setItem('preferredLanguage', languageCode);
+    localStorage.setItem('PreferredLanguage', languageCode);
+
+    const hasToken = !!localStorage.getItem('token');
+    if (hasToken) {
+      this.languageService.setLanguagePreference(languageCode)
         .pipe(takeUntil(this.destroy$))
-        .subscribe(success => {
+        .subscribe(() => {
           this.isLoading = false;
-          if (success) {
-            console.log(`Language changed to: ${selectedLanguage}`);
-            // Optionally show a success message
-            this.showLanguageChangeMessage(selectedLanguage);
-          } else {
-            console.error('Failed to change language');
-            // Revert selection on failure
-            this.selectedLanguage = this.languageService.getCurrentLanguage();
-          }
+          this.showLanguageChangeMessage(languageCode);
         });
+    } else {
+      this.isLoading = false;
+      this.showLanguageChangeMessage(languageCode);
     }
   }
 

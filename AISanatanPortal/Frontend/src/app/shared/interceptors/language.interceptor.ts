@@ -8,18 +8,28 @@ export class LanguageInterceptor implements HttpInterceptor {
   constructor(private languageService: LanguageService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Get current language
-    const currentLanguage = this.languageService.getCurrentLanguage();
+    // Force fresh read from localStorage on each request
+    const currentLanguage = (
+      localStorage.getItem('preferredLanguage') ||
+      localStorage.getItem('PreferredLanguage') ||
+      this.languageService.getCurrentLanguage() ||
+      'en'
+    ).toLowerCase();
 
     // Clone the request and add language headers
-    const languageRequest = req.clone({
+    let languageRequest = req.clone({
       setHeaders: {
         'X-Language': currentLanguage,
         'Accept-Language': currentLanguage
-      },
-      // Add language as query parameter for GET requests
-      setParams: req.method === 'GET' ? { lang: currentLanguage } : {}
+      }
     });
+
+    // Merge lang param for GET without dropping existing params
+    if (req.method === 'GET') {
+      const newParams = (languageRequest.params || new (languageRequest.params as any).constructor())
+        .set('lang', currentLanguage);
+      languageRequest = languageRequest.clone({ params: newParams });
+    }
 
     return next.handle(languageRequest);
   }

@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiResponse, PaginationParams } from '../models/common.models';
 import { environment } from '../../../environments/environment';
+import { LanguageService } from './language.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,16 @@ import { environment } from '../../../environments/environment';
 export class ApiService {
   private readonly baseUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private languageService: LanguageService) {}
 
   private getHttpOptions(): { headers: HttpHeaders } {
+    const currentLang = this.languageService.getCurrentLanguage();
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'X-Language': currentLang,
+        'Accept-Language': currentLang
       })
     };
   }
@@ -31,6 +35,10 @@ export class ApiService {
         httpParams = httpParams.set(key, value.toString());
       }
     });
+    // Ensure language param is present
+    if (!httpParams.has('lang')) {
+      httpParams = httpParams.set('lang', this.languageService.getCurrentLanguage());
+    }
     
     return httpParams;
   }
@@ -43,7 +51,7 @@ export class ApiService {
   // Generic GET method
   get<T>(endpoint: string, params?: any): Observable<T> {
     const url = `${this.baseUrl}/${endpoint}`;
-    const httpParams = params ? this.buildHttpParams(params) : undefined;
+    const httpParams = this.buildHttpParams(params || {});
     
     return this.http.get<ApiResponse<T>>(url, {
       ...this.getHttpOptions(),

@@ -56,9 +56,11 @@ export class LanguageService {
 
   private initializeLanguage(): void {
     // Try to get language from localStorage first
-    const savedLanguage = localStorage.getItem('preferredLanguage');
+    const savedLanguage = localStorage.getItem('preferredLanguage') || localStorage.getItem('PreferredLanguage');
     if (savedLanguage) {
       this.setCurrentLanguage(savedLanguage);
+      // Load supported languages but don't override the saved preference
+      this.loadSupportedLanguages();
       return;
     }
 
@@ -214,6 +216,14 @@ export class LanguageService {
    */
   setCurrentLanguage(languageCode: string): void {
     this.currentLanguageSubject.next(languageCode);
+    
+    try {
+      localStorage.setItem('preferredLanguage', languageCode);
+      // Write legacy key for compatibility if someone reads with different casing
+      localStorage.setItem('PreferredLanguage', languageCode);
+    } catch (error) {
+      console.error('Error setting localStorage:', error);
+    }
   }
 
   /**
