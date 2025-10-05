@@ -49,10 +49,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
     {
-        policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
-              .AllowAnyMethod()
+        policy.AllowAnyMethod()
               .AllowAnyHeader()
-              .AllowCredentials();
+              .AllowAnyOrigin();
     });
 });
 
@@ -163,7 +162,11 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseHttpsRedirection();
+// Only enforce HTTPS redirection outside development to avoid CORS issues from redirects locally
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseCors("AllowAngularApp");
 

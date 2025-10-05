@@ -43,7 +43,7 @@ export interface ApiResponse<T> {
   providedIn: 'root'
 })
 export class LanguageService {
-  private readonly apiUrl = `${environment.apiUrl}/api/language`;
+  private readonly apiUrl = `${environment.apiBaseUrl}/api/language`;
   private currentLanguageSubject = new BehaviorSubject<string>('en');
   private supportedLanguagesSubject = new BehaviorSubject<LanguageInfo[]>([]);
 
@@ -115,7 +115,7 @@ export class LanguageService {
     return this.http.get<ApiResponse<{ [key: string]: string }>>(`${this.apiUrl}/supported`)
       .pipe(
         map(response => {
-          if (response.success && response.data) {
+          if (response.success && response.data && Object.keys(response.data).length > 0) {
             const languages: LanguageInfo[] = Object.entries(response.data).map(([code, name]) => ({
               code,
               name,
@@ -124,11 +124,15 @@ export class LanguageService {
             this.supportedLanguagesSubject.next(languages);
             return languages;
           }
-          return [];
+          const fallback = this.getDefaultLanguages();
+          this.supportedLanguagesSubject.next(fallback);
+          return fallback;
         }),
         catchError(error => {
           console.error('Error loading supported languages:', error);
-          return of([]);
+          const fallback = this.getDefaultLanguages();
+          this.supportedLanguagesSubject.next(fallback);
+          return of(fallback);
         })
       );
   }
@@ -136,7 +140,7 @@ export class LanguageService {
   /**
    * Detect language from text
    */
-  detectLanguage(text: string): Observable<LanguageDetectionResult> {
+  detectLanguage(text: string): Observable<LanguageDetectionResult | null> {
     return this.http.post<ApiResponse<LanguageDetectionResult>>(`${this.apiUrl}/detect`, { text })
       .pipe(
         map(response => response.success ? response.data : null),
@@ -150,7 +154,7 @@ export class LanguageService {
   /**
    * Get user's preferred language
    */
-  getUserPreferredLanguage(): Observable<UserLanguagePreference> {
+  getUserPreferredLanguage(): Observable<UserLanguagePreference | null> {
     return this.http.get<ApiResponse<UserLanguagePreference>>(`${this.apiUrl}/preferred`)
       .pipe(
         map(response => response.success ? response.data : null),
@@ -191,7 +195,7 @@ export class LanguageService {
   /**
    * Test translation functionality
    */
-  testTranslation(text: string, targetLanguage: string, sourceLanguage: string = 'en'): Observable<TranslationTestResult> {
+  testTranslation(text: string, targetLanguage: string, sourceLanguage: string = 'en'): Observable<TranslationTestResult | null> {
     return this.http.post<ApiResponse<TranslationTestResult>>(`${this.apiUrl}/test-translation`, {
       text,
       sourceLanguage,
@@ -277,6 +281,30 @@ export class LanguageService {
     };
 
     return nativeNames[code] || code.toUpperCase();
+  }
+
+  private getDefaultLanguages(): LanguageInfo[] {
+    const defaults: { [key: string]: string } = {
+      'en': 'English',
+      'hi': 'Hindi',
+      'sa': 'Sanskrit',
+      'gu': 'Gujarati',
+      'ta': 'Tamil',
+      'te': 'Telugu',
+      'bn': 'Bengali',
+      'mr': 'Marathi',
+      'kn': 'Kannada',
+      'ml': 'Malayalam',
+      'pa': 'Punjabi',
+      'or': 'Odia',
+      'as': 'Assamese'
+    };
+
+    return Object.entries(defaults).map(([code, name]) => ({
+      code,
+      name,
+      nativeName: this.getNativeName(code)
+    }));
   }
 
   /**

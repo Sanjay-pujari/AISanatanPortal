@@ -32,6 +32,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { LanguageSelectorComponent } from './shared/components/language-selector/language-selector.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
+    LanguageSelectorComponent,
     
     // Material Modules
     MatToolbarModule,

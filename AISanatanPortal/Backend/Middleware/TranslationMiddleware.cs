@@ -1,5 +1,6 @@
 using AISanatanPortal.API.DTOs;
 using AISanatanPortal.API.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using System.Text.Json;
 
@@ -9,17 +10,22 @@ public class TranslationMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<TranslationMiddleware> _logger;
-    private readonly ITranslationService _translationService;
 
-    public TranslationMiddleware(RequestDelegate next, ILogger<TranslationMiddleware> logger, ITranslationService translationService)
+    public TranslationMiddleware(RequestDelegate next, ILogger<TranslationMiddleware> logger)
     {
         _next = next;
         _logger = logger;
-        _translationService = translationService;
     }
 
     public async Task InvokeAsync(HttpContext context)
     {
+        // Allow CORS preflight requests to pass through untouched
+        if (HttpMethods.IsOptions(context.Request.Method))
+        {
+            await _next(context);
+            return;
+        }
+
         // Extract language preference from headers or query parameters
         var targetLanguage = ExtractLanguagePreference(context);
         var sourceLanguage = "en"; // Default source language
@@ -40,8 +46,11 @@ public class TranslationMiddleware
             // Continue to the next middleware
             await _next(context);
 
+            // Resolve scoped translation service per-request
+            var translationService = context.RequestServices.GetRequiredService<ITranslationService>();
+
             // Check if translation is needed
-            if (await _translationService.IsTranslationRequiredAsync(targetLanguage, sourceLanguage) &&
+            if (await translationService.IsTranslationRequiredAsync(targetLanguage, sourceLanguage) &&
                 IsTranslatableResponse(context))
             {
                 // Get the response content
@@ -50,7 +59,7 @@ public class TranslationMiddleware
                 if (!string.IsNullOrEmpty(responseContent))
                 {
                     // Translate the response content
-                    var translatedContent = await TranslateResponseContentAsync(responseContent, targetLanguage, sourceLanguage, context);
+                    var translatedContent = await TranslateResponseContentAsync(responseContent, targetLanguage, sourceLanguage, context, translationService);
                     
                     if (translatedContent != responseContent)
                     {
@@ -167,7 +176,7 @@ public class TranslationMiddleware
         return await reader.ReadToEndAsync();
     }
 
-    private async Task<string> TranslateResponseContentAsync(string content, string targetLanguage, string sourceLanguage, HttpContext context)
+    private async Task<string> TranslateResponseContentAsync(string content, string targetLanguage, string sourceLanguage, HttpContext context, ITranslationService translationService)
     {
         try
         {
@@ -186,7 +195,7 @@ public class TranslationMiddleware
 
                 if (apiResponse != null)
                 {
-                    var translatedResponse = await _translationService.TranslateApiResponseAsync(apiResponse, targetLanguage, sourceLanguage);
+                    var translatedResponse = await translationService.TranslateApiResponseAsync(apiResponse, targetLanguage, sourceLanguage);
                     return JsonSerializer.Serialize(translatedResponse, new JsonSerializerOptions
                     {
                         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -196,7 +205,7 @@ public class TranslationMiddleware
             }
 
             // If not ApiResponse, try to translate as generic object
-            var translatedContent = await _translationService.TranslateObjectAsync(new { Content = content }, targetLanguage, sourceLanguage);
+            var translatedContent = await translationService.TranslateObjectAsync(new { Content = content }, targetLanguage, sourceLanguage);
             return JsonSerializer.Serialize(translatedContent, new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
