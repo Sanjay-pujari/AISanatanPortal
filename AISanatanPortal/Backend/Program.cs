@@ -181,3 +181,6 @@ using (var scope = app.Services.CreateScope())
 Log.Information("AI Sanatan Portal API started successfully");
 
 app.Run();
+
+// Make Program class accessible for testing
+public partial class Program { }

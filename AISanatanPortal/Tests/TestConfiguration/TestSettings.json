@@ -1,0 +1,114 @@
+{
+  "TestSettings": {
+    "Database": {
+      "UseInMemory": true,
+      "ConnectionString": "Data Source=:memory:",
+      "SeedData": true
+    },
+    "MockServices": {
+      "UseMocks": true,
+      "SimulateNetworkDelays": false,
+      "SimulateErrors": false
+    },
+    "Performance": {
+      "LoadTestDuration": 30,
+      "ConcurrentUsers": 10,
+      "RequestsPerSecond": 5,
+      "TimeoutSeconds": 30
+    },
+    "Coverage": {
+      "MinimumCoverage": 80,
+      "ExcludePatterns": [
+        "*.Models.*",
+        "*.DTOs.*",
+        "*.Migrations.*"
+      ]
+    },
+    "Logging": {
+      "LogLevel": "Information",
+      "IncludeTestOutput": true,
+      "SaveResults": true
+    }
+  },
+  "ConnectionStrings": {
+    "TestConnection": "Host=localhost;Database=AISanatanPortalTestDB;Username=postgres;Password=testpassword"
+  },
+  "JwtSettings": {
+    "SecretKey": "TestSecretKeyForUnitTestingOnly123456789",
+    "Issuer": "AISanatanPortalTest",
+    "Audience": "AISanatanPortalTestUsers",
+    "ExpirationHours": 1
+  },
+  "AzureOpenAI": {
+    "Endpoint": "https://test-endpoint.openai.azure.com/",
+    "ApiKey": "test-api-key",
+    "DeploymentName": "test-deployment",
+    "ApiVersion": "2024-05-01-preview"
+  },
+  "TestData": {
+    "SampleUsers": [
+      {
+        "UserName": "testuser",
+        "Email": "test@example.com",
+        "FirstName": "Test",
+        "LastName": "User",
+        "Role": "User"
+      },
+      {
+        "UserName": "admin",
+        "Email": "admin@example.com",
+        "FirstName": "Admin",
+        "LastName": "User",
+        "Role": "Admin"
+      },
+      {
+        "UserName": "superadmin",
+        "Email": "superadmin@example.com",
+        "FirstName": "Super",
+        "LastName": "Admin",
+        "Role": "SuperAdmin"
+      }
+    ],
+    "SampleVedas": [
+      {
+        "Name": "Rigveda",
+        "SanskritName": "ऋग्वेद",
+        "Description": "The oldest of the four Vedas",
+        "ChapterCount": 10,
+        "VerseCount": 1028
+      },
+      {
+        "Name": "Samaveda",
+        "SanskritName": "सामवेद",
+        "Description": "The Veda of melodies and chants",
+        "ChapterCount": 2,
+        "VerseCount": 1875
+      }
+    ],
+    "SamplePuranas": [
+      {
+        "Name": "Vishnu Purana",
+        "SanskritName": "विष्णु पुराण",
+        "Description": "One of the eighteen Mahapuranas",
+        "Type": "Mahapurana",
+        "ChapterCount": 6,
+        "StoryCount": 100
+      }
+    ],
+    "SampleTemples": [
+      {
+        "Name": "Kashi Vishwanath Temple",
+        "Description": "One of the most famous Shiva temples",
+        "Latitude": 25.3110,
+        "Longitude": 83.0106,
+        "City": "Varanasi",
+        "State": "Uttar Pradesh",
+        "Country": "India",
+        "Type": "Ancient",
+        "MainDeity": "Shiva"
+      }
+    ]
+  }
+}
+
+
