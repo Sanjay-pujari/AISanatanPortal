@@ -1,0 +1,298 @@
+// All Themes for AI Sanatan Portal
+// This file contains all three theme variations
+
+// ============================================================================
+// SACRED GOLD THEME - Inspired by traditional Hindu temples
+// ============================================================================
+body.sacred-gold-theme {
+  // Color Variables
+  --theme-primary: #d4af37;
+  --theme-secondary: #b8860b;
+  --theme-accent: #cd853f;
+  --theme-dark: #8b4513;
+  --theme-light: #f4e4bc;
+  --theme-bg: linear-gradient(135deg, #f5f5dc 0%, #deb887 50%, #cd853f 100%);
+  --theme-nav: linear-gradient(180deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
+
+  background: var(--theme-bg);
+  color: #2c1810;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+}
+
+.sacred-gold-theme .sidenav-container {
+  height: 100vh;
+  background: var(--theme-bg);
+}
+
+.sacred-gold-theme .sidenav {
+  width: 300px;
+  background: var(--theme-nav);
+  color: var(--theme-light);
+  box-shadow: 4px 0 20px rgba(139, 69, 19, 0.3);
+}
+
+.sacred-gold-theme .sidenav .sidenav-header {
+  padding: 32px 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--theme-primary);
+  background: rgba(139, 69, 19, 0.2);
+}
+
+.sacred-gold-theme .sidenav .logo-container .om-icon {
+  font-size: 40px;
+  margin-right: 12px;
+  color: var(--theme-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: gentleGlow 3s ease-in-out infinite alternate;
+}
+
+.sacred-gold-theme .sidenav .logo-container h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--theme-primary);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  font-family: 'Playfair Display', serif;
+}
+
+.sacred-gold-theme .toolbar {
+  background: linear-gradient(135deg, var(--theme-dark) 0%, var(--theme-secondary) 50%, var(--theme-primary) 100%);
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+}
+
+.sacred-gold-theme .custom-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  border: 2px solid var(--theme-primary);
+  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sacred-gold-theme .custom-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(139, 69, 19, 0.3);
+  border-color: var(--theme-secondary);
+}
+
+.sacred-gold-theme .fab-chat {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  color: var(--theme-dark);
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4);
+}
+
+.sacred-gold-theme .footer {
+  background: linear-gradient(180deg, var(--theme-dark) 0%, #654321 100%);
+  color: var(--theme-light);
+  border-top: 3px solid var(--theme-primary);
+}
+
+// ============================================================================
+// SERENITY BLUE THEME - Inspired by peaceful meditation
+// ============================================================================
+body.serenity-blue-theme {
+  // Color Variables
+  --theme-primary: #4a90e2;
+  --theme-secondary: #7b68ee;
+  --theme-accent: #87ceeb;
+  --theme-dark: #2c3e50;
+  --theme-light: #ecf0f1;
+  --theme-bg: linear-gradient(135deg, #e8f4fd 0%, #b3d9ff 50%, #87ceeb 100%);
+  --theme-nav: linear-gradient(180deg, #2c3e50 0%, #34495e 50%, #4a90e2 100%);
+
+  background: var(--theme-bg);
+  color: var(--theme-dark);
+  font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+}
+
+.serenity-blue-theme .sidenav-container {
+  height: 100vh;
+  background: var(--theme-bg);
+}
+
+.serenity-blue-theme .sidenav {
+  width: 280px;
+  background: var(--theme-nav);
+  color: var(--theme-light);
+  box-shadow: 4px 0 25px rgba(44, 62, 80, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.serenity-blue-theme .sidenav .sidenav-header {
+  padding: 28px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(44, 62, 80, 0.3);
+}
+
+.serenity-blue-theme .sidenav .logo-container .om-icon {
+  font-size: 36px;
+  margin-right: 10px;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+  animation: peacefulFloat 4s ease-in-out infinite;
+}
+
+.serenity-blue-theme .sidenav .logo-container h3 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--theme-accent);
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.serenity-blue-theme .toolbar {
+  background: linear-gradient(135deg, var(--theme-dark) 0%, var(--theme-primary) 50%, var(--theme-secondary) 100%);
+  box-shadow: 0 4px 25px rgba(44, 62, 80, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.serenity-blue-theme .custom-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  box-shadow: 0 10px 40px rgba(44, 62, 80, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+}
+
+.serenity-blue-theme .custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(44, 62, 80, 0.15);
+  border-color: rgba(135, 206, 235, 0.4);
+}
+
+.serenity-blue-theme .fab-chat {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  color: white;
+  box-shadow: 0 8px 30px rgba(44, 62, 80, 0.3);
+}
+
+.serenity-blue-theme .footer {
+  background: linear-gradient(180deg, var(--theme-dark) 0%, var(--theme-primary) 100%);
+  color: var(--theme-light);
+  border-top: 2px solid var(--theme-accent);
+}
+
+// ============================================================================
+// COMMON THEME STYLES
+// ============================================================================
+
+// Navigation hover effects
+.sacred-gold-theme .sidenav .navigation-list .nav-item:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
+  border-color: var(--theme-primary);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.serenity-blue-theme .sidenav .navigation-list .nav-item:hover {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(123, 104, 238, 0.15) 100%);
+  border-color: rgba(135, 206, 235, 0.3);
+  transform: translateX(6px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+}
+
+// Button styles
+.sacred-gold-theme .btn-primary-gradient {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  color: var(--theme-dark);
+  border: 2px solid var(--theme-dark);
+  border-radius: 28px;
+  padding: 14px 28px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+.serenity-blue-theme .btn-primary-gradient {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 26px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+// Typography
+.sacred-gold-theme h1, .sacred-gold-theme h2, .sacred-gold-theme h3 {
+  color: var(--theme-dark);
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+.serenity-blue-theme h1, .serenity-blue-theme h2, .serenity-blue-theme h3 {
+  color: var(--theme-dark);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
+// Animations
+@keyframes gentleGlow {
+  0% { 
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+    transform: scale(1);
+  }
+  100% { 
+    text-shadow: 2px 2px 8px rgba(212, 175, 55, 0.6), 0 0 12px rgba(212, 175, 55, 0.4);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes peacefulFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-10px) rotate(5deg);
+    opacity: 1;
+  }
+}
+
+// Scrollbar styling
+.sacred-gold-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  border-radius: 6px;
+}
+
+.serenity-blue-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  border-radius: 8px;
+}
+
+// Material theme overrides
+::ng-deep .sacred-gold-theme {
+  .mat-toolbar.mat-primary {
+    background: linear-gradient(135deg, var(--theme-dark) 0%, var(--theme-secondary) 50%, var(--theme-primary) 100%);
+  }
+  
+  .mat-fab.mat-accent {
+    background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+    color: var(--theme-dark);
+  }
+}
+
+::ng-deep .serenity-blue-theme {
+  .mat-toolbar.mat-primary {
+    background: linear-gradient(135deg, var(--theme-dark) 0%, var(--theme-primary) 50%, var(--theme-secondary) 100%);
+  }
+  
+  .mat-fab.mat-accent {
+    background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+    color: white;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .sacred-gold-theme .sidenav,
+  .serenity-blue-theme .sidenav {
+    width: 260px;
+  }
+  
+  .sacred-gold-theme .sidenav .sidenav-header,
+  .serenity-blue-theme .sidenav .sidenav-header {
+    padding: 20px 16px;
+  }
+}

@@ -1,0 +1,329 @@
+// Serenity Blue Theme - Inspired by peaceful meditation and spiritual tranquility
+// This theme uses calming blues, soft purples, and ethereal whites to create a serene atmosphere
+
+// Color Palette
+$serenity-blue-primary: #4a90e2;
+$serenity-blue-secondary: #7b68ee;
+$serenity-blue-accent: #9370db;
+$serenity-blue-dark: #2c3e50;
+$serenity-blue-light: #ecf0f1;
+$serenity-blue-bg: linear-gradient(135deg, #e8f4fd 0%, #b3d9ff 50%, #87ceeb 100%);
+$serenity-blue-nav: linear-gradient(180deg, #2c3e50 0%, #34495e 50%, #4a90e2 100%);
+$serenity-blue-card: rgba(255, 255, 255, 0.9);
+$serenity-blue-text: #2c3e50;
+$serenity-blue-text-light: #5d6d7e;
+
+// Apply theme to body
+body.serenity-blue-theme {
+  background: $serenity-blue-bg;
+  color: $serenity-blue-text;
+  font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+}
+
+// Main container
+.serenity-blue-theme .sidenav-container {
+  height: 100vh;
+  background: $serenity-blue-bg;
+}
+
+// Sidebar styles
+.serenity-blue-theme .sidenav {
+  width: 280px;
+  background: $serenity-blue-nav;
+  color: $serenity-blue-light;
+  box-shadow: 4px 0 25px rgba(44, 62, 80, 0.2);
+  backdrop-filter: blur(10px);
+  
+  .sidenav-header {
+    padding: 28px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(44, 62, 80, 0.3);
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      
+      .om-icon {
+        font-size: 36px;
+        margin-right: 10px;
+        color: #87ceeb;
+        text-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+        animation: peacefulFloat 4s ease-in-out infinite;
+      }
+      
+      h3 {
+        margin: 0;
+        font-weight: 300;
+        font-size: 20px;
+        color: #87ceeb;
+        font-family: 'Source Sans Pro', sans-serif;
+        letter-spacing: 0.5px;
+      }
+    }
+    
+    .tagline {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.8;
+      font-style: italic;
+      color: $serenity-blue-light;
+    }
+  }
+  
+  .navigation-list {
+    padding-top: 16px;
+    
+    .nav-item {
+      margin: 4px 10px;
+      border-radius: 10px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      
+      &:hover {
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(123, 104, 238, 0.15) 100%);
+        border-color: rgba(135, 206, 235, 0.3);
+        transform: translateX(6px);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+      }
+      
+      .nav-icon {
+        color: #87ceeb;
+        margin-right: 14px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// Toolbar styles
+.serenity-blue-theme .toolbar {
+  background: linear-gradient(135deg, $serenity-blue-dark 0%, $serenity-blue-primary 50%, $serenity-blue-secondary 100%);
+  box-shadow: 0 4px 25px rgba(44, 62, 80, 0.2);
+  backdrop-filter: blur(10px);
+  
+  .toolbar-title {
+    color: $serenity-blue-light;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    
+    .om-icon-small {
+      color: #87ceeb;
+      margin-right: 8px;
+      font-size: 22px;
+    }
+  }
+  
+  .search-field {
+    .mat-form-field-outline {
+      color: #87ceeb;
+    }
+    
+    .mat-form-field-label {
+      color: $serenity-blue-light;
+    }
+  }
+}
+
+// Card styles
+.serenity-blue-theme .custom-card {
+  background: $serenity-blue-card;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  box-shadow: 0 10px 40px rgba(44, 62, 80, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(44, 62, 80, 0.15);
+    border-color: rgba(135, 206, 235, 0.4);
+  }
+}
+
+// Button styles
+.serenity-blue-theme .btn-primary-gradient {
+  background: linear-gradient(135deg, $serenity-blue-primary 0%, $serenity-blue-secondary 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 26px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, $serenity-blue-secondary 0%, $serenity-blue-accent 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+  }
+}
+
+.serenity-blue-theme .btn-accent-gradient {
+  background: linear-gradient(135deg, #9370db 0%, #7b68ee 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 26px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(147, 112, 219, 0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, #7b68ee 0%, #9370db 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(147, 112, 219, 0.4);
+  }
+}
+
+// Footer styles
+.serenity-blue-theme .footer {
+  background: linear-gradient(180deg, $serenity-blue-dark 0%, $serenity-blue-primary 100%);
+  color: $serenity-blue-light;
+  border-top: 2px solid #87ceeb;
+  
+  h4 {
+    color: #87ceeb;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+  }
+  
+  a {
+    color: $serenity-blue-light;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: #87ceeb;
+    }
+  }
+}
+
+// Floating Action Button
+.serenity-blue-theme .fab-chat {
+  background: linear-gradient(135deg, $serenity-blue-primary 0%, $serenity-blue-secondary 100%);
+  color: white;
+  box-shadow: 0 8px 30px rgba(44, 62, 80, 0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, $serenity-blue-secondary 0%, $serenity-blue-accent 100%);
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(44, 62, 80, 0.4);
+  }
+}
+
+// Typography
+.serenity-blue-theme {
+  h1, h2, h3, h4, h5, h6 {
+    color: $serenity-blue-dark;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+  }
+  
+  h1 { 
+    font-size: 2.6rem; 
+    color: $serenity-blue-dark;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  
+  h2 { 
+    font-size: 2rem; 
+    color: $serenity-blue-primary;
+    font-weight: 400;
+  }
+  
+  h3 { 
+    font-size: 1.6rem; 
+    color: $serenity-blue-primary;
+    font-weight: 400;
+  }
+}
+
+// Special effects
+.serenity-blue-theme .spiritual-quote {
+  background: linear-gradient(135deg, rgba(135, 206, 235, 0.1) 0%, rgba(123, 104, 238, 0.1) 100%);
+  border-left: 4px solid #87ceeb;
+  padding: 20px;
+  border-radius: 10px;
+  font-style: italic;
+  color: $serenity-blue-text-light;
+}
+
+// Animations
+@keyframes peacefulFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-10px) rotate(5deg);
+    opacity: 1;
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { 
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+// Loading spinner enhancement
+.serenity-blue-theme .spiritual-loader {
+  .om-container .om-icon {
+    animation: peacefulFloat 3s ease-in-out infinite;
+    color: #87ceeb;
+  }
+}
+
+// Scrollbar styling
+.serenity-blue-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, $serenity-blue-primary 0%, $serenity-blue-secondary 100%);
+  border-radius: 8px;
+}
+
+.serenity-blue-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, $serenity-blue-secondary 0%, $serenity-blue-accent 100%);
+}
+
+// Material theme overrides
+::ng-deep .serenity-blue-theme {
+  .mat-toolbar.mat-primary {
+    background: linear-gradient(135deg, $serenity-blue-dark 0%, $serenity-blue-primary 50%, $serenity-blue-secondary 100%);
+  }
+  
+  .mat-fab.mat-accent {
+    background: linear-gradient(135deg, $serenity-blue-primary 0%, $serenity-blue-secondary 100%);
+    color: white;
+  }
+  
+  .mat-sidenav-content {
+    background: transparent;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #87ceeb;
+  }
+  
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $serenity-blue-primary;
+  }
+  
+  .mat-table .mat-header-row {
+    background: linear-gradient(135deg, $serenity-blue-dark 0%, $serenity-blue-primary 100%);
+  }
+}
+
+// Glass morphism effects
+.serenity-blue-theme .glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}

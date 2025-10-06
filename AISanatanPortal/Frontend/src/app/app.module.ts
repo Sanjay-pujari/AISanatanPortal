@@ -33,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { LanguageSelectorComponent } from './shared/components/language-selector/language-selector.component';
+import { ThemeSelectorComponent } from './shared/components/theme-selector/theme-selector.component';
 import { LanguageInterceptor } from './shared/interceptors/language.interceptor';
 
 @NgModule({
@@ -48,6 +49,7 @@ import { LanguageInterceptor } from './shared/interceptors/language.interceptor'
     AppRoutingModule,
     SharedModule,
     LanguageSelectorComponent,
+    ThemeSelectorComponent,
     
     // Material Modules
     MatToolbarModule,

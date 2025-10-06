@@ -1,6 +1,9 @@
 // Use a simple approach without custom theming for now
 // @import '@angular/material/prebuilt-themes/purple-green.css';
 
+// Import all themes
+@import './themes/all-themes.scss';
+
 // Basic Material Design theme
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

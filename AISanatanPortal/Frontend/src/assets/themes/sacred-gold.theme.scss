@@ -1,0 +1,281 @@
+// Sacred Gold Theme - Inspired by traditional Hindu temples and golden aesthetics
+// This theme uses warm golds, deep reds, and rich browns to create a sacred atmosphere
+
+// Color Palette
+$sacred-gold-primary: #d4af37;
+$sacred-gold-secondary: #b8860b;
+$sacred-gold-accent: #cd853f;
+$sacred-gold-dark: #8b4513;
+$sacred-gold-light: #f4e4bc;
+$sacred-gold-bg: linear-gradient(135deg, #f5f5dc 0%, #deb887 50%, #cd853f 100%);
+$sacred-gold-nav: linear-gradient(180deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
+$sacred-gold-card: rgba(255, 255, 255, 0.95);
+$sacred-gold-text: #2c1810;
+$sacred-gold-text-light: #654321;
+
+// Apply theme to body
+body.sacred-gold-theme {
+  background: $sacred-gold-bg;
+  color: $sacred-gold-text;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+}
+
+// Main container
+.sacred-gold-theme .sidenav-container {
+  height: 100vh;
+  background: $sacred-gold-bg;
+}
+
+// Sidebar styles
+.sacred-gold-theme .sidenav {
+  width: 300px;
+  background: $sacred-gold-nav;
+  color: $sacred-gold-light;
+  box-shadow: 4px 0 20px rgba(139, 69, 19, 0.3);
+  
+  .sidenav-header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 2px solid $sacred-gold-primary;
+    background: rgba(139, 69, 19, 0.2);
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      
+      .om-icon {
+        font-size: 40px;
+        margin-right: 12px;
+        color: $sacred-gold-primary;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        animation: gentleGlow 3s ease-in-out infinite alternate;
+      }
+      
+      h3 {
+        margin: 0;
+        font-weight: 400;
+        font-size: 22px;
+        color: $sacred-gold-primary;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        font-family: 'Playfair Display', serif;
+      }
+    }
+    
+    .tagline {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+      font-style: italic;
+      color: $sacred-gold-light;
+    }
+  }
+  
+  .navigation-list {
+    padding-top: 20px;
+    
+    .nav-item {
+      margin: 6px 12px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      
+      &:hover {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
+        border-color: $sacred-gold-primary;
+        transform: translateX(8px);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      }
+      
+      .nav-icon {
+        color: $sacred-gold-primary;
+        margin-right: 16px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// Toolbar styles
+.sacred-gold-theme .toolbar {
+  background: linear-gradient(135deg, $sacred-gold-dark 0%, $sacred-gold-secondary 50%, $sacred-gold-primary 100%);
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+  
+  .toolbar-title {
+    color: $sacred-gold-light;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    
+    .om-icon-small {
+      color: $sacred-gold-primary;
+      margin-right: 8px;
+      font-size: 24px;
+    }
+  }
+  
+  .search-field {
+    .mat-form-field-outline {
+      color: $sacred-gold-primary;
+    }
+    
+    .mat-form-field-label {
+      color: $sacred-gold-light;
+    }
+  }
+}
+
+// Card styles
+.sacred-gold-theme .custom-card {
+  background: $sacred-gold-card;
+  border-radius: 16px;
+  border: 2px solid $sacred-gold-primary;
+  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(139, 69, 19, 0.3);
+    border-color: $sacred-gold-secondary;
+  }
+}
+
+// Button styles
+.sacred-gold-theme .btn-primary-gradient {
+  background: linear-gradient(135deg, $sacred-gold-primary 0%, $sacred-gold-secondary 100%);
+  color: $sacred-gold-dark;
+  border: 2px solid $sacred-gold-dark;
+  border-radius: 28px;
+  padding: 14px 28px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, $sacred-gold-secondary 0%, $sacred-gold-dark 100%);
+    color: $sacred-gold-light;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+  }
+}
+
+.sacred-gold-theme .btn-accent-gradient {
+  background: linear-gradient(135deg, #cd853f 0%, #8b4513 100%);
+  color: $sacred-gold-light;
+  border: 2px solid $sacred-gold-primary;
+  border-radius: 28px;
+  padding: 14px 28px;
+  font-weight: 600;
+  
+  &:hover {
+    background: linear-gradient(135deg, #8b4513 0%, #654321 100%);
+    border-color: $sacred-gold-secondary;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+  }
+}
+
+// Footer styles
+.sacred-gold-theme .footer {
+  background: linear-gradient(180deg, $sacred-gold-dark 0%, #654321 100%);
+  color: $sacred-gold-light;
+  border-top: 3px solid $sacred-gold-primary;
+  
+  h4 {
+    color: $sacred-gold-primary;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  a {
+    color: $sacred-gold-light;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $sacred-gold-primary;
+    }
+  }
+}
+
+// Floating Action Button
+.sacred-gold-theme .fab-chat {
+  background: linear-gradient(135deg, $sacred-gold-primary 0%, $sacred-gold-secondary 100%);
+  color: $sacred-gold-dark;
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4);
+  
+  &:hover {
+    background: linear-gradient(135deg, $sacred-gold-secondary 0%, $sacred-gold-dark 100%);
+    color: $sacred-gold-light;
+    transform: scale(1.1);
+  }
+}
+
+// Typography
+.sacred-gold-theme {
+  h1, h2, h3, h4, h5, h6 {
+    color: $sacred-gold-dark;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+  }
+  
+  h1 { 
+    font-size: 2.8rem; 
+    color: $sacred-gold-dark;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+  }
+  
+  h2 { 
+    font-size: 2.2rem; 
+    color: $sacred-gold-secondary;
+  }
+  
+  h3 { 
+    font-size: 1.8rem; 
+    color: $sacred-gold-secondary;
+  }
+}
+
+// Animations
+@keyframes gentleGlow {
+  0% { 
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+    transform: scale(1);
+  }
+  100% { 
+    text-shadow: 2px 2px 8px rgba(212, 175, 55, 0.6), 0 0 12px rgba(212, 175, 55, 0.4);
+    transform: scale(1.05);
+  }
+}
+
+// Scrollbar styling
+.sacred-gold-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, $sacred-gold-primary 0%, $sacred-gold-secondary 100%);
+  border-radius: 6px;
+}
+
+.sacred-gold-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, $sacred-gold-secondary 0%, $sacred-gold-dark 100%);
+}
+
+// Material theme overrides
+::ng-deep .sacred-gold-theme {
+  .mat-toolbar.mat-primary {
+    background: linear-gradient(135deg, $sacred-gold-dark 0%, $sacred-gold-secondary 50%, $sacred-gold-primary 100%);
+  }
+  
+  .mat-fab.mat-accent {
+    background: linear-gradient(135deg, $sacred-gold-primary 0%, $sacred-gold-secondary 100%);
+    color: $sacred-gold-dark;
+  }
+  
+  .mat-sidenav-content {
+    background: transparent;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: $sacred-gold-primary;
+  }
+  
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $sacred-gold-secondary;
+  }
+}
