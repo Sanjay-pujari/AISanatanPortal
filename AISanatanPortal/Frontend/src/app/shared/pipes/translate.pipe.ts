@@ -710,6 +710,82 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'common.view': 'കാണുക'
     };
 
+    // Punjabi translations
+    this.translations['pa'] = {
+      'nav.home': 'ਘਰ',
+      'nav.admin': 'ਐਡਮਿਨ ਪੈਨਲ',
+      'nav.evaluation': 'ਮੁਲਾਂਕਣ',
+      'nav.vedas': 'ਵੇਦ',
+      'nav.puranas': 'ਪੁਰਾਣ',
+      'nav.kavyas': 'ਕਾਵਿ',
+      'nav.mathematics': 'ਗਣਿਤ',
+      'nav.astrology': 'ਜੋਤਿਸ਼',
+      'nav.astronomy': 'ਖਗੋਲ ਵਿਗਿਆਨ',
+      'nav.medical': 'ਆਯੁਰਵੇਦ',
+      'nav.places': 'ਪਵਿੱਤਰ ਥਾਵਾਂ',
+      'nav.panchang': 'ਪੰਚਾਂਗ',
+      'nav.bookstore': 'ਪੁਸਤਕਾਲਾ',
+      'nav.gifts': 'ਤੋਹਫ਼ੇ ਦੀ ਦੁਕਾਨ',
+      'nav.events': 'ਕਾਰਜਕ੍ਰਮ',
+      'nav.chatbot': 'AI ਸਹਾਇਕ',
+
+      'welcome.title': 'AI ਸਨਾਤਨ ਪੋਰਟਲ',
+      'welcome.subtitle': 'ਸ਼ਾਸ਼੍ਵਤ ਗਿਆਨ ਦੀ ਖੋਜ',
+      'welcome.description': 'ਸਨਾਤਨ ਧਰਮ ਦੇ ਸਰਵ-ਸਮੇਤ ਪੋਰਟਲ ਵਿੱਚ ਸਵਾਗਤ ਹੈ',
+
+      'welcome.hero.title': 'ਸਰਵੇ ਭਵੰਤੁ ਸੁਖਿਨਃ',
+      'welcome.hero.subtitle': 'ਸਭ ਜੀਵ ਸੁਖੀ ਰਹਿਣ',
+      'welcome.hero.description': 'AI ਸਨਾਤਨ ਪੋਰਟਲ ’ਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ — ਸਨਾਤਨ ਧਰਮ ਦੇ ਸ਼ਾਸ਼੍ਵਤ ਗਿਆਨ ਦਾ ਦਰਵਾਜ਼ਾ। ਵੇਦ-ਪੁਰਾਣ ਪੜ੍ਹੋ, ਪਵਿੱਤਰ ਥਾਵਾਂ ਜਾਨੋ, ਜੋਤਿਸ਼ ਤੇ ਖਗੋਲ ਵਿਗਿਆਨ ਸਮਝੋ, ਆਯੁਰਵੇਦ ਜਾਣੋ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ।',
+      'welcome.hero.what_you_will_discover': 'ਤੁਸੀਂ ਕੀ ਖੋਜੋਗੇ:',
+      'welcome.hero.highlight.vedas_puranas': 'ਵੇਦਾਂ ਅਤੇ ਪੁਰਾਣਾਂ ਦਾ ਵਿਸਤ੍ਰਿਤ ਸੰਗ੍ਰਹਿ',
+      'welcome.hero.highlight.ai_chatbot': 'ਆਤਮਿਕ ਮਾਰਗਦਰਸ਼ਨ ਲਈ AI ਚੈਟਬੋਟ',
+      'welcome.hero.highlight.panchang': 'ਇੰਟਰਐਕਟਿਵ ਪੰਚਾਂਗ',
+      'welcome.hero.highlight.temples_directory': 'ਮੰਦਰ ਅਤੇ ਪਵਿੱਤਰ ਥਾਵਾਂ ਦੀ ਡਾਇਰੈਕਟਰੀ',
+      'welcome.hero.highlight.books_souvenirs': 'ਭਰੋਸੇਯੋਗ ਵਿਕਰੇਤਾਵਾਂ ਕੋਲੋਂ ਕਿਤਾਬਾਂ ਅਤੇ ਸਮਾਰਿਕਾਂ',
+      'welcome.hero.highlight.events_gatherings': 'ਨਿਯਮਿਤ ਕਾਰਜਕ੍ਰਮ ਅਤੇ ਆਤਮਿਕ ਸਭਾਵਾਂ',
+      'welcome.hero.cta.explore_vedas': 'ਵੇਦ ਵੇਖੋ',
+      'welcome.hero.cta.ai_assistant': 'AI ਸਹਾਇਕ',
+
+      'quicklinks.vedas.title': 'ਵੇਦ',
+      'quicklinks.vedas.description': 'ਵੇਦਾਂ ਦੇ ਸ਼ਾਸ਼੍ਵਤ ਗਿਆਨ ਦੀ ਖੋਜ ਕਰੋ',
+      'quicklinks.puranas.title': 'ਪੁਰਾਣ',
+      'quicklinks.puranas.description': 'ਪੁਰਾਤਨ ਕਹਾਣੀਆਂ ਅਤੇ ਗਿਆਨ ਜਾਣੋ',
+      'quicklinks.panchang.title': 'ਪੰਚਾਂਗ',
+      'quicklinks.panchang.description': 'ਤਿਥੀਆਂ ਅਤੇ ਤਿਉਹਾਰਾਂ ਸਮੇਤ ਹਿੰਦੂ ਕੈਲੰਡਰ',
+      'quicklinks.ai.title': 'AI ਸਹਾਇਕ',
+      'quicklinks.ai.description': 'ਸਨਾਤਨ ਧਰਮ ਬਾਰੇ ਪ੍ਰਸ਼ਨ ਪੁੱਛੋ',
+      'quicklinks.places.title': 'ਪਵਿੱਤਰ ਥਾਵਾਂ',
+      'quicklinks.places.description': 'ਮੰਦਿਰ ਅਤੇ ਪਵਿੱਤਰ ਸਥਾਨ ਲੱਭੋ',
+      'quicklinks.books.title': 'ਪੁਸਤਕਾਲਾ',
+      'quicklinks.books.description': 'ਆਤਮਿਕ ਕਿਤਾਬਾਂ ਅਤੇ ਗ੍ਰੰਥ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
+
+      'featured.wisdom.title': 'ਰੋਜ਼ਾਨਾ ਗਿਆਨ',
+      'featured.wisdom.content': '"ਧਰਮੋ ਰਕਸ਼ਤੀ ਰਕਸ਼ਿਤਃ" - ਜੋ ਧਰਮ ਦੀ ਰੱਖਿਆ ਕਰਦਾ ਹੈ, ਧਰਮ ਉਸ ਦੀ ਰੱਖਿਆ ਕਰਦਾ ਹੈ',
+      'featured.wisdom.source': 'ਮਹਾਭਾਰਤ',
+      'featured.tithi.title': 'ਅੱਜ ਦੀ ਤਿਥੀ',
+      'featured.tithi.content': 'ਪੰਚਾਂਗ ਡਾਟਾ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
+      'featured.tithi.source': 'ਹਿੰਦੂ ਕੈਲੰਡਰ',
+      'featured.festival.title': 'ਤਿਉਹਾਰ ਸੂਚਨਾ',
+      'featured.festival.content': 'ਆਉਣ ਵਾਲੇ ਤਿਉਹਾਰ ਅਤੇ ਅਨੁਸ਼ਠਾਨ',
+      'featured.festival.source': 'ਕੈਲੰਡਰ',
+
+      'loading.message': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
+      'loading.quote': '"ਸਰਵੇ ਭਵੰਤੁ ਸੁਖਿਨਃ ਸਰਵੇ ਸੰਤੁ ਨਿਰਾਮਯਾਃ"',
+      'loading.quote.translation': 'ਸਾਰੇ ਜੀਵ ਸੁਖੀ ਤੇ ਨਿਰੋਗ ਰਹਿਣ',
+
+      'search.placeholder': 'ਖੋਜੋ...',
+      'search.button': 'ਖੋਜੋ',
+
+      'common.read_more': 'ਹੋਰ ਪੜ੍ਹੋ',
+      'common.show_less': 'ਘੱਟ ਦਿਖਾਓ',
+      'common.close': 'ਬੰਦ ਕਰੋ',
+      'common.save': 'ਸੰਭਾਲੋ',
+      'common.cancel': 'ਰੱਦ ਕਰੋ',
+      'common.delete': 'ਮਿਟਾਓ',
+      'common.edit': 'ਸੋਧੋ',
+      'common.view': 'ਵੇਖੋ'
+    };
+
     // Marathi translations
     this.translations['mr'] = {
       'nav.home': 'मुखपृष्ठ',
@@ -1061,7 +1137,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'ml': {
         'starting.quick_access.title': 'ത്വരിത പ്രവേശനം',
         'starting.quick_access.subtitle': 'നിങ്ങളുടെ ആത്മീയ യാത്ര ആരംഭിക്കുക',
-        'starting.todays_inspiration': 'ഇന്നലെ പ്രചോദനം',
+        'starting.todays_inspiration': 'ഇന്നത്തെ പ്രചോദനം',
         'starting.features.title': 'സമഗ്ര ആത്മീയ പ്ലാറ്റ്ഫോം',
         'starting.features.subtitle': 'നിങ്ങളുടെ ആത്മീയ യാത്രയ്ക്കുള്ളതെല്ലാം ഏകദേശം ഒരിടത്ത്',
         'starting.features.items.ai_learning.title': 'എഐ-സഹായിത പഠനം',
@@ -1086,6 +1162,35 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
         'stats.books': 'പുസ്തകങ്ങൾ',
         'stats.festivals': 'ഉത്സവങ്ങൾ',
         'stats.ai_support': 'AI പിന്തുണ'
+      },
+      'pa': {
+        'starting.quick_access.title': 'ਤੁਰੰਤ ਪਹੁੰਚ',
+        'starting.quick_access.subtitle': 'ਆਪਣੀ ਆਤਮਿਕ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ',
+        'starting.todays_inspiration': 'ਅੱਜ ਦੀ ਪ੍ਰੇਰਣਾ',
+        'starting.features.title': 'ਸਰਵ-ਸਮੇਤ ਆਤਮਿਕ ਮੰਚ',
+        'starting.features.subtitle': 'ਤੁਹਾਡੀ ਆਤਮਿਕ ਯਾਤਰਾ ਲਈ ਸਭ ਕੁਝ ਇੱਕ ਥਾਂ',
+        'starting.features.items.ai_learning.title': 'AI-ਚਾਲਿਤ ਸਿੱਖਿਆ',
+        'starting.features.items.ai_learning.description': 'ਪ੍ਰਮਾਣਿਤ ਸੰਸਕ੍ਰਿਤ ਗ੍ਰੰਥਾਂ ’ਤੇ ਤਿਆਰ ਕੀਤੇ ਸਾਡੇ ਉੱਨਤ AI ਚੈਟਬੋਟ ਰਾਹੀਂ ਆਪਣੀਆਂ ਆਤਮਿਕ ਜਿਗਿਆਸਾਵਾਂ ਲਈ ਨਿੱਜੀ ਮਾਰਗਦਰਸ਼ਨ ਅਤੇ ਉੱਤਰ ਪਾਓ।',
+        'starting.features.items.sacred_geography.title': 'ਪਵਿੱਤਰ ਭੂਗੋਲ',
+        'starting.features.items.sacred_geography.description': 'ਇਤਿਹਾਸਕ ਮਹੱਤਵ ਅਤੇ ਯਾਤਰਾ ਜਾਣਕਾਰੀ ਸਮੇਤ ਇੰਟਰਐਕਟਿਵ ਨਕਸ਼ਿਆਂ ’ਚ ਹਜ਼ਾਰਾਂ ਮੰਦਰ ਅਤੇ ਪੌਰਾਣਿਕ ਥਾਵਾਂ ਦੀ ਖੋਜ ਕਰੋ।',
+        'starting.features.items.panchang.title': 'ਪੰਚਾਂਗ ਕੈਲੰਡਰ',
+        'starting.features.items.panchang.description': 'ਤਿਥੀਆਂ, ਨਕਸ਼ਤਰ, ਤਿਉਹਾਰ ਅਤੇ ਸ਼ੁਭ ਮੁਹੂਰਤ ਸਮੇਤ ਹਿੰਦੂ ਕੈਲੰਡਰ ਨਾਲ ਜੁੜੇ ਰਹੋ।',
+        'starting.features.items.digital_library.title': 'ਡਿਜ਼ੀਟਲ ਪੁਸਤਕਾਲਾ',
+        'starting.features.items.digital_library.description': 'ਵੇਦ, ਪੁਰਾਣ, ਉਪਨਿਸ਼ਦ ਅਤੇ ਆਧੁਨਿਕ ਆਤਮਿਕ ਕਿਤਾਬਾਂ ਦਾ ਵਿਸਤ੍ਰਿਤ ਸੰਗ੍ਰਹਿ ਹਾਸਲ ਕਰੋ।',
+        'starting.features.items.ayurveda.title': 'ਆਯੁਰਵੇਦ ਗਿਆਨ',
+        'starting.features.items.ayurveda.description': 'ਜੜੀ-ਬੂਟੀਆਂ ਦੇ ਇਲਾਜ, ਜੀਵਨਸ਼ੈਲੀ ਅਭਿਆਸ ਅਤੇ ਸਮਗਰ ਉਪਚਾਰ ਜਿਹੇ ਪ੍ਰਾਚੀਨ ਚਿਕਿਤਸਾ ਗਿਆਨ ਬਾਰੇ ਜਾਣੋ।',
+        'starting.features.items.vedic_sciences.title': 'ਵੈਦਿਕ ਵਿਗਿਆਨ',
+        'starting.features.items.vedic_sciences.description': 'ਪ੍ਰਾਚੀਨ ਹਿੰਦੂ ਗ੍ਰੰਥਾਂ ’ਚ ਦਰਸਾਏ ਗਣਿਤੀਯ ਯੋਗਦਾਨ, ਖਗੋਲੀ ਖੋਜਾਂ ਅਤੇ ਜੋਤਿਸ਼ੀ ਦ੍ਰਿਸ਼ਟੀਕੋਣ ਬਾਰੇ ਸਿੱਖੋ।',
+        'starting.cta.title': 'ਆਪਣੀ ਆਤਮਿਕ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ',
+        'starting.cta.subtitle': 'ਸਾਡੇ AI-ਚਾਲਿਤ ਸਿੱਖਣ ਪਲੇਟਫਾਰਮ ਨਾਲ ਸਨਾਤਨ ਧਰਮ ਦਾ ਗਹਿਰਾ ਗਿਆਨ ਜਾਣੋ',
+        'starting.cta.start_assessment': 'ਮੁਲਾਂਕਣ ਸ਼ੁਰੂ ਕਰੋ',
+        'starting.cta.ask_ai': 'AI ਸਹਾਇਕ ਨੂੰ ਪੁੱਛੋ',
+        'stats.vedas': 'ਵੇਦ',
+        'stats.puranas': 'ਪੁਰਾਣ',
+        'stats.sacred_places': 'ਪਵਿੱਤਰ ਥਾਵਾਂ',
+        'stats.books': 'ਕਿਤਾਬਾਂ',
+        'stats.festivals': 'ਤਿਉਹਾਰ',
+        'stats.ai_support': 'AI ਸਹਾਇਤਾ'
       },
       'bn': {
         'starting.quick_access.title': 'দ্রুত প্রবেশ',
