@@ -786,6 +786,82 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'common.view': 'ਵੇਖੋ'
     };
 
+    // Odia translations
+    this.translations['or'] = {
+      'nav.home': 'ଘର',
+      'nav.admin': 'ପ୍ରଶାସନ ପ୍ୟାନେଲ',
+      'nav.evaluation': 'ମୂଲ୍ୟାୟନ',
+      'nav.vedas': 'ବେଦ',
+      'nav.puranas': 'ପୁରାଣ',
+      'nav.kavyas': 'କାବ୍ୟ',
+      'nav.mathematics': 'ଗଣିତ',
+      'nav.astrology': 'ଜ୍ୟୋତିଷ',
+      'nav.astronomy': 'ଖଗୋଳ ବିଜ୍ଞାନ',
+      'nav.medical': 'ଆୟୁର୍ବେଦ',
+      'nav.places': 'ପବିତ୍ର ସ୍ଥାନ',
+      'nav.panchang': 'ପଞ୍ଜିକା',
+      'nav.bookstore': 'ପୁସ୍ତକାଳୟ',
+      'nav.gifts': 'ଉପହାର ଦୋକାନ',
+      'nav.events': 'କାର୍ଯ୍ୟକ୍ରମ',
+      'nav.chatbot': 'AI ସହାୟକ',
+
+      'welcome.title': 'AI ସନାତନ ପୋର୍ଟାଲ',
+      'welcome.subtitle': 'ଶାଶ୍ୱତ ଜ୍ଞାନର ଅନୁସନ୍ଧାନ',
+      'welcome.description': 'ସନାତନ ଧର୍ମର ସମଗ୍ର ପୋର୍ଟାଲକୁ ସ୍ୱାଗତ',
+
+      'welcome.hero.title': 'ସର୍ୱେ ଭବନ୍ତୁ ସୁଖିନଃ',
+      'welcome.hero.subtitle': 'ସମସ୍ତ ପ୍ରାଣୀ ସୁଖୀ ହେଉନ୍ତୁ',
+      'welcome.hero.description': 'AI ସନାତନ ପୋର୍ଟାଲକୁ ସ୍ୱାଗତ — ସନାତନ ଧର୍ମର ଶାଶ୍ୱତ ଜ୍ଞାନର ଦ୍ୱାର। ବେଦ-ପୁରାଣ ପଢ଼ନ୍ତୁ, ପବିତ୍ର ସ୍ଥାନ ଖୋଜନ୍ତୁ, ଜ୍ୟୋତିଷ ଏବଂ ଖଗୋଳ ବିଜ୍ଞାନ ବୁଝନ୍ତୁ, ଆୟୁର୍ବେଦ ଜାଣନ୍ତୁ ଇତ୍ୟାଦି।',
+      'welcome.hero.what_you_will_discover': 'ଆପଣ କଣ ଖୋଜିବେ:',
+      'welcome.hero.highlight.vedas_puranas': 'ବେଦ ଓ ପୁରାଣର ବିସ୍ତୃତ ସଙ୍କଳନ',
+      'welcome.hero.highlight.ai_chatbot': 'ଆଧ୍ୟାତ୍ମିକ ମାର୍ଗଦର୍ଶନ ପାଇଁ AI ଚ୍ୟାଟବୋଟ',
+      'welcome.hero.highlight.panchang': 'ଇଣ୍ଟରାକ୍ଟିଭ ପଞ୍ଜିକା',
+      'welcome.hero.highlight.temples_directory': 'ମନ୍ଦିର ଓ ପବିତ୍ର ସ୍ଥାନ ନିର୍ଦ୍ଦେଶିକା',
+      'welcome.hero.highlight.books_souvenirs': 'ଭରସାଯୋଗ୍ୟ ବ୍ୟବସାୟୀଙ୍କ ପାଖରୁ ପୁସ୍ତକ ଓ ସ୍ମୃତିଚିହ୍ନ',
+      'welcome.hero.highlight.events_gatherings': 'ନିୟମିତ କାର୍ଯ୍ୟକ୍ରମ ଓ ଆଧ୍ୟାତ୍ମିକ ସଭା',
+      'welcome.hero.cta.explore_vedas': 'ବେଦ ଦେଖନ୍ତୁ',
+      'welcome.hero.cta.ai_assistant': 'AI ସହାୟକ',
+
+      'quicklinks.vedas.title': 'ବେଦ',
+      'quicklinks.vedas.description': 'ବେଦର ଶାଶ୍ୱତ ଜ୍ଞାନ ଅନୁସନ୍ଧାନ କରନ୍ତୁ',
+      'quicklinks.puranas.title': 'ପୁରାଣ',
+      'quicklinks.puranas.description': 'ପୁରାତନ କାହାଣୀ ଓ ଜ୍ଞାନ ଖୋଜନ୍ତୁ',
+      'quicklinks.panchang.title': 'ପଞ୍ଜିକା',
+      'quicklinks.panchang.description': 'ତିଥି ଓ ପର୍ବପର୍ବାଣୀ ସହିତ ହିନ୍ଦୁ କ୍ୟାଲେଣ୍ଡର',
+      'quicklinks.ai.title': 'AI ସହାୟକ',
+      'quicklinks.ai.description': 'ସନାତନ ଧର୍ମ ବିଷୟରେ ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ',
+      'quicklinks.places.title': 'ପବିତ୍ର ସ୍ଥାନ',
+      'quicklinks.places.description': 'ମନ୍ଦିର ଓ ପବିତ୍ର ସ୍ଥାନ ଖୋଜନ୍ତୁ',
+      'quicklinks.books.title': 'ପୁସ୍ତକାଳୟ',
+      'quicklinks.books.description': 'ଆଧ୍ୟାତ୍ମିକ ପୁସ୍ତକ ଓ ଗ୍ରନ୍ଥ ବ୍ରାଉଜ କରନ୍ତୁ',
+
+      'featured.wisdom.title': 'ଦୈନିକ ଜ୍ଞାନ',
+      'featured.wisdom.content': '"ଧର୍ମୋ ରକ୍ଷତି ରକ୍ଷିତଃ" - ଯେମାନେ ଧର୍ମକୁ ରକ୍ଷା କରନ୍ତି, ଧର୍ମ ସେମାନଙ୍କୁ ରକ୍ଷା କରେ',
+      'featured.wisdom.source': 'ମହାଭାରତ',
+      'featured.tithi.title': 'ଆଜିର ତିଥି',
+      'featured.tithi.content': 'ପଞ୍ଜିକା ତଥ୍ୟ ଲୋଡ୍ ହେଉଛି...',
+      'featured.tithi.source': 'ହିନ୍ଦୁ କ୍ୟାଲେଣ୍ଡର',
+      'featured.festival.title': 'ପର୍ବ ସୂଚନା',
+      'featured.festival.content': 'ଆସନ୍ତା ପର୍ବପର୍ବାଣୀ ଓ ଅନୁଷ୍ଠାନ',
+      'featured.festival.source': 'କ୍ୟାଲେଣ୍ଡର',
+
+      'loading.message': 'ଲୋଡ୍ ହେଉଛି...',
+      'loading.quote': '"ସର୍ୱେ ଭବନ୍ତୁ ସୁଖିନଃ ସର୍ୱେ ସନ୍ତୁ ନିରାମୟାଃ"',
+      'loading.quote.translation': 'ସମସ୍ତ ପ୍ରାଣୀ ସୁଖୀ ଓ ନିରୋଗ ହେଉନ୍ତୁ',
+
+      'search.placeholder': 'ଖୋଜନ୍ତୁ...',
+      'search.button': 'ଖୋଜନ୍ତୁ',
+
+      'common.read_more': 'ଅଧିକ ପଢ଼ନ୍ତୁ',
+      'common.show_less': 'କମ୍ ଦେଖନ୍ତୁ',
+      'common.close': 'ବନ୍ଦ କରନ୍ତୁ',
+      'common.save': 'ସଂରକ୍ଷଣ',
+      'common.cancel': 'ବାତିଲ୍',
+      'common.delete': 'ମିଟାନ୍ତୁ',
+      'common.edit': 'ସମ୍ପାଦନା',
+      'common.view': 'ଦେଖନ୍ତୁ'
+    };
+
     // Marathi translations
     this.translations['mr'] = {
       'nav.home': 'मुखपृष्ठ',
@@ -1191,6 +1267,35 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
         'stats.books': 'ਕਿਤਾਬਾਂ',
         'stats.festivals': 'ਤਿਉਹਾਰ',
         'stats.ai_support': 'AI ਸਹਾਇਤਾ'
+      },
+      'or': {
+        'starting.quick_access.title': 'ତ୍ୱରିତ ପ୍ରବେଶ',
+        'starting.quick_access.subtitle': 'ଆପଣଙ୍କ ଆଧ୍ୟାତ୍ମିକ ଯାତ୍ରା ଆରମ୍ଭ କରନ୍ତୁ',
+        'starting.todays_inspiration': 'ଆଜିର ପ୍ରେରଣା',
+        'starting.features.title': 'ସମଗ୍ର ଆଧ୍ୟାତ୍ମିକ ପ୍ଲାଟଫର୍ମ',
+        'starting.features.subtitle': 'ଆପଣଙ୍କ ଆଧ୍ୟାତ୍ମିକ ଯାତ୍ରା ପାଇଁ ଆବଶ୍ୟକ ସବୁଠାରୁ ଏକ ସ୍ଥାନରେ',
+        'starting.features.items.ai_learning.title': 'AI ଆଧାରିତ ଶିକ୍ଷା',
+        'starting.features.items.ai_learning.description': 'ପ୍ରମାଣିତ ସଂସ୍କୃତ ଗ୍ରନ୍ଥରେ ପ୍ରଶିକ୍ଷିତ ଆମ ଉନ୍ନତ AI ଚ୍ୟାଟବୋଟ୍ ମାଧ୍ୟମରେ ଆପଣଙ୍କ ଆଧ୍ୟାତ୍ମିକ ପ୍ରଶ୍ନ ପାଇଁ ବ୍ୟକ୍ତିଗତ ମାର୍ଗଦର୍ଶନ ଓ ଉତ୍ତର ପାଆନ୍ତୁ।',
+        'starting.features.items.sacred_geography.title': 'ପବିତ୍ର ଭୂଗୋଳ',
+        'starting.features.items.sacred_geography.description': 'ଇତିହାସିକ ମହତ୍ତ୍ୱ ଓ ଯାତ୍ରା ସୂଚନା ସହ ଇଣ୍ଟରାକ୍ଟିଭ ମ୍ୟାପ୍‌ରେ ହଜାରୋ ମନ୍ଦିର ଓ ପୌରାଣିକ ସ୍ଥାନ ଅନୁସନ୍ଧାନ କରନ୍ତୁ।',
+        'starting.features.items.panchang.title': 'ପଞ୍ଜିକା କ୍ୟାଲେଣ୍ଡର',
+        'starting.features.items.panchang.description': 'ତିଥି, ନକ୍ଷତ୍ର, ପର୍ବପର୍ବାଣୀ ଓ ଶୁଭ ମୁହୂର୍ତ୍ତ ସହିତ ହିନ୍ଦୁ କ୍ୟାଲେଣ୍ଡର ସହିତ ସଂଯୁକ୍ତ ରୁହନ୍ତୁ।',
+        'starting.features.items.digital_library.title': 'ଡିଜିଟାଲ ପୁସ୍ତକାଳୟ',
+        'starting.features.items.digital_library.description': 'ବେଦ, ପୁରାଣ, ଉପନିଷଦ ଏବଂ ଆଧୁନିକ ଆଧ୍ୟାତ୍ମିକ ପୁସ୍ତକର ବିସ୍ତୃତ ସଂଗ୍ରହର ଅଭିଗମ ପାଆନ୍ତୁ।',
+        'starting.features.items.ayurveda.title': 'ଆୟୁର୍ବେଦ ଜ୍ଞାନ',
+        'starting.features.items.ayurveda.description': 'ଔଷଧି ଉପଚାର, ଜୀବନଶୈଳୀ ପ୍ରଯୋଗ ଓ ସମଗ୍ର ଚିକିତ୍ସା ପ୍ରବନ୍ଧ ଇତ୍ୟାଦି ପ୍ରାଚୀନ ଚିକିତ୍ସା ଜ୍ଞାନ ବିଷୟରେ ଜାଣନ୍ତୁ।',
+        'starting.features.items.vedic_sciences.title': 'ବୈଦିକ ବିଜ୍ଞାନ',
+        'starting.features.items.vedic_sciences.description': 'ପ୍ରାଚୀନ ହିନ୍ଦୁ ଗ୍ରନ୍ଥରେ ବର୍ଣିତ ଗଣିତୀୟ ଅବଦାନ, ଖଗୋଳୀୟ ଆବିଷ୍କାର ଓ ଜ୍ୟୋତିଷୀୟ ଦୃଷ୍ଟିଭଙ୍ଗୀ ବିଷୟରେ ଶିଖନ୍ତୁ।',
+        'starting.cta.title': 'ଆପଣଙ୍କ ଆଧ୍ୟାତ୍ମିକ ଯାତ୍ରା ଆରମ୍ଭ କରନ୍ତୁ',
+        'starting.cta.subtitle': 'ଆମ AI ଆଧାରିତ ଶିକ୍ଷା ପ୍ଲାଟଫର୍ମ ସହ ଶାନ୍ତନ ଧର୍ମର ଗଭୀର ଜ୍ଞାନ ଅନୁସନ୍ଧାନ କରନ୍ତୁ',
+        'starting.cta.start_assessment': 'ମୂଲ୍ୟାୟନ ଆରମ୍ଭ କରନ୍ତୁ',
+        'starting.cta.ask_ai': 'AI ସହାୟକୁ ପଚାରନ୍ତୁ',
+        'stats.vedas': 'ବେଦ',
+        'stats.puranas': 'ପୁରାଣ',
+        'stats.sacred_places': 'ପବିତ୍ର ସ୍ଥାନ',
+        'stats.books': 'ପୁସ୍ତକ',
+        'stats.festivals': 'ପର୍ବପର୍ବାଣୀ',
+        'stats.ai_support': 'AI ସହାୟତା'
       },
       'bn': {
         'starting.quick_access.title': 'দ্রুত প্রবেশ',
