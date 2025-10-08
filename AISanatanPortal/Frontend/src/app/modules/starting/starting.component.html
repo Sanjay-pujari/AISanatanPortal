@@ -17,8 +17,8 @@
     <!-- Quick Navigation -->
     <section class="quick-navigation-section">
       <div class="container">
-        <h2 class="section-title">Quick Access</h2>
-        <p class="section-subtitle">Begin your spiritual journey</p>
+        <h2 class="section-title">{{ 'starting.quick_access.title' | translate }}</h2>
+        <p class="section-subtitle">{{ 'starting.quick_access.subtitle' | translate }}</p>
         
         <div class="quick-links-grid">
           <mat-card 
@@ -29,8 +29,8 @@
               <div class="card-icon">
                 <mat-icon [color]="link.color" class="large-icon">{{ link.icon }}</mat-icon>
               </div>
-              <h3>{{ link.titleKey | translate }}</h3>
-              <p>{{ link.descriptionKey | translate }}</p>
+              <h3>{{ getTranslation(link.titleKey) }}</h3>
+              <p>{{ getTranslation(link.descriptionKey) }}</p>
             </mat-card-content>
           </mat-card>
         </div>
@@ -40,18 +40,18 @@
     <!-- Featured Content -->
     <section class="featured-content-section">
       <div class="container">
-        <h2 class="section-title">Today's Inspiration</h2>
+        <h2 class="section-title">{{ 'starting.todays_inspiration' | translate }}</h2>
         
         <div class="featured-grid">
           <mat-card 
             *ngFor="let item of featuredContent" 
             class="featured-card custom-card">
             <mat-card-header>
-              <mat-card-title>{{ item.titleKey | translate }}</mat-card-title>
-              <mat-card-subtitle>{{ item.sourceKey | translate }}</mat-card-subtitle>
+              <mat-card-title>{{ getTranslation(item.titleKey) }}</mat-card-title>
+              <mat-card-subtitle>{{ getTranslation(item.sourceKey) }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p [innerHTML]="item.contentKey | translate"></p>
+              <p [innerHTML]="getTranslation(item.contentKey)"></p>
             </mat-card-content>
           </mat-card>
         </div>
@@ -65,8 +65,8 @@
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">
-          <h2>Begin Your Spiritual Journey</h2>
-          <p>Discover the profound wisdom of Sanatan Dharma with our AI-powered learning platform</p>
+          <h2>{{ 'starting.cta.title' | translate }}</h2>
+          <p>{{ 'starting.cta.subtitle' | translate }}</p>
           <div class="cta-buttons">
             <button 
               mat-raised-button 
@@ -74,7 +74,7 @@
               [routerLink]="['/evaluation']"
               class="cta-button">
               <mat-icon>assessment</mat-icon>
-              Start Assessment
+              {{ 'starting.cta.start_assessment' | translate }}
             </button>
             <button 
               mat-raised-button 
@@ -82,7 +82,7 @@
               [routerLink]="['/chatbot']"
               class="cta-button">
               <mat-icon>chat</mat-icon>
-              Ask AI Assistant
+              {{ 'starting.cta.ask_ai' | translate }}
             </button>
           </div>
         </div>
@@ -96,32 +96,32 @@
           <div class="stat-item">
             <mat-icon class="stat-icon">menu_book</mat-icon>
             <h3 class="stat-number">4</h3>
-            <p class="stat-label">Vedas</p>
+            <p class="stat-label">{{ 'stats.vedas' | translate }}</p>
           </div>
           <div class="stat-item">
             <mat-icon class="stat-icon">history_edu</mat-icon>
             <h3 class="stat-number">18+</h3>
-            <p class="stat-label">Puranas</p>
+            <p class="stat-label">{{ 'stats.puranas' | translate }}</p>
           </div>
           <div class="stat-item">
             <mat-icon class="stat-icon">place</mat-icon>
             <h3 class="stat-number">1000+</h3>
-            <p class="stat-label">Sacred Places</p>
+            <p class="stat-label">{{ 'stats.sacred_places' | translate }}</p>
           </div>
           <div class="stat-item">
             <mat-icon class="stat-icon">local_library</mat-icon>
             <h3 class="stat-number">500+</h3>
-            <p class="stat-label">Books</p>
+            <p class="stat-label">{{ 'stats.books' | translate }}</p>
           </div>
           <div class="stat-item">
             <mat-icon class="stat-icon">event</mat-icon>
             <h3 class="stat-number">365+</h3>
-            <p class="stat-label">Festivals</p>
+            <p class="stat-label">{{ 'stats.festivals' | translate }}</p>
           </div>
           <div class="stat-item">
             <mat-icon class="stat-icon">smart_toy</mat-icon>
             <h3 class="stat-number">24/7</h3>
-            <p class="stat-label">AI Support</p>
+            <p class="stat-label">{{ 'stats.ai_support' | translate }}</p>
           </div>
         </div>
       </div>

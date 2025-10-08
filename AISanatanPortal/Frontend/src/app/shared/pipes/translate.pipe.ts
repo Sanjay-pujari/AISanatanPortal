@@ -11,14 +11,15 @@ interface TranslationData {
   pure: false // Make it impure so it updates when language changes
 })
 export class TranslatePipe implements PipeTransform, OnDestroy {
-  private languageSubscription: Subscription;
-  private currentLanguage: string = 'en';
   private translations: { [language: string]: TranslationData } = {};
+  private languageSubscription?: Subscription;
 
   constructor(private languageService: LanguageService) {
     this.initializeTranslations();
+    
+    // Subscribe to language changes to force pipe updates
     this.languageSubscription = this.languageService.currentLanguage$.subscribe(lang => {
-      this.currentLanguage = lang;
+      // Language changed - pipe will automatically update due to pure: false
     });
   }
 
@@ -31,19 +32,31 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   transform(key: string, params?: any): string {
     if (!key) return '';
 
+    // Get current language from service directly
+    const currentLang = this.languageService.getCurrentLanguage();
+    
+    // Debug logging
+    // console.log(`TranslatePipe: Looking for key "${key}" in language "${currentLang}"`);
+    // console.log(`TranslatePipe: Available languages:`, Object.keys(this.translations));
+
     // Get translation for current language
-    let translation = this.getTranslation(key, this.currentLanguage);
+    let translation = this.getTranslation(key, currentLang);
     
     // Fallback to English if translation not found
-    if (!translation && this.currentLanguage !== 'en') {
+    if (!translation && currentLang !== 'en') {
+      // console.log(`TranslatePipe: Fallback to English for key "${key}"`);
       translation = this.getTranslation(key, 'en');
     }
 
     // If still no translation found, return the key itself
     if (!translation) {
-      console.warn(`Translation missing for key: ${key} in language: ${this.currentLanguage}`);
+      console.warn(`Translation missing for key: ${key} in language: ${currentLang}`);
+      // console.log('Available translations for current language:', this.translations[currentLang]);
+      // console.log('All translations structure:', this.translations);
       return key;
     }
+
+    // console.log(`TranslatePipe: Found translation "${translation}" for key "${key}"`);
 
     // Replace parameters if provided
     if (params && typeof params === 'object') {
@@ -62,9 +75,18 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   }
 
   private getNestedTranslation(obj: any, path: string): string {
-    return path.split('.').reduce((current, key) => {
-      return current && current[key] !== undefined ? current[key] : '';
+    // console.log(`TranslatePipe: getNestedTranslation called with path: "${path}"`);
+    // console.log(`TranslatePipe: obj:`, obj);
+    
+    const result = path.split('.').reduce((current, key) => {
+      // console.log(`TranslatePipe: Looking for key "${key}" in:`, current);
+      const next = current && current[key] !== undefined ? current[key] : '';
+      // console.log(`TranslatePipe: Found:`, next);
+      return next;
     }, obj);
+    
+    // console.log(`TranslatePipe: Final result for path "${path}":`, result);
+    return result;
   }
 
   private replaceParameters(text: string, params: any): string {
@@ -74,6 +96,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   }
 
   private initializeTranslations(): void {
+    console.log('TranslatePipe: Initializing translations...');
     // English translations
     this.translations['en'] = {
       'nav.home': 'Home',
@@ -96,6 +119,19 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'welcome.title': 'AI Sanatan Portal',
       'welcome.subtitle': 'Exploring the Eternal Wisdom',
       'welcome.description': 'Welcome to the comprehensive portal of Sanatan Dharma',
+      
+      'welcome.hero.title': 'सर्वे भवन्तु सुखिनः',
+      'welcome.hero.subtitle': 'May all beings be happy',
+      'welcome.hero.description': 'Welcome to AI Sanatan Portal, your gateway to the eternal wisdom of Sanatan Dharma. Explore ancient texts, discover sacred places, understand astrology and astronomy, learn about Ayurveda, and much more through our AI-powered platform.',
+      'welcome.hero.what_you_will_discover': "What you'll discover:",
+      'welcome.hero.highlight.vedas_puranas': 'Comprehensive collection of Vedas and Puranas',
+      'welcome.hero.highlight.ai_chatbot': 'AI-powered chatbot for spiritual guidance',
+      'welcome.hero.highlight.panchang': 'Interactive Panchang calendar',
+      'welcome.hero.highlight.temples_directory': 'Extensive temple and sacred place directory',
+      'welcome.hero.highlight.books_souvenirs': 'Books and souvenirs from verified vendors',
+      'welcome.hero.highlight.events_gatherings': 'Regular events and spiritual gatherings',
+      'welcome.hero.cta.explore_vedas': 'Explore Vedas',
+      'welcome.hero.cta.ai_assistant': 'AI Assistant',
       
       'quicklinks.vedas.title': 'Vedas',
       'quicklinks.vedas.description': 'Explore the eternal knowledge of the Vedas',
@@ -160,6 +196,19 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'welcome.subtitle': 'शाश्वत ज्ञान की खोज',
       'welcome.description': 'सनातन धर्म के व्यापक पोर्टल में आपका स्वागत है',
       
+      'welcome.hero.title': 'सर्वे भवन्तु सुखिनः',
+      'welcome.hero.subtitle': 'सभी प्राणी सुखी हों',
+      'welcome.hero.description': 'AI सनातन पोर्टल में आपका स्वागत है — सनातन धर्म के शाश्वत ज्ञान का आपका प्रवेश द्वार। प्राचीन ग्रंथों का अध्ययन करें, पवित्र स्थानों को खोजें, ज्योतिष और खगोल विज्ञान को समझें, आयुर्वेद जानें और बहुत कुछ।',
+      'welcome.hero.what_you_will_discover': 'आप क्या पाएँगे:',
+      'welcome.hero.highlight.vedas_puranas': 'वेद और पुराणों का व्यापक संग्रह',
+      'welcome.hero.highlight.ai_chatbot': 'आध्यात्मिक मार्गदर्शन हेतु AI चैटबॉट',
+      'welcome.hero.highlight.panchang': 'इंटरएक्टिव पंचांग',
+      'welcome.hero.highlight.temples_directory': 'मंदिर और पवित्र स्थान निर्देशिका',
+      'welcome.hero.highlight.books_souvenirs': 'विश्वसनीय विक्रेताओं से पुस्तकें और उपहार',
+      'welcome.hero.highlight.events_gatherings': 'नियमित कार्यक्रम और आध्यात्मिक सभाएँ',
+      'welcome.hero.cta.explore_vedas': 'वेद देखें',
+      'welcome.hero.cta.ai_assistant': 'AI सहायक',
+      
       'quicklinks.vedas.title': 'वेद',
       'quicklinks.vedas.description': 'वेदों के शाश्वत ज्ञान का अन्वेषण करें',
       'quicklinks.puranas.title': 'पुराण',
@@ -222,6 +271,19 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'welcome.title': 'AI सनातन पोर्टल्',
       'welcome.subtitle': 'शाश्वतज्ञानस्य अन्वेषणम्',
       'welcome.description': 'सनातनधर्मस्य विस्तृतपोर्टले स्वागतम्',
+      
+      'welcome.hero.title': 'सर्वे भवन्तु सुखिनः',
+      'welcome.hero.subtitle': 'सर्वे प्राणिनः सुखिनः',
+      'welcome.hero.description': 'AI सनातन-पोर्टले भवतः स्वागतम्। अत्र वेदान् अन्वेषयत, पवित्रस्थानानि ज्ञातुं शक्नुथ, ज्योतिषं खगोलशास्त्रं च अवगच्छत, आयुर्वेदं जानीयात्, अधिकं च।',
+      'welcome.hero.what_you_will_discover': 'किम् लभध्वे:',
+      'welcome.hero.highlight.vedas_puranas': 'वेद-पुराणानां विस्तृतसङ्ग्रहः',
+      'welcome.hero.highlight.ai_chatbot': 'आध्यात्मिकमार्गदर्शने AI सहायकः',
+      'welcome.hero.highlight.panchang': 'परस्परक्रियात्मकं पञ्चाङ्गम्',
+      'welcome.hero.highlight.temples_directory': 'मन्दिर-पवित्रस्थान-निर्देशिका',
+      'welcome.hero.highlight.books_souvenirs': 'विश्वसनीयविक्रेतिभ्यः पुस्तकानि उपहाराश्च',
+      'welcome.hero.highlight.events_gatherings': 'नियमिताः कार्यक्रमाः आध्यात्मिकसमागमाश्च',
+      'welcome.hero.cta.explore_vedas': 'वेदान् अन्वेषयतु',
+      'welcome.hero.cta.ai_assistant': 'AI सहायकः',
       
       'quicklinks.vedas.title': 'वेदाः',
       'quicklinks.vedas.description': 'वेदानां शाश्वतज्ञानस्य अन्वेषणम्',
@@ -286,6 +348,19 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'welcome.subtitle': 'நித்திய ஞானத்தை ஆராய்தல்',
       'welcome.description': 'சனாதன தர்மத்தின் விரிவான போர்டலுக்கு வரவேற்கிறோம்',
       
+      'welcome.hero.title': 'சர்வே பவந்து சுக்கினஹ்',
+      'welcome.hero.subtitle': 'அனைவரும் மகிழ்ச்சியாக இருப்பதாக',
+      'welcome.hero.description': 'AI சனாதன போர்டலுக்கு வரவேற்கிறோம். வேதங்களை ஆராயுங்கள், புனித இடங்களை கண்டறியுங்கள், ஜோதிடம் மற்றும் வானியலைப் புரிந்துகொள்ளுங்கள், ஆயுர்வேதம் அறியுங்கள் மற்றும் பல.',
+      'welcome.hero.what_you_will_discover': 'நீங்கள் காண்பது:',
+      'welcome.hero.highlight.vedas_puranas': 'வேதங்கள் மற்றும் புராணங்களின் விரிவான தொகுப்பு',
+      'welcome.hero.highlight.ai_chatbot': 'ஆன்மீக வழிகாட்டலுக்கான AI உதவியாளர்',
+      'welcome.hero.highlight.panchang': 'இணையதிரை பஞ்சாங்கம்',
+      'welcome.hero.highlight.temples_directory': 'கோவில்கள் மற்றும் புனித இடங்கள் அகராதி',
+      'welcome.hero.highlight.books_souvenirs': 'நம்பகமான விற்பனையாளர்களிடமிருந்து புத்தகங்களும் நினைவுப்பொருட்களும்',
+      'welcome.hero.highlight.events_gatherings': 'தொடர்ந்த நிகழ்வுகள் மற்றும் ஆன்மிக கூடங்கள்',
+      'welcome.hero.cta.explore_vedas': 'வேதங்களை ஆராயுங்கள்',
+      'welcome.hero.cta.ai_assistant': 'AI உதவியாளர்',
+      
       'quicklinks.vedas.title': 'வேதங்கள்',
       'quicklinks.vedas.description': 'வேதங்களின் நித்திய அறிவை ஆராயுங்கள்',
       'quicklinks.puranas.title': 'புராணங்கள்',
@@ -348,6 +423,19 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'welcome.title': 'AI સનાતન પોર્ટલ',
       'welcome.subtitle': 'શાશ્વત જ્ઞાનની શોધ',
       'welcome.description': 'સનાતન ધર્મના વ્યાપક પોર્ટલમાં આપનું સ્વાગત છે',
+      
+      'welcome.hero.title': 'સર્વે ભવંતુ સુખિનઃ',
+      'welcome.hero.subtitle': 'બધા સુખી રહે',
+      'welcome.hero.description': 'AI સનાતન પોર્ટલમાં આપનું સ્વાગત છે. અહીં વેદોનું જ્ઞાન, પવિત્ર સ્થળો, જ્યોતિષ, ખગોળશાસ્ત્ર, આયુર્વેદ અને ઘણું વધુ જાણો.',
+      'welcome.hero.what_you_will_discover': 'તમે શું શોધશો:',
+      'welcome.hero.highlight.vedas_puranas': 'વેદો અને પુરાણોનો વ્યાપક સંગ્રહ',
+      'welcome.hero.highlight.ai_chatbot': 'આધ્યાત્મિક માર્ગદર્શન માટે AI સહાયક',
+      'welcome.hero.highlight.panchang': 'આંતરક્રિયાત્મક પંચાંગ',
+      'welcome.hero.highlight.temples_directory': 'મંદિરો અને પવિત્ર સ્થળોની ડિરેક્ટરી',
+      'welcome.hero.highlight.books_souvenirs': 'વિશ્વસનીય વેન્ડર પાસેથી પુસ્તકો અને સ્મૃતિચિહ્નો',
+      'welcome.hero.highlight.events_gatherings': 'નિયમિત કાર્યક્રમો અને આધ્યાત્મિક સભાઓ',
+      'welcome.hero.cta.explore_vedas': 'વેદો જુઓ',
+      'welcome.hero.cta.ai_assistant': 'AI સહાયક',
       
       'quicklinks.vedas.title': 'વેદ',
       'quicklinks.vedas.description': 'વેદોના શાશ્વત જ્ઞાનનું અન્વેષણ કરો',
@@ -412,6 +500,19 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'welcome.subtitle': 'চিরন্তন জ্ঞানের অনুসন্ধান',
       'welcome.description': 'সনাতন ধর্মের বিস্তৃত পোর্টালে স্বাগতম',
       
+      'welcome.hero.title': 'সর্বে ভবন্তু সুখিনঃ',
+      'welcome.hero.subtitle': 'সকল প্রাণী সুখী হোক',
+      'welcome.hero.description': 'AI সনাতন পোর্টালে স্বাগতম — সনাতন ধর্মের চিরন্তন জ্ঞানের দ্বার। বেদ অন্বেষণ করুন, পবিত্র স্থান খুঁজুন, জ্যোতিষ ও জ্যোতির্বিজ্ঞান বোঝুন, আয়ুর্বেদ জানুন এবং আরও অনেক কিছু।',
+      'welcome.hero.what_you_will_discover': 'আপনি যা পাবেন:',
+      'welcome.hero.highlight.vedas_puranas': 'বেদ ও পুরাণের বিস্তৃত সংগ্রহ',
+      'welcome.hero.highlight.ai_chatbot': 'আধ্যাত্মিক দিশার জন্য AI সহায়ক',
+      'welcome.hero.highlight.panchang': 'ইন্টারেক্টিভ পঞ্জিকা',
+      'welcome.hero.highlight.temples_directory': 'মন্দির এবং পবিত্র স্থানের ডিরেক্টরি',
+      'welcome.hero.highlight.books_souvenirs': 'বিশ্বস্ত বিক্রেতাদের বই ও উপহার',
+      'welcome.hero.highlight.events_gatherings': 'নিয়মিত অনুষ্ঠান ও আধ্যাত্মিক সমাবেশ',
+      'welcome.hero.cta.explore_vedas': 'বেদ দেখুন',
+      'welcome.hero.cta.ai_assistant': 'AI সহায়ক',
+      
       'quicklinks.vedas.title': 'বেদ',
       'quicklinks.vedas.description': 'বেদের চিরন্তন জ্ঞান অন্বেষণ করুন',
       'quicklinks.puranas.title': 'পুরাণ',
@@ -451,5 +552,204 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'common.edit': 'সম্পাদনা',
       'common.view': 'দেখুন'
     };
+
+    // Shared welcome hero translations across languages
+    const i18nShared: { [lang: string]: TranslationData } = {
+      'en': {
+        'welcome.hero.title': 'सर्वे भवन्तु सुखिनः',
+        'welcome.hero.subtitle': 'May all beings be happy',
+        'welcome.hero.description': 'Welcome to AI Sanatan Portal, your gateway to the eternal wisdom of Sanatan Dharma. Explore ancient texts, discover sacred places, understand astrology and astronomy, learn about Ayurveda, and much more through our AI-powered platform.',
+        'welcome.hero.what_you_will_discover': "What you'll discover:",
+        'welcome.hero.highlight.vedas_puranas': 'Comprehensive collection of Vedas and Puranas',
+        'welcome.hero.highlight.ai_chatbot': 'AI-powered chatbot for spiritual guidance',
+        'welcome.hero.highlight.panchang': 'Interactive Panchang calendar',
+        'welcome.hero.highlight.temples_directory': 'Extensive temple and sacred place directory',
+        'welcome.hero.highlight.books_souvenirs': 'Books and souvenirs from verified vendors',
+        'welcome.hero.highlight.events_gatherings': 'Regular events and spiritual gatherings',
+        'welcome.hero.cta.explore_vedas': 'Explore Vedas',
+        'welcome.hero.cta.ai_assistant': 'AI Assistant'
+      },
+      'hi': {
+        'welcome.hero.title': 'सर्वे भवन्तु सुखिनः',
+        'welcome.hero.subtitle': 'सभी प्राणी सुखी हों',
+        'welcome.hero.description': 'AI सनातन पोर्टल में आपका स्वागत है — सनातन धर्म के शाश्वत ज्ञान का आपका प्रवेश द्वार। प्राचीन ग्रंथों का अध्ययन करें, पवित्र स्थानों को खोजें, ज्योतिष और खगोल विज्ञान को समझें, आयुर्वेद जानें और बहुत कुछ।',
+        'welcome.hero.what_you_will_discover': 'आप क्या पाएँगे:',
+        'welcome.hero.highlight.vedas_puranas': 'वेद और पुराणों का व्यापक संग्रह',
+        'welcome.hero.highlight.ai_chatbot': 'आध्यात्मिक मार्गदर्शन हेतु AI चैटबॉट',
+        'welcome.hero.highlight.panchang': 'इंटरएक्टिव पंचांग',
+        'welcome.hero.highlight.temples_directory': 'मंदिर और पवित्र स्थान निर्देशिका',
+        'welcome.hero.highlight.books_souvenirs': 'विश्वसनीय विक्रेताओं से पुस्तकें और उपहार',
+        'welcome.hero.highlight.events_gatherings': 'नियमित कार्यक्रम और आध्यात्मिक सभाएँ',
+        'welcome.hero.cta.explore_vedas': 'वेद देखें',
+        'welcome.hero.cta.ai_assistant': 'AI सहायक'
+      },
+      'sa': {
+        'welcome.hero.title': 'सर्वे भवन्तु सुखिनः',
+        'welcome.hero.subtitle': 'सर्वे प्राणिनः सुखिनः',
+        'welcome.hero.description': 'AI सनातन-पोर्टले भवतः स्वागतम्। अत्र वेदान् अन्वेषयत, पवित्रस्थानानि ज्ञातुं शक्नुथ, ज्योतिषं खगोलशास्त्रं च अवगच्छत, आयुर्वेदं जानीयात्, अधिकं च।',
+        'welcome.hero.what_you_will_discover': 'किम् लभध्वे:',
+        'welcome.hero.highlight.vedas_puranas': 'वेद-पुराणानां विस्तृतसङ्ग्रहः',
+        'welcome.hero.highlight.ai_chatbot': 'आध्यात्मिकमार्गदर्शने AI सहायकः',
+        'welcome.hero.highlight.panchang': 'परस्परक्रियात्मकं पञ्चाङ्गम्',
+        'welcome.hero.highlight.temples_directory': 'मन्दिर-पवित्रस्थान-निर्देशिका',
+        'welcome.hero.highlight.books_souvenirs': 'विश्वसनीयविक्रेतिभ्यः पुस्तकानि उपहाराश्च',
+        'welcome.hero.highlight.events_gatherings': 'नियमिताः कार्यक्रमाः आध्यात्मिकसमागमाश्च',
+        'welcome.hero.cta.explore_vedas': 'वेदान् अन्वेषयतु',
+        'welcome.hero.cta.ai_assistant': 'AI सहायकः'
+      },
+      'ta': {
+        'welcome.hero.title': 'சர்வே பவந்து சுக்கினஹ்',
+        'welcome.hero.subtitle': 'அனைவரும் மகிழ்ச்சியாக இருப்பதாக',
+        'welcome.hero.description': 'AI சனாதன போர்டலுக்கு வரவேற்கிறோம். வேதங்களை ஆராயுங்கள், புனித இடங்களை கண்டறியுங்கள், ஜோதிடம் மற்றும் வானியலைப் புரிந்துகொள்ளுங்கள், ஆயுர்வேதம் அறியுங்கள் மற்றும் பல.',
+        'welcome.hero.what_you_will_discover': 'நீங்கள் காண்பது:',
+        'welcome.hero.highlight.vedas_puranas': 'வேதங்கள் மற்றும் புராணங்களின் விரிவான தொகுப்பு',
+        'welcome.hero.highlight.ai_chatbot': 'ஆன்மீக வழிகாட்டலுக்கான AI உதவியாளர்',
+        'welcome.hero.highlight.panchang': 'இணையதிரை பஞ்சாங்கம்',
+        'welcome.hero.highlight.temples_directory': 'கோவில்கள் மற்றும் புனித இடங்கள் அகராதி',
+        'welcome.hero.highlight.books_souvenirs': 'நம்பகமான விற்பனையாளர்களிடமிருந்து புத்தகங்களும் நினைவுப்பொருட்களும்',
+        'welcome.hero.highlight.events_gatherings': 'தொடர்ந்த நிகழ்வுகள் மற்றும் ஆன்மிக கூடங்கள்',
+        'welcome.hero.cta.explore_vedas': 'வேதங்களை ஆராயுங்கள்',
+        'welcome.hero.cta.ai_assistant': 'AI உதவியாளர்'
+      },
+      'gu': {
+        'welcome.hero.title': 'સર્વે ભવંતુ સુખિનઃ',
+        'welcome.hero.subtitle': 'બધા સુખી રહે',
+        'welcome.hero.description': 'AI સનાતન પોર્ટલમાં આપનું સ્વાગત છે. અહીં વેદોનું જ્ઞાન, પવિત્ર સ્થળો, જ્યોતિષ, ખગોળશાસ્ત્ર, આયુર્વેદ અને ઘણું વધુ જાણો.',
+        'welcome.hero.what_you_will_discover': 'તમે શું શોધશો:',
+        'welcome.hero.highlight.vedas_puranas': 'વેદો અને પુરાણોનો વ્યાપક સંગ્રહ',
+        'welcome.hero.highlight.ai_chatbot': 'આધ્યાત્મિક માર્ગદર્શન માટે AI સહાયક',
+        'welcome.hero.highlight.panchang': 'આંતરક્રિયાત્મક પંચાંગ',
+        'welcome.hero.highlight.temples_directory': 'મંદિરો અને પવિત્ર સ્થળોની ડિરેક્ટરી',
+        'welcome.hero.highlight.books_souvenirs': 'વિશ્વસનીય વેન્ડર પાસેથી પુસ્તકો અને સ્મૃતિચિહ્નો',
+        'welcome.hero.highlight.events_gatherings': 'નિયમિત કાર્યક્રમો અને આધ્યાત્મિક સભાઓ',
+        'welcome.hero.cta.explore_vedas': 'વેદો જુઓ',
+        'welcome.hero.cta.ai_assistant': 'AI સહાયક'
+      },
+      'bn': {
+        'welcome.hero.title': 'সর্বে ভবন্তু সুখিনঃ',
+        'welcome.hero.subtitle': 'সকল প্রাণী সুখী হোক',
+        'welcome.hero.description': 'AI সনাতন পোর্টালে স্বাগতম — সনাতন ধর্মের চিরন্তন জ্ঞানের দ্বার। বেদ অন্বেষণ করুন, পবিত্র স্থান খুঁজুন, জ্যোতিষ ও জ্যোতির্বিজ্ঞান বোঝুন, আয়ুর্বেদ জানুন এবং আরও অনেক কিছু।',
+        'welcome.hero.what_you_will_discover': 'আপনি যা পাবেন:',
+        'welcome.hero.highlight.vedas_puranas': 'বেদ ও পুরাণের বিস্তৃত সংগ্রহ',
+        'welcome.hero.highlight.ai_chatbot': 'আধ্যাত্মিক দিশার জন্য AI সহায়ক',
+        'welcome.hero.highlight.panchang': 'ইন্টারেক্টিভ পঞ্জিকা',
+        'welcome.hero.highlight.temples_directory': 'মন্দির এবং পবিত্র স্থানের ডিরেক্টরি',
+        'welcome.hero.highlight.books_souvenirs': 'বিশ্বস্ত বিক্রেতাদের বই ও উপহার',
+        'welcome.hero.highlight.events_gatherings': 'নিয়মিত অনুষ্ঠান ও আধ্যাত্মিক সমাবেশ',
+        'welcome.hero.cta.explore_vedas': 'বেদ দেখুন',
+        'welcome.hero.cta.ai_assistant': 'AI সহায়ক'
+      }
+    };
+
+    // Merge shared keys into each language map
+    Object.keys(i18nShared).forEach(lang => {
+      this.translations[lang] = {
+        ...(this.translations[lang] || {}),
+        ...i18nShared[lang]
+      };
+    });
+
+    // Starting page specific strings
+    const starting: { [lang: string]: TranslationData } = {
+      'en': {
+        'starting.quick_access.title': 'Quick Access',
+        'starting.quick_access.subtitle': 'Begin your spiritual journey',
+        'starting.todays_inspiration': "Today's Inspiration",
+        'starting.cta.title': 'Begin Your Spiritual Journey',
+        'starting.cta.subtitle': 'Discover the profound wisdom of Sanatan Dharma with our AI-powered learning platform',
+        'starting.cta.start_assessment': 'Start Assessment',
+        'starting.cta.ask_ai': 'Ask AI Assistant',
+        'stats.vedas': 'Vedas',
+        'stats.puranas': 'Puranas',
+        'stats.sacred_places': 'Sacred Places',
+        'stats.books': 'Books',
+        'stats.festivals': 'Festivals',
+        'stats.ai_support': 'AI Support'
+      },
+      'hi': {
+        'starting.quick_access.title': 'त्वरित प्रवेश',
+        'starting.quick_access.subtitle': 'अपनी आध्यात्मिक यात्रा शुरू करें',
+        'starting.todays_inspiration': 'आज की प्रेरणा',
+        'starting.cta.title': 'अपनी आध्यात्मिक यात्रा शुरू करें',
+        'starting.cta.subtitle': 'AI-संचालित शिक्षण प्लेटफ़ॉर्म के साथ सनातन धर्म के गहन ज्ञान की खोज करें',
+        'starting.cta.start_assessment': 'मूल्यांकन शुरू करें',
+        'starting.cta.ask_ai': 'AI सहायक से पूछें',
+        'stats.vedas': 'वेद',
+        'stats.puranas': 'पुराण',
+        'stats.sacred_places': 'पवित्र स्थान',
+        'stats.books': 'पुस्तकें',
+        'stats.festivals': 'त्योहार',
+        'stats.ai_support': 'AI सहायता'
+      },
+      'sa': {
+        'starting.quick_access.title': 'शीघ्रप्रवेशः',
+        'starting.quick_access.subtitle': 'स्वस्य आध्यात्मिकयात्रां आरभध्वम्',
+        'starting.todays_inspiration': 'अद्य प्रेरणा',
+        'starting.cta.title': 'आध्यात्मिकयात्रां आरभध्वम्',
+        'starting.cta.subtitle': 'AI समन्वितशिक्षणप्लेट्फॉर्मेन सह सनातनधर्मस्य गूढं ज्ञानं ज्ञातव्यं',
+        'starting.cta.start_assessment': 'मूल्यांकनम् आरभत',
+        'starting.cta.ask_ai': 'AI सहायकेन पृच्छत',
+        'stats.vedas': 'वेदाः',
+        'stats.puranas': 'पुराणानि',
+        'stats.sacred_places': 'पवित्रस्थानानि',
+        'stats.books': 'पुस्तकानि',
+        'stats.festivals': 'उत्सवाः',
+        'stats.ai_support': 'AI सहायता'
+      },
+      'ta': {
+        'starting.quick_access.title': 'விரைவு அணுகல்',
+        'starting.quick_access.subtitle': 'உங்கள் ஆன்மிகப் பயணத்தைத் தொடங்குங்கள்',
+        'starting.todays_inspiration': 'இன்றைய الهام',
+        'starting.cta.title': 'உங்கள் ஆன்மிகப் பயணத்தைத் தொடங்குங்கள்',
+        'starting.cta.subtitle': 'எங்கள் AI இயங்கும் கற்றல் தளத்துடன் சனாதன தர்மத்தின் ஆழ்ந்த ஞானத்தை அறியுங்கள்',
+        'starting.cta.start_assessment': 'மதிப்பீட்டை தொடங்கு',
+        'starting.cta.ask_ai': 'AI உதவியாளரைக் கேளுங்கள்',
+        'stats.vedas': 'வேதங்கள்',
+        'stats.puranas': 'புராணங்கள்',
+        'stats.sacred_places': 'புனித இடங்கள்',
+        'stats.books': 'புத்தகங்கள்',
+        'stats.festivals': 'திருவிழாக்கள்',
+        'stats.ai_support': 'AI ஆதரவு'
+      },
+      'gu': {
+        'starting.quick_access.title': 'ઝડપી પ્રવેશ',
+        'starting.quick_access.subtitle': 'તમારી આધ્યાત્મિક યાત્રા શરૂ કરો',
+        'starting.todays_inspiration': 'આજની પ્રેરણા',
+        'starting.cta.title': 'તમારી આધ્યાત્મિક યાત્રા શરૂ કરો',
+        'starting.cta.subtitle': 'અમારા AI સંચાલિત શીખવાના પ્લેટફોર્મ સાથે સનાતન ધર્મનું ગાઢ જ્ઞાન જાણો',
+        'starting.cta.start_assessment': 'મૂલ્યાંકન શરૂ કરો',
+        'starting.cta.ask_ai': 'AI સહાયકને પૂછો',
+        'stats.vedas': 'વેદ',
+        'stats.puranas': 'પુરાણ',
+        'stats.sacred_places': 'પવિત્ર સ્થાનો',
+        'stats.books': 'પુસ્તકો',
+        'stats.festivals': 'તહેવારો',
+        'stats.ai_support': 'AI સહાય'
+      },
+      'bn': {
+        'starting.quick_access.title': 'দ্রুত প্রবেশ',
+        'starting.quick_access.subtitle': 'আপনার আধ্যাত্মিক যাত্রা শুরু করুন',
+        'starting.todays_inspiration': 'আজকের প্রেরণা',
+        'starting.cta.title': 'আপনার আধ্যাত্মিক যাত্রা শুরু করুন',
+        'starting.cta.subtitle': 'আমাদের AI-সমর্থিত শিক্ষণ প্ল্যাটফর্ম দিয়ে সনাতন ধর্মের গভীর জ্ঞান জানুন',
+        'starting.cta.start_assessment': 'মূল্যায়ন শুরু করুন',
+        'starting.cta.ask_ai': 'AI সহায়ককে জিজ্ঞাসা করুন',
+        'stats.vedas': 'বেদ',
+        'stats.puranas': 'পুরাণ',
+        'stats.sacred_places': 'পবিত্র স্থান',
+        'stats.books': 'বই',
+        'stats.festivals': 'উৎসব',
+        'stats.ai_support': 'AI সহায়তা'
+      }
+    };
+
+    Object.keys(starting).forEach(lang => {
+      this.translations[lang] = {
+        ...(this.translations[lang] || {}),
+        ...starting[lang]
+      };
+    });
+
+    console.log('TranslatePipe: Translations initialized successfully. Available languages:', Object.keys(this.translations));
   }
 }

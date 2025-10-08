@@ -3,21 +3,41 @@
     <div class="welcome-content">
       
       <div class="welcome-text">
-        <h1 class="main-title">{{ welcomeContent.mainTitle }}</h1>
-        <p class="main-subtitle">{{ welcomeContent.mainSubtitle }}</p>
+        <h1 class="main-title">{{ 'welcome.hero.title' | translate }}</h1>
+        <p class="main-subtitle">{{ 'welcome.hero.subtitle' | translate }}</p>
         
         <div class="divider-with-symbol">
           <span class="symbol">ॐ</span>
         </div>
         
-        <p class="description">{{ welcomeContent.description }}</p>
+        <p class="description">{{ 'welcome.hero.description' | translate }}</p>
         
         <div class="highlights-list">
-          <h3>What you'll discover:</h3>
+          <h3>{{ 'welcome.hero.what_you_will_discover' | translate }}</h3>
           <ul>
-            <li *ngFor="let highlight of welcomeContent.highlights">
+            <li>
               <mat-icon color="primary">check_circle</mat-icon>
-              {{ highlight }}
+              {{ 'welcome.hero.highlight.vedas_puranas' | translate }}
+            </li>
+            <li>
+              <mat-icon color="primary">check_circle</mat-icon>
+              {{ 'welcome.hero.highlight.ai_chatbot' | translate }}
+            </li>
+            <li>
+              <mat-icon color="primary">check_circle</mat-icon>
+              {{ 'welcome.hero.highlight.panchang' | translate }}
+            </li>
+            <li>
+              <mat-icon color="primary">check_circle</mat-icon>
+              {{ 'welcome.hero.highlight.temples_directory' | translate }}
+            </li>
+            <li>
+              <mat-icon color="primary">check_circle</mat-icon>
+              {{ 'welcome.hero.highlight.books_souvenirs' | translate }}
+            </li>
+            <li>
+              <mat-icon color="primary">check_circle</mat-icon>
+              {{ 'welcome.hero.highlight.events_gatherings' | translate }}
             </li>
           </ul>
         </div>
@@ -29,7 +49,7 @@
             [routerLink]="['/vedas']"
             class="action-button">
             <mat-icon>menu_book</mat-icon>
-            Explore Vedas
+            {{ 'welcome.hero.cta.explore_vedas' | translate }}
           </button>
           
           <button 
@@ -38,7 +58,7 @@
             [routerLink]="['/chatbot']"
             class="action-button">
             <mat-icon>smart_toy</mat-icon>
-            AI Assistant
+            {{ 'welcome.hero.cta.ai_assistant' | translate }}
           </button>
         </div>
       </div>

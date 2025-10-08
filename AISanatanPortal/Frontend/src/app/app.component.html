@@ -10,9 +10,9 @@
     <div class="sidenav-header">
       <div class="logo-container">
         <mat-icon class="om-icon">om</mat-icon>
-        <h3>{{ 'welcome.title' | translate }}</h3>
+        <h3>{{ getTranslation('welcome.title') }}</h3>
       </div>
-      <p class="tagline">{{ 'welcome.subtitle' | translate }}</p>
+      <p class="tagline">{{ getTranslation('welcome.subtitle') }}</p>
     </div>
 
     <mat-nav-list class="navigation-list">
@@ -21,8 +21,8 @@
         (click)="navigateTo(item.route)"
         class="nav-item">
         <mat-icon matListItemIcon class="nav-icon">{{item.icon}}</mat-icon>
-        <div matListItemTitle>{{item.nameKey | translate}}</div>
-        <div matListItemLine>{{item.descriptionKey | translate}}</div>
+        <div matListItemTitle>{{getTranslation(item.nameKey)}}</div>
+        <div matListItemLine>{{getTranslation(item.descriptionKey)}}</div>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

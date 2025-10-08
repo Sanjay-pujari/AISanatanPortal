@@ -57,6 +57,7 @@ export class LanguageService {
   private initializeLanguage(): void {
     // Try to get language from localStorage first
     const savedLanguage = localStorage.getItem('preferredLanguage') || localStorage.getItem('PreferredLanguage');
+    
     if (savedLanguage) {
       this.setCurrentLanguage(savedLanguage);
       // Load supported languages but don't override the saved preference
@@ -66,6 +67,7 @@ export class LanguageService {
 
     // Try to get language from browser
     const browserLanguage = this.getBrowserLanguage();
+    
     if (browserLanguage) {
       this.setCurrentLanguage(browserLanguage);
     }
