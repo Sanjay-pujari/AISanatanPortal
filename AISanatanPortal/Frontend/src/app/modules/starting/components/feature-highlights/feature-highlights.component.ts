@@ -11,33 +11,33 @@ export class FeatureHighlightsComponent implements OnInit {
   features = [
     {
       icon: 'psychology',
-      title: 'AI-Powered Learning',
-      description: 'Get personalized guidance and answers to your spiritual questions through our advanced AI chatbot trained on authentic Sanskrit texts.'
+      titleKey: 'starting.features.items.ai_learning.title',
+      descriptionKey: 'starting.features.items.ai_learning.description'
     },
     {
       icon: 'map',
-      title: 'Sacred Geography',
-      description: 'Explore thousands of temples and mythological places with interactive maps, complete with historical significance and visiting information.'
+      titleKey: 'starting.features.items.sacred_geography.title',
+      descriptionKey: 'starting.features.items.sacred_geography.description'
     },
     {
       icon: 'calendar_today',
-      title: 'Panchang Calendar',
-      description: 'Stay connected with Hindu calendar system including Tithis, Nakshatras, festivals, and auspicious timing for all your spiritual activities.'
+      titleKey: 'starting.features.items.panchang.title',
+      descriptionKey: 'starting.features.items.panchang.description'
     },
     {
       icon: 'local_library',
-      title: 'Digital Library',
-      description: 'Access comprehensive collection of Vedas, Puranas, Upanishads, and modern spiritual books from verified authors and publishers.'
+      titleKey: 'starting.features.items.digital_library.title',
+      descriptionKey: 'starting.features.items.digital_library.description'
     },
     {
       icon: 'healing',
-      title: 'Ayurvedic Wisdom',
-      description: 'Discover ancient medical knowledge including herbal remedies, lifestyle practices, and holistic healing approaches.'
+      titleKey: 'starting.features.items.ayurveda.title',
+      descriptionKey: 'starting.features.items.ayurveda.description'
     },
     {
       icon: 'stars',
-      title: 'Vedic Sciences',
-      description: 'Learn about mathematical contributions, astronomical discoveries, and astrological insights from ancient Hindu texts.'
+      titleKey: 'starting.features.items.vedic_sciences.title',
+      descriptionKey: 'starting.features.items.vedic_sciences.description'
     }
   ];
 
