@@ -131,3 +131,234 @@ SELECT EXISTS (
 2025-10-08 18:59:59.139 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 15.6447ms
 2025-10-08 18:59:59.142 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
 2025-10-08 18:59:59.145 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=hi - 200 362 application/json; charset=utf-8 153.8147ms
+2025-10-08 19:08:13.943 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:08:13.947 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:08:13.949 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 5.4116ms
+2025-10-08 19:08:13.955 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:08:13.958 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:08:13.960 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:08:13.962 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:08:13.969 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:08:13.972 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.6144ms
+2025-10-08 19:08:13.975 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:08:13.978 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 23.2002ms
+2025-10-08 19:08:24.081 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:08:24.085 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:08:24.087 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 6.0098ms
+2025-10-08 19:08:24.091 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:08:24.095 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:08:24.097 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:08:24.099 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:08:24.107 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:08:24.110 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.3143ms
+2025-10-08 19:08:24.112 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:08:24.115 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 23.1196ms
+2025-10-08 19:11:11.848 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:11:11.854 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:11:11.856 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 13.444ms
+2025-10-08 19:11:11.868 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:11:11.880 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:11:11.884 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:11:11.889 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:11:12.023 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:11:14.485 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 2462.3026ms
+2025-10-08 19:11:15.153 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:11:17.015 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 5146.211ms
+2025-10-08 19:11:44.266 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:11:44.269 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:11:44.271 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 4.9336ms
+2025-10-08 19:11:44.278 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:11:44.281 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:11:44.283 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:11:44.285 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:11:44.292 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:11:44.296 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 4.2021ms
+2025-10-08 19:11:44.298 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:11:44.301 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 23.3913ms
+2025-10-08 19:17:08.262 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:17:08.267 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:17:08.269 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 7.3557ms
+2025-10-08 19:17:08.273 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:17:08.280 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:17:08.282 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:17:08.284 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:17:08.292 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:17:08.299 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 8.2266ms
+2025-10-08 19:17:08.303 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:17:08.307 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 33.8339ms
+2025-10-08 19:17:28.010 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:17:28.014 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:17:28.016 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 5.9338ms
+2025-10-08 19:17:28.020 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:17:28.024 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:17:28.025 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:17:28.028 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:17:28.041 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:17:28.044 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.2558ms
+2025-10-08 19:17:28.048 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:17:28.051 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 30.6986ms
+2025-10-08 19:17:45.893 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:17:45.896 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:17:45.898 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 5.2205ms
+2025-10-08 19:17:45.903 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:17:45.906 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:17:45.908 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:17:45.910 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:17:45.914 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:17:45.921 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 6.894ms
+2025-10-08 19:17:45.923 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:17:45.926 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 22.8647ms
+2025-10-08 19:20:07.234 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:20:07.241 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:20:07.243 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 12.2549ms
+2025-10-08 19:20:07.248 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:20:07.252 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:20:07.256 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:20:07.260 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:20:07.265 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:20:07.270 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 5.6759ms
+2025-10-08 19:20:07.274 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:20:07.280 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 29.7005ms
+2025-10-08 19:20:43.644 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:20:43.648 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:20:43.650 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 8.4501ms
+2025-10-08 19:20:43.657 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:20:43.661 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:20:43.663 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:20:43.665 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:20:43.670 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:20:43.677 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 7.2629ms
+2025-10-08 19:20:43.680 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:20:43.682 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 25.5921ms
+2025-10-08 19:21:00.462 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:21:00.465 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:21:00.467 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 5.5336ms
+2025-10-08 19:21:00.472 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:21:00.475 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:21:00.477 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:21:00.479 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:21:00.488 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:21:00.492 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 4.6623ms
+2025-10-08 19:21:00.495 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:21:00.500 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 27.8357ms
+2025-10-08 19:23:25.600 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:23:25.634 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:23:25.635 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 35.4609ms
+2025-10-08 19:23:25.640 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:23:25.649 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:23:25.651 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:23:25.653 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:23:25.662 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:23:25.666 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 4.4592ms
+2025-10-08 19:23:25.669 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:23:25.682 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 42.2389ms
+2025-10-08 19:23:53.362 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:23:53.371 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:23:53.372 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 10.5253ms
+2025-10-08 19:23:53.377 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:23:53.380 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:23:53.382 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:23:53.386 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:23:53.391 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:23:53.394 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.0988ms
+2025-10-08 19:23:53.397 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:23:53.402 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 24.5343ms
+2025-10-08 19:24:13.455 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:24:13.461 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:24:13.462 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 7.5305ms
+2025-10-08 19:24:13.466 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:24:13.473 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:24:13.474 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:24:13.477 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:24:13.488 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:24:13.491 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 4.0836ms
+2025-10-08 19:24:13.496 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:24:13.499 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 32.6425ms
+2025-10-08 19:27:00.437 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:27:00.449 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:27:00.452 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 15.5309ms
+2025-10-08 19:27:00.457 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:27:00.466 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:27:00.470 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:27:00.473 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:27:00.486 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:27:00.489 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.9005ms
+2025-10-08 19:27:00.492 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:27:00.499 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 42.2529ms
+2025-10-08 19:27:41.667 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:27:41.674 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:27:41.676 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 38.5884ms
+2025-10-08 19:27:41.682 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:27:41.686 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:27:41.688 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:27:41.690 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:27:41.699 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:27:41.702 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.6445ms
+2025-10-08 19:27:41.705 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:27:41.711 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 29.0293ms
+2025-10-08 19:27:59.955 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:27:59.959 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:27:59.960 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 5.5119ms
+2025-10-08 19:27:59.965 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:27:59.969 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:27:59.971 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:27:59.974 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:27:59.982 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:27:59.985 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 3.7894ms
+2025-10-08 19:27:59.988 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:27:59.993 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 27.1326ms
+2025-10-08 19:32:13.724 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:32:13.739 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:32:13.740 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 16.303ms
+2025-10-08 19:32:13.806 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:32:13.813 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:32:13.815 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:32:13.818 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:32:13.833 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:32:13.841 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 8.7418ms
+2025-10-08 19:32:13.846 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:32:13.849 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 42.1635ms
+2025-10-08 19:35:09.348 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:35:09.355 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:35:09.356 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 34.3397ms
+2025-10-08 19:35:09.367 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:35:09.371 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:35:09.373 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:35:09.375 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:35:09.381 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:35:09.385 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 4.674ms
+2025-10-08 19:35:09.389 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:35:09.393 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 25.3404ms
+2025-10-08 19:38:53.569 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:38:53.579 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:38:53.581 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 15.5559ms
+2025-10-08 19:38:53.586 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:38:53.590 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:38:53.593 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:38:53.620 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:38:55.145 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:38:55.149 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 4.1552ms
+2025-10-08 19:38:55.154 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:38:55.163 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 1576.6656ms
+2025-10-08 19:39:30.660 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:39:30.664 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:39:30.665 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 7.5663ms
+2025-10-08 19:39:30.675 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:39:30.678 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:39:30.680 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:39:30.691 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:39:30.697 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:39:30.704 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 6.7208ms
+2025-10-08 19:39:30.707 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:39:30.710 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 35.4338ms
+2025-10-08 19:39:46.253 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:39:46.257 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:39:46.258 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/language/supported?lang=en - 204 null null 4.9027ms
+2025-10-08 19:39:46.264 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - null null
+2025-10-08 19:39:46.269 +05:30 [INF] CORS policy execution successful.
+2025-10-08 19:39:46.271 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:39:46.274 +05:30 [INF] Route matched with {action = "GetSupportedLanguages", controller = "Language"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[System.Collections.Generic.Dictionary`2[System.String,System.String]]]] GetSupportedLanguages() on controller AISanatanPortal.API.Controllers.LanguageController (AISanatanPortal.API).
+2025-10-08 19:39:46.279 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-08 19:39:46.286 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API) in 7.2204ms
+2025-10-08 19:39:46.289 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.LanguageController.GetSupportedLanguages (AISanatanPortal.API)'
+2025-10-08 19:39:46.292 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/language/supported?lang=en - 200 null application/json; charset=utf-8 28.2932ms
