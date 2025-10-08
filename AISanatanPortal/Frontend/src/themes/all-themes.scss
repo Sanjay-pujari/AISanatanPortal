@@ -13,6 +13,12 @@ body.sacred-gold-theme {
   --theme-light: #f4e4bc;
   --theme-bg: linear-gradient(135deg, #f5f5dc 0%, #deb887 50%, #cd853f 100%);
   --theme-nav: linear-gradient(180deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
+  
+  // Page header CSS variables
+  --page-header-bg: linear-gradient(135deg, #8b4513 0%, #b8860b 50%, #d4af37 100%);
+  --page-header-overlay-bg: linear-gradient(135deg, rgba(139, 69, 19, 0.85) 0%, rgba(184, 134, 11, 0.85) 50%, rgba(212, 175, 55, 0.85) 100%);
+  --page-header-accent: #d4af37;
+  --page-header-om-symbol: rgba(212, 175, 55, 0.25);
 
   background: var(--theme-bg);
   color: #2c1810;
@@ -98,6 +104,12 @@ body.serenity-blue-theme {
   --theme-light: #ecf0f1;
   --theme-bg: linear-gradient(135deg, #e8f4fd 0%, #b3d9ff 50%, #87ceeb 100%);
   --theme-nav: linear-gradient(180deg, #2c3e50 0%, #34495e 50%, #4a90e2 100%);
+  
+  // Page header CSS variables
+  --page-header-bg: linear-gradient(135deg, #2c3e50 0%, #4a90e2 50%, #7b68ee 100%);
+  --page-header-overlay-bg: linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(74, 144, 226, 0.85) 50%, rgba(123, 104, 238, 0.85) 100%);
+  --page-header-accent: #87ceeb;
+  --page-header-om-symbol: rgba(135, 206, 235, 0.25);
 
   background: var(--theme-bg);
   color: var(--theme-dark);

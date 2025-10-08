@@ -18,6 +18,12 @@ body.sacred-gold-theme {
   background: $sacred-gold-bg;
   color: $sacred-gold-text;
   font-family: 'Playfair Display', 'Times New Roman', serif;
+  
+  // Page header CSS variables
+  --page-header-bg: linear-gradient(135deg, #{$sacred-gold-dark} 0%, #{$sacred-gold-secondary} 50%, #{$sacred-gold-primary} 100%);
+  --page-header-overlay-bg: linear-gradient(135deg, rgba(139, 69, 19, 0.85) 0%, rgba(184, 134, 11, 0.85) 50%, rgba(212, 175, 55, 0.85) 100%);
+  --page-header-accent: #{$sacred-gold-primary};
+  --page-header-om-symbol: rgba(212, 175, 55, 0.25);
 }
 
 // Main container
