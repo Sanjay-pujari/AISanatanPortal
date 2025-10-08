@@ -634,6 +634,82 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'common.view': 'ನೋಡಿ'
     };
 
+    // Malayalam translations
+    this.translations['ml'] = {
+      'nav.home': 'ഹോം',
+      'nav.admin': 'അഡ്മിൻ പാനൽ',
+      'nav.evaluation': 'മൂല്യനിർണയം',
+      'nav.vedas': 'വേദങ്ങൾ',
+      'nav.puranas': 'പുരാണങ്ങൾ',
+      'nav.kavyas': 'കാവ്യങ്ങൾ',
+      'nav.mathematics': 'ഗണിതം',
+      'nav.astrology': 'ജ്യോതിഷം',
+      'nav.astronomy': 'ഖഗോളശാസ്ത്രം',
+      'nav.medical': 'ആയുർവേദം',
+      'nav.places': 'പവിത്ര സ്ഥാനങ്ങൾ',
+      'nav.panchang': 'പഞ്ചാംഗം',
+      'nav.bookstore': 'ഗ്രന്ഥശാല',
+      'nav.gifts': 'സമ്മാന കട',
+      'nav.events': 'ഇവന്റുകൾ',
+      'nav.chatbot': 'AI സഹായി',
+
+      'welcome.title': 'AI സനാതന പോർട്ടൽ',
+      'welcome.subtitle': 'ശാശ്വത ജ്ഞാനത്തിന്റെ അന്വേഷണത്തിൽ',
+      'welcome.description': 'സനാതന ധർമ്മത്തിന്റെ സമഗ്ര പോർട്ടലിലേക്ക് സ്വാഗതം',
+
+      'welcome.hero.title': 'സർവേ ഭവന്തു സുഗിനഃ',
+      'welcome.hero.subtitle': 'എല്ലാ ജീവികളും സന്തോഷത്തോടെ ഇരിക്കട്ടെ',
+      'welcome.hero.description': 'AI സനാതന പോർട്ടലിലേക്ക് സ്വാഗതം — സനാതന ധർമ്മത്തിന്റെ ശാശ്വത ജ്ഞാനത്തിലേക്ക് നിങ്ങളുടെ പ്രവേശന കവാടം. പുരാതന ഗ്രന്ഥങ്ങൾ പഠിക്കുക, പവിത്ര സ്ഥലങ്ങൾ കണ്ടെത്തുക, ജ്യോതിഷവും ഖഗോളശാസ്ത്രവും മനസ്സിലാക്കുക, ആയുർവേദം അറിയുക തുടങ്ങിയവ.',
+      'welcome.hero.what_you_will_discover': 'നിങ്ങൾ കണ്ടെത്തുന്നത്:',
+      'welcome.hero.highlight.vedas_puranas': 'വേദങ്ങളും പുരാണങ്ങളും ഉൾപ്പെടുന്ന വിപുലമായ ശേഖരം',
+      'welcome.hero.highlight.ai_chatbot': 'ആധ്യാത്മിക മാർഗനിർദ്ദേശത്തിനായുള്ള AI ചാറ്റ്ബോട്ട്',
+      'welcome.hero.highlight.panchang': 'ഇന്ററാക്റ്റീവ് പഞ്ചാംഗം',
+      'welcome.hero.highlight.temples_directory': 'ക്ഷേത്രങ്ങളും പവിത്ര സ്ഥലങ്ങളും ഉള്‍ക്കൊള്ളുന്ന ഡയറക്ടറി',
+      'welcome.hero.highlight.books_souvenirs': 'വിശ്വസനീയരായ വ്യാപാരികളിൽ നിന്ന് പുസ്തകങ്ങളും ഓർമ്മവസ്തുക്കളും',
+      'welcome.hero.highlight.events_gatherings': 'ക്രമമായുള്ള ഇവന്റുകളും ആത്മീയ സംഗമങ്ങളും',
+      'welcome.hero.cta.explore_vedas': 'വേദങ്ങൾ കാണുക',
+      'welcome.hero.cta.ai_assistant': 'AI സഹായി',
+
+      'quicklinks.vedas.title': 'വേദങ്ങൾ',
+      'quicklinks.vedas.description': 'വേദങ്ങളുടെ ശാശ്വത ജ്ഞാനം അന്വേഷിക്കുക',
+      'quicklinks.puranas.title': 'പുരാണങ്ങൾ',
+      'quicklinks.puranas.description': 'പുരാതന കഥകളും ജ്ഞാനവും കണ്ടെത്തുക',
+      'quicklinks.panchang.title': 'പഞ്ചാംഗം',
+      'quicklinks.panchang.description': 'തിഥികളും ഉത്സവങ്ങളും അടങ്ങിയ ഹിന്ദു കലണ്ടർ',
+      'quicklinks.ai.title': 'AI സഹായി',
+      'quicklinks.ai.description': 'സനാതന ധർമ്മത്തെക്കുറിച്ച് ചോദ്യങ്ങൾ ചോദിക്കുക',
+      'quicklinks.places.title': 'പവിത്ര സ്ഥലങ്ങൾ',
+      'quicklinks.places.description': 'ക്ഷേത്രങ്ങളും പവിത്ര സ്ഥലങ്ങളും കണ്ടെത്തുക',
+      'quicklinks.books.title': 'ഗ്രന്ഥശാല',
+      'quicklinks.books.description': 'ആധ്യാത്മിക പുസ്തകങ്ങളും ഗ്രന്ഥങ്ങളും ബ്രൗസ് ചെയ്യുക',
+
+      'featured.wisdom.title': 'ദൈനംദിന ജ്ഞാനം',
+      'featured.wisdom.content': '"ധർമ്മോ റക്ഷതി റക്ഷിതഃ" - ധർമ്മത്തെ സംരക്ഷിക്കുന്നവരെ ധർമ്മം സംരക്ഷിക്കുന്നു',
+      'featured.wisdom.source': 'മഹാഭാരതം',
+      'featured.tithi.title': 'ഇന്നത്തെ തിഥി',
+      'featured.tithi.content': 'പഞ്ചാംഗ ഡാറ്റ ലോഡുചെയ്യുന്നു...',
+      'featured.tithi.source': 'ഹിന്ദു കലണ്ടർ',
+      'featured.festival.title': 'ഉത്സവ അറിയിപ്പ്',
+      'featured.festival.content': 'ഉടൻ വരാനിരിക്കുന്ന ഉത്സവങ്ങളും ആചാരങ്ങളും',
+      'featured.festival.source': 'കലണ്ടർ',
+
+      'loading.message': 'ലോഡുചെയ്യുന്നു...',
+      'loading.quote': '"സർവേ ഭവന്തു സുഗിനഃ സർവേ സന്തു നിരാമയാഃ"',
+      'loading.quote.translation': 'എല്ലാ ജീവികളും സന്തോഷവും ആരോഗ്യമുണ്ടാകട്ടെ',
+
+      'search.placeholder': 'തിരയുക...',
+      'search.button': 'തിരയുക',
+
+      'common.read_more': 'കൂടുതൽ വായിക്കുക',
+      'common.show_less': 'കുറച്ച് കാണിക്കുക',
+      'common.close': 'അടയ്ക്കുക',
+      'common.save': 'സംരക്ഷിക്കുക',
+      'common.cancel': 'റദ്ദാക്കുക',
+      'common.delete': 'നീക്കുക',
+      'common.edit': 'തിരുത്തുക',
+      'common.view': 'കാണുക'
+    };
+
     // Marathi translations
     this.translations['mr'] = {
       'nav.home': 'मुखपृष्ठ',
@@ -981,6 +1057,35 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
         'stats.books': 'ಪುಸ್ತಕಗಳು',
         'stats.festivals': 'ಹಬ್ಬಗಳು',
         'stats.ai_support': 'AI ಬೆಂಬಲ'
+      },
+      'ml': {
+        'starting.quick_access.title': 'ത്വരിത പ്രവേശനം',
+        'starting.quick_access.subtitle': 'നിങ്ങളുടെ ആത്മീയ യാത്ര ആരംഭിക്കുക',
+        'starting.todays_inspiration': 'ഇന്നലെ പ്രചോദനം',
+        'starting.features.title': 'സമഗ്ര ആത്മീയ പ്ലാറ്റ്ഫോം',
+        'starting.features.subtitle': 'നിങ്ങളുടെ ആത്മീയ യാത്രയ്ക്കുള്ളതെല്ലാം ഏകദേശം ഒരിടത്ത്',
+        'starting.features.items.ai_learning.title': 'എഐ-സഹായിത പഠനം',
+        'starting.features.items.ai_learning.description': 'പ്രാമാണികമായ സംസ്കൃത ഗ്രന്ഥങ്ങളിൽ പരിശീലനം നേടിയ നമ്മുടെ പുരോഗമിച്ച AI ചാറ്റ്ബോട്ടിലൂടെ നിങ്ങളുടെ ആത്മീയ ചോദ്യങ്ങൾക്ക് വ്യക്തിഗത മാര്‍ഗ്ഗനിര്‍ദേശംയും ഉത്തരങ്ങളും നേടൂ.',
+        'starting.features.items.sacred_geography.title': 'പവിത്ര ഭൂമിശാസ്ത്രം',
+        'starting.features.items.sacred_geography.description': 'ചരിത്രപ്രാധാന്യവും യാത്രാ വിവരങ്ങളും ഉള്‍പ്പെടെ ആയിരക്കണക്കിന് ക്ഷേത്രങ്ങളും പൗരാണിക സ്ഥലങ്ങളും ഇന്ററാക്ടീവ് മാപുകളില്‍ അന്വേഷണ ചെയ്യുക.',
+        'starting.features.items.panchang.title': 'പഞ്ചാംഗ കലണ്ടര്‍',
+        'starting.features.items.panchang.description': 'തിഥി, നക്ഷത്രം, ഉത്സവങ്ങള്‍, ശുഭ മുഹൂര്‍ത്തങ്ങള്‍ എന്നിവയുള്ള ഹിന്ദു കലണ്ടറുമായി ബന്ധപ്പെട്ടിരിക്കുക.',
+        'starting.features.items.digital_library.title': 'ഡിജിറ്റല്‍ ഗ്രന്ഥശാല',
+        'starting.features.items.digital_library.description': 'വേദങ്ങള്‍, പുരാണങ്ങള്‍, ഉപനിഷത്തുകള്‍ കൂടാതെ ആധുനിക ആത്മീയ ഗ്രന്ഥങ്ങളുടെ വിപുലമായ ശേഖരം ലഭ്യമാക്കുക.',
+        'starting.features.items.ayurveda.title': 'ആയുര്‍വേദ ജ്ഞാനം',
+        'starting.features.items.ayurveda.description': 'ഔഷധച്ചെടികളുടെ ചികിത്സ, ജീവിതശൈലീ പരിഹാരങ്ങള്‍, സമഗ്ര ചികിത്സാ സമീപനങ്ങള്‍ തുടങ്ങിയ പുരാതന വൈദ്യശാസ്ത്ര ജ്ഞാനം പഠിക്കുക.',
+        'starting.features.items.vedic_sciences.title': 'വേദ ശാസ്ത്രങ്ങള്‍',
+        'starting.features.items.vedic_sciences.description': 'പുരാതന ഹിന്ദു ഗ്രന്ഥങ്ങളില്‍ വരണന ചെയ്തിരിക്കുന്ന ഗണിത സംഭാവനകള്‍, ഖഗോള കണ്ടുപിടിത്തങ്ങള്‍, ജ്യോതിഷ ദൃക്കോണങ്ങള്‍ എന്നിവയെക്കുറിച്ച് പഠിക്കുക.',
+        'starting.cta.title': 'നിങ്ങളുടെ ആത്മീയ യാത്ര ആരംഭിക്കുക',
+        'starting.cta.subtitle': 'ഞങ്ങളുടെ AI-സഹായിത പഠന പ്ലാറ്റ്ഫോമിലൂടെ സനാതന ധര്‍മ്മത്തിന്റെ ആഴത്തിലുള്ള ജ്ഞാനം കണ്ടെത്തുക',
+        'starting.cta.start_assessment': 'മൂല്യനിര്‍ണയം തുടങ്ങുക',
+        'starting.cta.ask_ai': 'AI സഹായിയോട് ചോദിക്കുക',
+        'stats.vedas': 'വേദങ്ങൾ',
+        'stats.puranas': 'പുരാണങ്ങൾ',
+        'stats.sacred_places': 'പവിത്ര സ്ഥലങ്ങൾ',
+        'stats.books': 'പുസ്തകങ്ങൾ',
+        'stats.festivals': 'ഉത്സവങ്ങൾ',
+        'stats.ai_support': 'AI പിന്തുണ'
       },
       'bn': {
         'starting.quick_access.title': 'দ্রুত প্রবেশ',
