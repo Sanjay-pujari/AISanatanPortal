@@ -558,6 +558,82 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       'common.view': 'দেখুন'
     };
 
+    // Kannada translations
+    this.translations['kn'] = {
+      'nav.home': 'ಮುಖಪುಟ',
+      'nav.admin': 'ನಿರ್ವಾಹಕ ಫಲಕ',
+      'nav.evaluation': 'ಮೌಲ್ಯಮಾಪನ',
+      'nav.vedas': 'ವೇದಗಳು',
+      'nav.puranas': 'ಪುರಾಣಗಳು',
+      'nav.kavyas': 'ಕಾವ್ಯಗಳು',
+      'nav.mathematics': 'ಗಣಿತ',
+      'nav.astrology': 'ಜ್ಯೋತಿಷ್ಯ',
+      'nav.astronomy': 'ಖಗೋಳಶಾಸ್ತ್ರ',
+      'nav.medical': 'ಆಯುರ್ವೇದ',
+      'nav.places': 'ಪವಿತ್ರ ಸ್ಥಳಗಳು',
+      'nav.panchang': 'ಪಂಚಾಂಗ',
+      'nav.bookstore': 'ಗ್ರಂಥಾಲಯ',
+      'nav.gifts': 'ಉಡುಗೊರೆ ಅಂಗಡಿ',
+      'nav.events': 'ಕಾರ್ಯಕ್ರಮಗಳು',
+      'nav.chatbot': 'AI ಸಹಾಯಕ',
+
+      'welcome.title': 'AI ಸನಾತನ ಪೋರ್ಟಲ್',
+      'welcome.subtitle': 'ಶಾಶ್ವತ ಜ್ಞಾನದ ಅನ್ವೇಷಣೆ',
+      'welcome.description': 'ಸನಾತನ ಧರ್ಮದ ಸಮಗ್ರ ಪೋರ್ಟಲ್‌ಗೆ ಸ್ವಾಗತ',
+
+      'welcome.hero.title': 'ಸರ್ವೇ ಭವಂತು ಸುಖಿನಃ',
+      'welcome.hero.subtitle': 'ಎಲ್ಲ ಜೀವಿಗಳು ಸುಖಿಯಾಗಿರಲಿ',
+      'welcome.hero.description': 'AI ಸನಾತನ ಪೋರ್ಟಲ್‌ಗೆ ಸ್ವಾಗತ — ಸನಾತನ ಧರ್ಮದ ಶಾಶ್ವತ ಜ್ಞಾನಕ್ಕೆ ನಿಮ್ಮ ಪ್ರವೇಶ ದ್ವಾರ. ಪ್ರಾಚೀನ ಗ್ರಂಥಗಳನ್ನು ಅಧ್ಯಯನ ಮಾಡಿ, ಪವಿತ್ರ ಸ್ಥಳಗಳನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ, ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ಖಗೋಳಶಾಸ್ತ್ರವನ್ನು ಅರಿತುಕೊಳ್ಳಿ, ಆಯುರ್ವೇದ ತಿಳಿಯಿರಿ ಮತ್ತು ಇನ್ನಷ್ಟನ್ನು ಅನ್ವೇಷಿಸಿ.',
+      'welcome.hero.what_you_will_discover': 'ನೀವು ಕಂಡುಕೊಳ್ಳುವದು:',
+      'welcome.hero.highlight.vedas_puranas': 'ವೇದ ಮತ್ತು ಪುರಾಣಗಳ ವಿಶಾಲ ಸಂಕಲನ',
+      'welcome.hero.highlight.ai_chatbot': 'ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ AI ಚಾಟ್‌ಬಾಟ್',
+      'welcome.hero.highlight.panchang': 'ಅಂತರಕ್ರಿಯಾತ್ಮಕ ಪಂಚಾಂಗ',
+      'welcome.hero.highlight.temples_directory': 'ದೇವಾಲಯಗಳು ಮತ್ತು ಪವಿತ್ರ ಸ್ಥಳಗಳ ಡೈರೆಕ್ಟರಿ',
+      'welcome.hero.highlight.books_souvenirs': 'ವಿಶ್ವಾಸಾರ್ಹ ಮಾರಾಟಗಾರರಿಂದ ಪುಸ್ತಕಗಳು ಮತ್ತು ಸ್ಮರಣಿಕೆಗಳು',
+      'welcome.hero.highlight.events_gatherings': 'ನಿಯಮಿತ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಭೆಗಳು',
+      'welcome.hero.cta.explore_vedas': 'ವೇದಗಳನ್ನು ನೋಡಿ',
+      'welcome.hero.cta.ai_assistant': 'AI ಸಹಾಯಕ',
+
+      'quicklinks.vedas.title': 'ವೇದಗಳು',
+      'quicklinks.vedas.description': 'ವೇದಗಳ ಶಾಶ್ವತ ಜ್ಞಾನವನ್ನು ಅನ್ವೇಷಿಸಿ',
+      'quicklinks.puranas.title': 'ಪುರಾಣಗಳು',
+      'quicklinks.puranas.description': 'ಪ್ರಾಚೀನ ಕಥೆಗಳು ಮತ್ತು ಜ್ಞಾನವನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ',
+      'quicklinks.panchang.title': 'ಪಂಚಾಂಗ',
+      'quicklinks.panchang.description': 'ತಿಥಿ ಮತ್ತು ಹಬ್ಬಗಳೊಂದಿಗೆ ಹಿಂದೂ ಕ್ಯಾಲೆಂಡರ್',
+      'quicklinks.ai.title': 'AI ಸಹಾಯಕ',
+      'quicklinks.ai.description': 'ಸನಾತನ ಧರ್ಮದ ಬಗ್ಗೆ ಪ್ರಶ್ನಿಸಿ',
+      'quicklinks.places.title': 'ಪವಿತ್ರ ಸ್ಥಳಗಳು',
+      'quicklinks.places.description': 'ದೇವಾಲಯಗಳು ಮತ್ತು ಪವಿತ್ರ ಸ್ಥಳಗಳನ್ನು ಹುಡುಕಿ',
+      'quicklinks.books.title': 'ಗ್ರಂಥಾಲಯ',
+      'quicklinks.books.description': 'ಆಧ್ಯಾತ್ಮಿಕ ಪುಸ್ತಕಗಳು ಮತ್ತು ಗ್ರಂಥಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
+
+      'featured.wisdom.title': 'ದಿನನಿತ್ಯ ಜ್ಞಾನ',
+      'featured.wisdom.content': '"ಧರ್ಮೋ ರಕ್ಷತಿ ರಕ್ಷಿತಃ" - ಧರ್ಮವನ್ನು ರಕ್ಷಿಸುವವರನ್ನು ಧರ್ಮವೇ ರಕ್ಷಿಸುತ್ತದೆ',
+      'featured.wisdom.source': 'ಮಹಾಭಾರತ',
+      'featured.tithi.title': 'ಇಂದಿನ ತಿಥಿ',
+      'featured.tithi.content': 'ಪಂಚಾಂಗ ಡೇಟಾ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
+      'featured.tithi.source': 'ಹಿಂದೂ ಕ್ಯಾಲೆಂಡರ್',
+      'featured.festival.title': 'ಹಬ್ಬ ಸೂಚನೆ',
+      'featured.festival.content': 'ಬರುವ ಹಬ್ಬಗಳು ಮತ್ತು ಆಚರಣೆಗಳು',
+      'featured.festival.source': 'ಕ್ಯಾಲೆಂಡರ್',
+
+      'loading.message': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
+      'loading.quote': '"ಸರ್ವೇ ಭವಂತು ಸುಖಿನಃ ಸರ್ವೇ ಸಂತು ನಿರಾಮಯಾಃ"',
+      'loading.quote.translation': 'ಎಲ್ಲ ಜೀವಿಗಳು ಸುಖಿಯಾಗಲಿ ಮತ್ತು ಆರೋಗ್ಯವಾಗಲಿ',
+
+      'search.placeholder': 'ಹುಡುಕಿ...',
+      'search.button': 'ಹುಡುಕಿ',
+
+      'common.read_more': 'ಇನ್ನಷ್ಟು ವಾಚಿಸಿ',
+      'common.show_less': 'ಕಡಿಮೆ ತೋರಿಸಿ',
+      'common.close': 'ಮುಚ್ಚಿ',
+      'common.save': 'ಉಳಿಸಿ',
+      'common.cancel': 'ರದ್ದು',
+      'common.delete': 'ಅಳಿಸಿ',
+      'common.edit': 'ಸಂಪಾದಿಸಿ',
+      'common.view': 'ನೋಡಿ'
+    };
+
     // Marathi translations
     this.translations['mr'] = {
       'nav.home': 'मुखपृष्ठ',
@@ -876,6 +952,35 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
         'stats.books': 'પુસ્તકો',
         'stats.festivals': 'તહેવારો',
         'stats.ai_support': 'AI સહાય'
+      },
+      'kn': {
+        'starting.quick_access.title': 'ವೇಗ ಪ್ರವೇಶ',
+        'starting.quick_access.subtitle': 'ನಿಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಪ್ರಯಾಣ ಪ್ರಾರಂಭಿಸಿ',
+        'starting.todays_inspiration': 'ಇಂದಿನ ಪ್ರೇರಣೆ',
+        'starting.features.title': 'ಸಮಗ್ರ ಆಧ್ಯಾತ್ಮಿಕ ವೇದಿಕೆ',
+        'starting.features.subtitle': 'ನಿಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಪ್ರಯಾಣಕ್ಕೆ ಬೇಕಾದ ಎಲ್ಲವೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ',
+        'starting.features.items.ai_learning.title': 'AI ಆಧಾರಿತ ಅಧ್ಯಯನ',
+        'starting.features.items.ai_learning.description': 'ಪ್ರಾಮಾಣಿಕ ಸಂಸ್ಕೃತ ಗ್ರಂಥಗಳಲ್ಲಿ ತರಬೇತಿ ಪಡೆದ ನಮ್ಮ ಸುಧಾರಿತ AI ಚಾಟ್‌ಬಾಟ್ ಮೂಲಕ ನಿಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಪ್ರಶ್ನೆಗಳಿಗೆ ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಉತ್ತರಗಳನ್ನು ಪಡೆಯಿರಿ.',
+        'starting.features.items.sacred_geography.title': 'ಪವಿತ್ರ ಭೂಗೋಳ',
+        'starting.features.items.sacred_geography.description': 'ಐತಿಹಾಸಿಕ ಮಹತ್ವ ಮತ್ತು ಪ್ರವಾಸ ಮಾಹಿತಿ सहित ಪರಸ್ಪರ ಕ್ರಿಯಾತ್ಮಕ ನಕ್ಷೆಗಳಲ್ಲಿ ಸಾವಿರಾರು ದೇಗುಲಗಳು ಮತ್ತು ಪೌರಾಣಿಕ ಸ್ಥಳಗಳನ್ನು ಅನ್ವೇಷಿಸಿ.',
+        'starting.features.items.panchang.title': 'ಪಂಚಾಂಗ ಕ್ಯಾಲೆಂಡರ್',
+        'starting.features.items.panchang.description': 'ತಿಥಿ, ನಕ್ಷತ್ರ, ಹಬ್ಬಗಳು ಮತ್ತು ಶುಭ ಮುಹೂರ್ತ ಸೇರಿದಂತೆ ಹಿಂದೂ ಕ್ಯಾಲೆಂಡರ್ ವ್ಯವಸ್ಥೆಯೊಂದಿಗೆ ಸಂಪರ್ಕದಲ್ಲಿರಿ.',
+        'starting.features.items.digital_library.title': 'ಡಿಜಿಟಲ್ ಗ್ರಂಥಾಲಯ',
+        'starting.features.items.digital_library.description': 'ವೇದ, ಪುರಾಣ, ಉಪನಿಷತ್ತುಗಳು ಮತ್ತು ಆಧುನಿಕ ಆಧ್ಯಾತ್ಮಿಕ ಪುಸ್ತಕಗಳ ವಿಶಾಲ ಸಂಗ್ರಹವನ್ನು ಪ್ರವೇಶಿಸಿ.',
+        'starting.features.items.ayurveda.title': 'ಆಯುರ್ವೇದ ಜ್ಞಾನ',
+        'starting.features.items.ayurveda.description': 'ಔಷಧೀಯ ಚಿಕಿತ್ಸೆಗಳು, ಜೀವನಶೈಲಿ ಅಭ್ಯಾಸಗಳು ಮತ್ತು ಸಮಗ್ರ ಚಿಕಿತ್ಸೆ ಕ್ರಮಗಳಂತಹ ಪ್ರಾಚೀನ ವೈದ್ಯಕೀಯ ಜ್ಞಾನವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.',
+        'starting.features.items.vedic_sciences.title': 'ವೈದಿಕ ವಿಜ್ಞಾನಗಳು',
+        'starting.features.items.vedic_sciences.description': 'ಪ್ರಾಚೀನ ಹಿಂದು ಗ್ರಂಥಗಳಲ್ಲಿ ನಿರೂಪಿಸಲಾದ ಗಣಿತೀಯ ಕೊಡುಗೆಗಳು, ಖಗೋಳಶಾಸ್ತ್ರೀಯ ಆವಿಷ್ಕಾರಗಳು ಮತ್ತು ಜ್ಯೋತಿಷ್ಯ ದೃಷ್ಟಿಕೋನಗಳ ಬಗ್ಗೆ ತಿಳಿಯಿರಿ.',
+        'starting.cta.title': 'ನಿಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಪ್ರಯಾಣ ಪ್ರಾರಂಭಿಸಿ',
+        'starting.cta.subtitle': 'ನಮ್ಮ AI ಆಧಾರಿತ ಅಧ್ಯಯನ ವೇದಿಕೆಯೊಂದಿಗೆ ಸನಾತನ ಧರ್ಮದ ಗಾಢ ಜ್ಞಾನವನ್ನು ಅರಿಯಿರಿ',
+        'starting.cta.start_assessment': 'ಮೌಲ್ಯಮಾಪನ ಪ್ರಾರಂಭಿಸಿ',
+        'starting.cta.ask_ai': 'AI ಸಹಾಯಕರನ್ನು ಕೇಳಿ',
+        'stats.vedas': 'ವೇದಗಳು',
+        'stats.puranas': 'ಪುರಾಣಗಳು',
+        'stats.sacred_places': 'ಪವಿತ್ರ ಸ್ಥಳಗಳು',
+        'stats.books': 'ಪುಸ್ತಕಗಳು',
+        'stats.festivals': 'ಹಬ್ಬಗಳು',
+        'stats.ai_support': 'AI ಬೆಂಬಲ'
       },
       'bn': {
         'starting.quick_access.title': 'দ্রুত প্রবেশ',
