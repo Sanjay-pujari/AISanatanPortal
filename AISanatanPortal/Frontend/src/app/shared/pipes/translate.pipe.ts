@@ -69,8 +69,13 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   private getTranslation(key: string, language: string): string {
     const langTranslations = this.translations[language];
     if (!langTranslations) return '';
+    
+    // First try a direct lookup for flat keys like 'welcome.title'
+    if (langTranslations[key] !== undefined) {
+      return langTranslations[key];
+    }
 
-    // Support nested keys with dot notation (e.g., 'nav.home', 'messages.welcome')
+    // Otherwise, support nested keys with dot notation (e.g., 'nav.home', 'messages.welcome')
     return this.getNestedTranslation(langTranslations, key);
   }
 
