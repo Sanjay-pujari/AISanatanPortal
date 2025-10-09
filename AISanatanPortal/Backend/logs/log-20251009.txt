@@ -1,0 +1,171 @@
+2025-10-09 07:49:47.237 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - null null
+2025-10-09 07:49:47.301 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:47.323 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - 204 null null 87.723ms
+2025-10-09 07:49:47.330 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/health?lang=en - null null
+2025-10-09 07:49:47.336 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:49.443 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - null null
+2025-10-09 07:49:50.158 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:50.162 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - 204 null null 718.8081ms
+2025-10-09 07:49:50.201 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - application/json null
+2025-10-09 07:49:50.208 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:52.409 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.BooksController.GetBooks (AISanatanPortal.API)'
+2025-10-09 07:49:52.468 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/health?lang=en - 404 0 null 5137.105ms
+2025-10-09 07:49:52.475 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:52604/health, Response status code: 404
+2025-10-09 07:49:54.189 +05:30 [INF] Route matched with {action = "GetBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.PagedResult`1[AISanatanPortal.API.Models.Book]]]] GetBooks(Int32, Int32, System.String, System.Nullable`1[System.Guid], System.Nullable`1[System.Guid], System.Nullable`1[AISanatanPortal.API.Models.BookLanguage]) on controller AISanatanPortal.API.Controllers.BooksController (AISanatanPortal.API).
+2025-10-09 07:49:55.221 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Authors?page=1&pageSize=100&lang=en - null null
+2025-10-09 07:49:55.226 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/BookCategories?page=1&pageSize=100&lang=en - null null
+2025-10-09 07:49:55.233 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:55.234 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:55.235 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Authors?page=1&pageSize=100&lang=en - 204 null null 13.9142ms
+2025-10-09 07:49:55.236 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/BookCategories?page=1&pageSize=100&lang=en - 204 null null 10.2477ms
+2025-10-09 07:49:55.240 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Authors?page=1&pageSize=100&lang=en - application/json null
+2025-10-09 07:49:55.243 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/BookCategories?page=1&pageSize=100&lang=en - application/json null
+2025-10-09 07:49:55.245 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:55.248 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:49:55.251 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.BookCategoriesController.GetBookCategories (AISanatanPortal.API)'
+2025-10-09 07:49:55.251 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.AuthorsController.GetAuthors (AISanatanPortal.API)'
+2025-10-09 07:49:55.257 +05:30 [INF] Route matched with {action = "GetBookCategories", controller = "BookCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.PagedResult`1[AISanatanPortal.API.Models.BookCategory]]]] GetBookCategories(Int32, Int32, System.String, System.Nullable`1[System.Guid]) on controller AISanatanPortal.API.Controllers.BookCategoriesController (AISanatanPortal.API).
+2025-10-09 07:49:55.257 +05:30 [INF] Route matched with {action = "GetAuthors", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.PagedResult`1[AISanatanPortal.API.Models.Author]]]] GetAuthors(Int32, Int32, System.String, System.Nullable`1[AISanatanPortal.API.Models.AuthorType]) on controller AISanatanPortal.API.Controllers.AuthorsController (AISanatanPortal.API).
+2025-10-09 07:49:58.301 +05:30 [INF] Executed DbCommand (247ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Authors" AS a
+2025-10-09 07:49:58.301 +05:30 [INF] Executed DbCommand (248ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "BookCategories" AS b
+2025-10-09 07:49:58.338 +05:30 [INF] Executed DbCommand (250ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Books" AS b
+2025-10-09 07:49:58.355 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-09 07:49:58.359 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-09 07:49:58.459 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-09 07:49:58.463 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-09 07:49:59.730 +05:30 [INF] Executed DbCommand (257ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."Biography", a."BirthDate", a."BirthPlace", a."CreatedAt", a."CreatedBy", a."DeathDate", a."IsActive", a."IsVerified", a."Name", a."ProfileImageUrl", a."SanskritName", a."Type", a."UpdatedAt", a."UpdatedBy"
+FROM "Authors" AS a
+LIMIT @__p_1 OFFSET @__p_0
+2025-10-09 07:49:59.731 +05:30 [INF] Executed DbCommand (257ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."Id", b0."AudioUrl", b0."AuthorId", b0."CategoryId", b0."Content", b0."CoverImageUrl", b0."CreatedAt", b0."CreatedBy", b0."Description", b0."DownloadCount", b0."Format", b0."ISBN", b0."IsActive", b0."IsFeatured", b0."IsFree", b0."Language", b0."PageCount", b0."Price", b0."PublishedDate", b0."Rating", b0."ReviewCount", b0."SanskritTitle", b0."Summary", b0."Title", b0."UpdatedAt", b0."UpdatedBy", a."Id", a."Biography", a."BirthDate", a."BirthPlace", a."CreatedAt", a."CreatedBy", a."DeathDate", a."IsActive", a."IsVerified", a."Name", a."ProfileImageUrl", a."SanskritName", a."Type", a."UpdatedAt", a."UpdatedBy", b1."Id", b1."CreatedAt", b1."CreatedBy", b1."Description", b1."DisplayOrder", b1."IconUrl", b1."IsActive", b1."Name", b1."ParentCategoryId", b1."SanskritName", b1."UpdatedAt", b1."UpdatedBy"
+FROM (
+    SELECT b."Id", b."AudioUrl", b."AuthorId", b."CategoryId", b."Content", b."CoverImageUrl", b."CreatedAt", b."CreatedBy", b."Description", b."DownloadCount", b."Format", b."ISBN", b."IsActive", b."IsFeatured", b."IsFree", b."Language", b."PageCount", b."Price", b."PublishedDate", b."Rating", b."ReviewCount", b."SanskritTitle", b."Summary", b."Title", b."UpdatedAt", b."UpdatedBy"
+    FROM "Books" AS b
+    LIMIT @__p_1 OFFSET @__p_0
+) AS b0
+INNER JOIN "Authors" AS a ON b0."AuthorId" = a."Id"
+INNER JOIN "BookCategories" AS b1 ON b0."CategoryId" = b1."Id"
+2025-10-09 07:49:59.732 +05:30 [INF] Executed DbCommand (257ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b1."Id", b1."CreatedAt", b1."CreatedBy", b1."Description", b1."DisplayOrder", b1."IconUrl", b1."IsActive", b1."Name", b1."ParentCategoryId", b1."SanskritName", b1."UpdatedAt", b1."UpdatedBy", b0."Id", b0."CreatedAt", b0."CreatedBy", b0."Description", b0."DisplayOrder", b0."IconUrl", b0."IsActive", b0."Name", b0."ParentCategoryId", b0."SanskritName", b0."UpdatedAt", b0."UpdatedBy", b2."Id", b2."CreatedAt", b2."CreatedBy", b2."Description", b2."DisplayOrder", b2."IconUrl", b2."IsActive", b2."Name", b2."ParentCategoryId", b2."SanskritName", b2."UpdatedAt", b2."UpdatedBy"
+FROM (
+    SELECT b."Id", b."CreatedAt", b."CreatedBy", b."Description", b."DisplayOrder", b."IconUrl", b."IsActive", b."Name", b."ParentCategoryId", b."SanskritName", b."UpdatedAt", b."UpdatedBy"
+    FROM "BookCategories" AS b
+    ORDER BY b."DisplayOrder"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS b1
+LEFT JOIN "BookCategories" AS b0 ON b1."ParentCategoryId" = b0."Id"
+LEFT JOIN "BookCategories" AS b2 ON b1."Id" = b2."ParentCategoryId"
+ORDER BY b1."DisplayOrder", b1."Id", b0."Id"
+2025-10-09 07:49:59.902 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.PagedResult`1[[AISanatanPortal.API.Models.Author, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-09 07:49:59.902 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.PagedResult`1[[AISanatanPortal.API.Models.Book, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-09 07:49:59.902 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.PagedResult`1[[AISanatanPortal.API.Models.BookCategory, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-09 07:50:00.370 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.AuthorsController.GetAuthors (AISanatanPortal.API) in 5101.1942ms
+2025-10-09 07:50:00.371 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.BooksController.GetBooks (AISanatanPortal.API) in 5952.7985ms
+2025-10-09 07:50:00.371 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.BookCategoriesController.GetBookCategories (AISanatanPortal.API) in 5104.1792ms
+2025-10-09 07:50:00.374 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.AuthorsController.GetAuthors (AISanatanPortal.API)'
+2025-10-09 07:50:00.376 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.BooksController.GetBooks (AISanatanPortal.API)'
+2025-10-09 07:50:00.379 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.BookCategoriesController.GetBookCategories (AISanatanPortal.API)'
+2025-10-09 07:50:00.416 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - 200 null application/json; charset=utf-8 10214.4127ms
+2025-10-09 07:50:00.416 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Authors?page=1&pageSize=100&lang=en - 200 null application/json; charset=utf-8 5175.8525ms
+2025-10-09 07:50:00.416 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/BookCategories?page=1&pageSize=100&lang=en - 200 null application/json; charset=utf-8 5172.6316ms
+2025-10-09 07:50:11.396 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Authors?page=1&pageSize=10&lang=en - null null
+2025-10-09 07:50:11.402 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:11.405 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Authors?page=1&pageSize=10&lang=en - 204 null null 8.5409ms
+2025-10-09 07:50:11.414 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Authors?page=1&pageSize=10&lang=en - application/json null
+2025-10-09 07:50:11.420 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:11.421 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.AuthorsController.GetAuthors (AISanatanPortal.API)'
+2025-10-09 07:50:11.425 +05:30 [INF] Route matched with {action = "GetAuthors", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.PagedResult`1[AISanatanPortal.API.Models.Author]]]] GetAuthors(Int32, Int32, System.String, System.Nullable`1[AISanatanPortal.API.Models.AuthorType]) on controller AISanatanPortal.API.Controllers.AuthorsController (AISanatanPortal.API).
+2025-10-09 07:50:11.747 +05:30 [INF] Executed DbCommand (246ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Authors" AS a
+2025-10-09 07:50:11.997 +05:30 [INF] Executed DbCommand (245ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."Biography", a."BirthDate", a."BirthPlace", a."CreatedAt", a."CreatedBy", a."DeathDate", a."IsActive", a."IsVerified", a."Name", a."ProfileImageUrl", a."SanskritName", a."Type", a."UpdatedAt", a."UpdatedBy"
+FROM "Authors" AS a
+LIMIT @__p_1 OFFSET @__p_0
+2025-10-09 07:50:12.002 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.PagedResult`1[[AISanatanPortal.API.Models.Author, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-09 07:50:12.008 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.AuthorsController.GetAuthors (AISanatanPortal.API) in 578.0597ms
+2025-10-09 07:50:12.014 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.AuthorsController.GetAuthors (AISanatanPortal.API)'
+2025-10-09 07:50:12.018 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Authors?page=1&pageSize=10&lang=en - 200 null application/json; charset=utf-8 604.2471ms
+2025-10-09 07:50:17.139 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - null null
+2025-10-09 07:50:17.144 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:17.146 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - 204 null null 7.3622ms
+2025-10-09 07:50:17.154 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/health?lang=en - null null
+2025-10-09 07:50:17.159 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:17.161 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/health?lang=en - 404 0 null 6.8345ms
+2025-10-09 07:50:17.168 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:52604/health, Response status code: 404
+2025-10-09 07:50:33.551 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - null null
+2025-10-09 07:50:33.584 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:33.586 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - 204 null null 35.2432ms
+2025-10-09 07:50:33.619 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - application/json null
+2025-10-09 07:50:33.626 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:33.627 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.BooksController.GetBooks (AISanatanPortal.API)'
+2025-10-09 07:50:33.629 +05:30 [INF] Route matched with {action = "GetBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.PagedResult`1[AISanatanPortal.API.Models.Book]]]] GetBooks(Int32, Int32, System.String, System.Nullable`1[System.Guid], System.Nullable`1[System.Guid], System.Nullable`1[AISanatanPortal.API.Models.BookLanguage]) on controller AISanatanPortal.API.Controllers.BooksController (AISanatanPortal.API).
+2025-10-09 07:50:33.888 +05:30 [INF] Executed DbCommand (249ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Books" AS b
+2025-10-09 07:50:34.140 +05:30 [INF] Executed DbCommand (247ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."Id", b0."AudioUrl", b0."AuthorId", b0."CategoryId", b0."Content", b0."CoverImageUrl", b0."CreatedAt", b0."CreatedBy", b0."Description", b0."DownloadCount", b0."Format", b0."ISBN", b0."IsActive", b0."IsFeatured", b0."IsFree", b0."Language", b0."PageCount", b0."Price", b0."PublishedDate", b0."Rating", b0."ReviewCount", b0."SanskritTitle", b0."Summary", b0."Title", b0."UpdatedAt", b0."UpdatedBy", a."Id", a."Biography", a."BirthDate", a."BirthPlace", a."CreatedAt", a."CreatedBy", a."DeathDate", a."IsActive", a."IsVerified", a."Name", a."ProfileImageUrl", a."SanskritName", a."Type", a."UpdatedAt", a."UpdatedBy", b1."Id", b1."CreatedAt", b1."CreatedBy", b1."Description", b1."DisplayOrder", b1."IconUrl", b1."IsActive", b1."Name", b1."ParentCategoryId", b1."SanskritName", b1."UpdatedAt", b1."UpdatedBy"
+FROM (
+    SELECT b."Id", b."AudioUrl", b."AuthorId", b."CategoryId", b."Content", b."CoverImageUrl", b."CreatedAt", b."CreatedBy", b."Description", b."DownloadCount", b."Format", b."ISBN", b."IsActive", b."IsFeatured", b."IsFree", b."Language", b."PageCount", b."Price", b."PublishedDate", b."Rating", b."ReviewCount", b."SanskritTitle", b."Summary", b."Title", b."UpdatedAt", b."UpdatedBy"
+    FROM "Books" AS b
+    LIMIT @__p_1 OFFSET @__p_0
+) AS b0
+INNER JOIN "Authors" AS a ON b0."AuthorId" = a."Id"
+INNER JOIN "BookCategories" AS b1 ON b0."CategoryId" = b1."Id"
+2025-10-09 07:50:34.148 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.PagedResult`1[[AISanatanPortal.API.Models.Book, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-09 07:50:34.151 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.BooksController.GetBooks (AISanatanPortal.API) in 518.3717ms
+2025-10-09 07:50:34.154 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.BooksController.GetBooks (AISanatanPortal.API)'
+2025-10-09 07:50:34.158 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/Books?page=1&pageSize=10&lang=en - 200 null application/json; charset=utf-8 538.2329ms
+2025-10-09 07:50:34.778 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/api/BookCategories?page=1&pageSize=10&lang=en - null null
+2025-10-09 07:50:34.788 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:34.809 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/api/BookCategories?page=1&pageSize=10&lang=en - 204 null null 30.8758ms
+2025-10-09 07:50:34.817 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/api/BookCategories?page=1&pageSize=10&lang=en - application/json null
+2025-10-09 07:50:34.828 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:34.830 +05:30 [INF] Executing endpoint 'AISanatanPortal.API.Controllers.BookCategoriesController.GetBookCategories (AISanatanPortal.API)'
+2025-10-09 07:50:34.833 +05:30 [INF] Route matched with {action = "GetBookCategories", controller = "BookCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[AISanatanPortal.API.DTOs.ApiResponse`1[AISanatanPortal.API.DTOs.PagedResult`1[AISanatanPortal.API.Models.BookCategory]]]] GetBookCategories(Int32, Int32, System.String, System.Nullable`1[System.Guid]) on controller AISanatanPortal.API.Controllers.BookCategoriesController (AISanatanPortal.API).
+2025-10-09 07:50:35.085 +05:30 [INF] Executed DbCommand (246ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "BookCategories" AS b
+2025-10-09 07:50:35.362 +05:30 [INF] Executed DbCommand (268ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b1."Id", b1."CreatedAt", b1."CreatedBy", b1."Description", b1."DisplayOrder", b1."IconUrl", b1."IsActive", b1."Name", b1."ParentCategoryId", b1."SanskritName", b1."UpdatedAt", b1."UpdatedBy", b0."Id", b0."CreatedAt", b0."CreatedBy", b0."Description", b0."DisplayOrder", b0."IconUrl", b0."IsActive", b0."Name", b0."ParentCategoryId", b0."SanskritName", b0."UpdatedAt", b0."UpdatedBy", b2."Id", b2."CreatedAt", b2."CreatedBy", b2."Description", b2."DisplayOrder", b2."IconUrl", b2."IsActive", b2."Name", b2."ParentCategoryId", b2."SanskritName", b2."UpdatedAt", b2."UpdatedBy"
+FROM (
+    SELECT b."Id", b."CreatedAt", b."CreatedBy", b."Description", b."DisplayOrder", b."IconUrl", b."IsActive", b."Name", b."ParentCategoryId", b."SanskritName", b."UpdatedAt", b."UpdatedBy"
+    FROM "BookCategories" AS b
+    ORDER BY b."DisplayOrder"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS b1
+LEFT JOIN "BookCategories" AS b0 ON b1."ParentCategoryId" = b0."Id"
+LEFT JOIN "BookCategories" AS b2 ON b1."Id" = b2."ParentCategoryId"
+ORDER BY b1."DisplayOrder", b1."Id", b0."Id"
+2025-10-09 07:50:35.369 +05:30 [INF] Executing OkObjectResult, writing value of type 'AISanatanPortal.API.DTOs.ApiResponse`1[[AISanatanPortal.API.DTOs.PagedResult`1[[AISanatanPortal.API.Models.BookCategory, AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], AISanatanPortal.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-09 07:50:35.374 +05:30 [INF] Executed action AISanatanPortal.API.Controllers.BookCategoriesController.GetBookCategories (AISanatanPortal.API) in 536.5465ms
+2025-10-09 07:50:35.376 +05:30 [INF] Executed endpoint 'AISanatanPortal.API.Controllers.BookCategoriesController.GetBookCategories (AISanatanPortal.API)'
+2025-10-09 07:50:35.379 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/api/BookCategories?page=1&pageSize=10&lang=en - 200 null application/json; charset=utf-8 561.9096ms
+2025-10-09 07:50:47.154 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - null null
+2025-10-09 07:50:47.159 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:47.160 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - 204 null null 6.2726ms
+2025-10-09 07:50:47.166 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/health?lang=en - null null
+2025-10-09 07:50:47.170 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:50:47.172 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/health?lang=en - 404 0 null 6.5422ms
+2025-10-09 07:50:47.180 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:52604/health, Response status code: 404
+2025-10-09 07:51:17.146 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - null null
+2025-10-09 07:51:17.154 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:51:17.156 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - 204 null null 12.2797ms
+2025-10-09 07:51:17.161 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/health?lang=en - null null
+2025-10-09 07:51:17.165 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:51:17.167 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/health?lang=en - 404 0 null 6.3704ms
+2025-10-09 07:51:17.172 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:52604/health, Response status code: 404
+2025-10-09 07:51:47.710 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - null null
+2025-10-09 07:51:47.716 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:51:47.718 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:52604/health?lang=en - 204 null null 37.8417ms
+2025-10-09 07:51:47.723 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:52604/health?lang=en - null null
+2025-10-09 07:51:47.728 +05:30 [INF] CORS policy execution successful.
+2025-10-09 07:51:47.729 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:52604/health?lang=en - 404 0 null 5.9946ms
+2025-10-09 07:51:47.734 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:52604/health, Response status code: 404
